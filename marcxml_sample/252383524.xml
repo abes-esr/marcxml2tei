@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <leader>     nlm0 22        450 </leader>
+  <controlfield tag="001">252383524</controlfield>
+  <controlfield tag="002">5</controlfield>
+  <controlfield tag="003">http://www.sudoc.fr/252383524</controlfield>
+  <controlfield tag="004">20210107</controlfield>
+  <controlfield tag="005">20210107135234.000</controlfield>
+  <controlfield tag="006">800219901</controlfield>
+  <controlfield tag="007">800219901</controlfield>
+  <controlfield tag="008">Oax</controlfield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">20210107d2020    k  u0frey50      ba</subfield>
+  </datafield>
+  <datafield tag="101" ind1="0" ind2=" ">
+    <subfield code="a">fre</subfield>
+    <subfield code="d">fre</subfield>
+  </datafield>
+  <datafield tag="102" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+  </datafield>
+  <datafield tag="105" ind1=" " ind2=" ">
+    <subfield code="a">a   v   000yy</subfield>
+  </datafield>
+  <datafield tag="135" ind1=" " ind2=" ">
+    <subfield code="a">drb|#|||a|c||</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">i#</subfield>
+    <subfield code="b">xxxe##</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">b</subfield>
+  </datafield>
+  <datafield tag="183" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">ceb</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield tag="200" ind1="1" ind2=" ">
+    <subfield code="a">La longévité politique ;</subfield>
+    <subfield code="e">être et rester un élu de la République;</subfield>
+    <subfield code="e">L’exemple d’Amédée Bouquerel, sénateur de l’Oise de 1948 à 1992</subfield>
+    <subfield code="f">Benjamin Carpi</subfield>
+    <subfield code="g">sous la direction de David Bellamy</subfield>
+  </datafield>
+  <datafield tag="214" ind1=" " ind2="1">
+    <subfield code="d">2020</subfield>
+  </datafield>
+  <datafield tag="230" ind1=" " ind2=" ">
+    <subfield code="a">Données textuelles</subfield>
+  </datafield>
+  <datafield tag="303" ind1=" " ind2=" ">
+    <subfield code="a">Notice rédigée d&apos;après la consultation du 07/01/2021</subfield>
+  </datafield>
+  <datafield tag="304" ind1=" " ind2=" ">
+    <subfield code="a">Titre du document provenant de la page de titre du document numérisé</subfield>
+  </datafield>
+  <datafield tag="307" ind1=" " ind2=" ">
+    <subfield code="a">L&apos;impression du document génère 183 p.</subfield>
+  </datafield>
+  <datafield tag="320" ind1=" " ind2=" ">
+    <subfield code="a">Bibliogr. p. 140-146. Annexes.</subfield>
+  </datafield>
+  <datafield tag="328" ind1=" " ind2="0">
+    <subfield code="b">Mémoire de Master</subfield>
+    <subfield code="c">Histoire Civilisation et Patrimoine</subfield>
+    <subfield code="d">2020</subfield>
+    <subfield code="e">Amiens</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">Le dessein de ce travail est, avant tout, de mettre en exergue, à travers l’analyse de la carrière politique de Bouquerel, ce qui fait qu’un individu devient un homo politicus, un homme politique. Le cœur de notre réflexion est de comprendre comment un ingénieur en travaux publics est devenu cet « animal politique » capable de gravir tous les échelons du cursus honorum républicain et législatif, de devenir un mandataire du peuple, investi du pouvoir de servir le bien commun par le biais d’actes, de prises de position mais aussi par une capacité à rester au pouvoir et poursuivre son travail de parlementaire. Atteindre le pouvoir est déjà quelque chose qui n’est réservé qu’à une poignée d’individus, y rester est encore plus complexe : il faut faire avec les changements de constitutions et de majorités gouvernementales, les vicissitudes de son parti, ou encore les évolutions sociales, économiques ou culturelles qui affectent ceux que l’homme politique prétend représenter. En outre, l’élu local pourrait avoir tendance à se couper de sa terre d’ancrage électorale, par sa propre ascension et la distanciation physique et mentale qui se crée entre le représentant et les représentés. Nous verrons donc que la réussite, ainsi que la longévité, de la carrière politique d’Amédée Bouquerel relève d’un complexe équilibre à trouver en tant que sénateur, entre son rôle de parlementaire parisien, membre d’une élite nationale, et celui d’élu local de terrain, qui doit rester à l’écoute de ses électeurs. C’est bien par l’habileté politique et la recherche constante de cet équilibre délicat entre deux facettes de sa fonction, voire de sa personne, le tout en respectant son engagement partisan, que le sénateur peut parvenir à conserver son siège au Palais du Luxembourg durant quatre décennies et sous deux Républiques différentes.</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">Le dessein de ce travail est, avant tout, de mettre en exergue, à travers l’analyse de la carrière politique de Bouquerel, ce qui fait qu’un individu devient un homo politicus, un homme politique. Le cœur de notre réflexion est de comprendre comment un ingénieur en travaux publics est devenu cet « animal politique » capable de gravir tous les échelons du cursus honorum républicain et législatif, de devenir un mandataire du peuple, investi du pouvoir de servir le bien commun par le biais d’actes, de prises de position mais aussi par une capacité à rester au pouvoir et poursuivre son travail de parlementaire. Atteindre le pouvoir est déjà quelque chose qui n’est réservé qu’à une poignée d’individus, y rester est encore plus complexe : il faut faire avec les changements de constitutions et de majorités gouvernementales, les vicissitudes de son parti, ou encore les évolutions sociales, économiques ou culturelles qui affectent ceux que l’homme politique prétend représenter. En outre, l’élu local pourrait avoir tendance à se couper de sa terre d’ancrage électorale, par sa propre ascension et la distanciation physique et mentale qui se crée entre le représentant et les représentés. Nous verrons donc que la réussite, ainsi que la longévité, de la carrière politique d’Amédée Bouquerel relève d’un complexe équilibre à trouver en tant que sénateur, entre son rôle de parlementaire parisien, membre d’une élite nationale, et celui d’élu local de terrain, qui doit rester à l’écoute de ses électeurs. C’est bien par l’habileté politique et la recherche constante de cet équilibre délicat entre deux facettes de sa fonction, voire de sa personne, le tout en respectant son engagement partisan, que le sénateur peut parvenir à conserver son siège au Palais du Luxembourg durant quatre décennies et sous deux Républiques différentes.</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">Navigateur internet; lecteur PDF</subfield>
+  </datafield>
+  <datafield tag="339" ind1=" " ind2=" ">
+    <subfield code="a">PDF</subfield>
+    <subfield code="d">2020</subfield>
+  </datafield>
+  <datafield tag="339" ind1=" " ind2=" ">
+    <subfield code="a">HTML</subfield>
+    <subfield code="d">2020</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">027227766</subfield>
+    <subfield code="a">Gaullisme</subfield>
+    <subfield code="3">033472890</subfield>
+    <subfield code="z">1945-....</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="607" ind1=" " ind2=" ">
+    <subfield code="3">027316920</subfield>
+    <subfield code="a">France</subfield>
+    <subfield code="z">1944-1958 (4e République)</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="607" ind1=" " ind2=" ">
+    <subfield code="3">027284948</subfield>
+    <subfield code="a">France</subfield>
+    <subfield code="z">1958-.... (5e République)</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="608" ind1=" " ind2=" ">
+    <subfield code="3">027253139</subfield>
+    <subfield code="a">Thèses et écrits académiques</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="700" ind1=" " ind2="1">
+    <subfield code="3">252385659</subfield>
+    <subfield code="a">Carpi</subfield>
+    <subfield code="b">Benjamin</subfield>
+    <subfield code="4">070</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">031290035</subfield>
+    <subfield code="a">Bellamy</subfield>
+    <subfield code="b">David</subfield>
+    <subfield code="f">1965-....</subfield>
+    <subfield code="4">727</subfield>
+  </datafield>
+  <datafield tag="801" ind1=" " ind2="3">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">Abes</subfield>
+    <subfield code="c">20210107</subfield>
+    <subfield code="g">AFNOR</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="q">PDF</subfield>
+    <subfield code="u">https://dumas.ccsd.cnrs.fr/dumas-02881908v1</subfield>
+  </datafield>
+  <datafield tag="930" ind1=" " ind2=" ">
+    <subfield code="5">800219901:683437895</subfield>
+    <subfield code="b">800219901</subfield>
+  </datafield>
+  <datafield tag="940" ind1=" " ind2=" ">
+    <subfield code="5">800219901:683437895</subfield>
+    <subfield code="a">20210107</subfield>
+    <subfield code="b">x</subfield>
+  </datafield>
+  <datafield tag="941" ind1=" " ind2=" ">
+    <subfield code="5">800219901:683437895</subfield>
+    <subfield code="a">20210107</subfield>
+    <subfield code="b">13:52:45.000</subfield>
+  </datafield>
+</record>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <leader>     nlm0 22        450 </leader>
+  <controlfield tag="001">252394976</controlfield>
+  <controlfield tag="002">6</controlfield>
+  <controlfield tag="003">http://www.sudoc.fr/252394976</controlfield>
+  <controlfield tag="004">20210107</controlfield>
+  <controlfield tag="005">20210107154231.000</controlfield>
+  <controlfield tag="006">490072105</controlfield>
+  <controlfield tag="007">490072105</controlfield>
+  <controlfield tag="008">Oax3</controlfield>
+  <datafield tag="029" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">2021ANGE006P</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)1229951493</subfield>
+  </datafield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">20210107d2021    k  y0frey50      ba</subfield>
+  </datafield>
+  <datafield tag="101" ind1="0" ind2=" ">
+    <subfield code="a">fre</subfield>
+    <subfield code="d">fre</subfield>
+    <subfield code="d">eng</subfield>
+  </datafield>
+  <datafield tag="102" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+  </datafield>
+  <datafield tag="105" ind1=" " ind2=" ">
+    <subfield code="a">y   ma  000yy</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">i#</subfield>
+    <subfield code="b">xxxe##</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">b</subfield>
+  </datafield>
+  <datafield tag="183" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">ceb</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield tag="200" ind1="1" ind2=" ">
+    <subfield code="a">Les prescriptions d&apos;IPP sont-elles conformes aux recommandations françaises</subfield>
+    <subfield code="e">Etude d&apos;un mois dans une pharmacie d&apos;officine du Mans</subfield>
+    <subfield code="f">Lucile Herve</subfield>
+    <subfield code="g">sous la direction de Sébastien Faure</subfield>
+  </datafield>
+  <datafield tag="214" ind1=" " ind2="1">
+    <subfield code="d">2021</subfield>
+  </datafield>
+  <datafield tag="230" ind1=" " ind2=" ">
+    <subfield code="a">Données textuelles</subfield>
+  </datafield>
+  <datafield tag="304" ind1=" " ind2=" ">
+    <subfield code="a">Titre provenant de l&apos;écran titre</subfield>
+  </datafield>
+  <datafield tag="307" ind1=" " ind2=" ">
+    <subfield code="a">L&apos;impression donne 42 p.</subfield>
+  </datafield>
+  <datafield tag="310" ind1=" " ind2=" ">
+    <subfield code="a">Fichier Public. Date de mise en ligne du fichier : 27/10/2020.</subfield>
+  </datafield>
+  <datafield tag="320" ind1=" " ind2=" ">
+    <subfield code="a">Bibliographie p.43-47.</subfield>
+  </datafield>
+  <datafield tag="328" ind1=" " ind2="0">
+    <subfield code="b">Thèse d&apos;exercice</subfield>
+    <subfield code="c">Pharmacie</subfield>
+    <subfield code="e">Angers</subfield>
+    <subfield code="d">2021</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">Depuis leur arrivée en 1970, les inhibiteurs de la pompe à proton (IPP) ne cessent d’occuper une part croissante du marché des médicaments. Ils font aujourd’hui partie des plus prescrits en France. Pourtant, ces médicaments des troubles de l’acidité, même s’ils sont très bien tolérés à court terme, ne sont pas dénués d’effets indésirables et de contre-indications pouvant mener à des cas parfois graves. Au regard de ces éléments, la question se pose quant aux respects des recommandations françaises lors de la prescription des IPP. Pour répondre à cet objectif, une étude d’un mois a été réalisée dans une pharmacie de quartier de Le Mans en octobre 2019, sur tous les patients adultes se présentant à l’officine de manière ambulatoire avec une prescription médicale contenant un IPP. L’évaluation de la conformité de la prescription repose sur trois critères : indication, posologie et durée de prescription selon les recommandations françaises de la HAS, l’ANSM ainsi que sur les RCP des différents IPP. 70 questionnaires ont été récoltés et révèlent que 28 prescriptions, soit 40% de ces dernières, sont conformes. La plus grande raison de non-conformité des ordonnances est l’indication puisque 80% des patients dont la prescription est non-conforme prennent un IPP pour une indication hors AMM. Vient ensuite la posologie et, pour seulement 3% des prescriptions, une durée de traitement non conforme car trop prolongée. Dans un second temps, la persistance des symptômes, la compliance et l’utilisation d’IPP hors prescription par le patient a été évaluée. 31% des patients ayant un traitement de plus d’un mois rapportent une persistance des symptômes avec le traitement par IPP, 14% des patients n’adhèrent pas à leur traitement et 12,9% ont eu recours à l’utilisation d’un IPP hors prescription. Cette étude met en évidence la part importante qu’occupe le non-respect des recommandations françaises dans les prescriptions d’IPP. Le Pharmacien a donc un rôle primordial dans leur dispensation.</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">Since their arrival in 1970, proton pump inhibitors (PPIs) have taken a growing share of the drug market. They are now among the most widely prescribed drugs in France. However, these drugs for acidity disorders, even if they are very well tolerated in the short term, are not without undesirable effects and contraindications that can lead to serious cases. In the light of these factors, the question arises as to whether the French recommendations are respected when prescribing PPIs. To meet this objective, a one-month study was carried out in a local pharmacy in Le Mans in October 2019, on all adult patients presenting to the pharmacy on an outpatient basis with a medical prescription containing a PPI. The evaluation of the conformity of the prescription is based on three criteria: indication, dosage and duration of prescription according to the French recommendations of the HAS, the ANSM and the RCP of the various PPIs. 70 questionnaires were collected and revealed that 28 prescriptions, or 40% of them, were compliant. The biggest reason for non-compliance of prescriptions is the indication, since 80% of patients with non-compliant prescriptions take a PPI for an indication outside the MA. Next comes the dosage and, for only 3% of the prescriptions, the duration of treatment, which is not compliant because it is too long. Secondly, the persistence of symptoms, compliance and the use of PPIs without a prescription by the patient were evaluated. 31% of patients with treatment lasting more than one month reported persistence of symptoms with PPI treatment, 14% of patients did not adhere to their treatment and 12.9% used a PPI without a prescription. This study highlights the significant proportion of non-adherence to French recommendations in PPI prescriptions. The pharmacist therefore plays a key role in dispensing them.</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">Connexion internet. Lecteur de document pdf.</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">061615315</subfield>
+    <subfield code="a">Prescription médicale</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">027338932</subfield>
+    <subfield code="a">Pharmacies d&apos;officine</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="608" ind1=" " ind2=" ">
+    <subfield code="3">027253139</subfield>
+    <subfield code="a">Thèses et écrits académiques</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="610" ind1="0" ind2=" ">
+    <subfield code="a">indication</subfield>
+    <subfield code="a">inhibiteur de la pompe à proton</subfield>
+  </datafield>
+  <datafield tag="700" ind1=" " ind2="1">
+    <subfield code="3">252395204</subfield>
+    <subfield code="a">Hervé</subfield>
+    <subfield code="b">Lucile</subfield>
+    <subfield code="f">19-....</subfield>
+    <subfield code="4">070</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">069384193</subfield>
+    <subfield code="a">Faure</subfield>
+    <subfield code="b">Sébastien</subfield>
+    <subfield code="f">1977-....</subfield>
+    <subfield code="4">727</subfield>
+  </datafield>
+  <datafield tag="711" ind1="0" ind2="2">
+    <subfield code="3">026402920</subfield>
+    <subfield code="a">Université d&apos;Angers</subfield>
+    <subfield code="4">295</subfield>
+  </datafield>
+  <datafield tag="801" ind1=" " ind2="3">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">Abes</subfield>
+    <subfield code="c">20210107</subfield>
+    <subfield code="g">AFNOR</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="q">pdf</subfield>
+    <subfield code="z">Accès au texte intégral</subfield>
+    <subfield code="u">http://dune.univ-angers.fr/fichiers/20130943/2021PPHA12610/fichier/12610F.pdf</subfield>
+  </datafield>
+  <datafield tag="930" ind1=" " ind2=" ">
+    <subfield code="5">490072105:683455729</subfield>
+    <subfield code="b">490072105</subfield>
+    <subfield code="j">u</subfield>
+  </datafield>
+  <datafield tag="940" ind1=" " ind2=" ">
+    <subfield code="5">490072105:683455729</subfield>
+    <subfield code="a">20210107</subfield>
+    <subfield code="b">x</subfield>
+  </datafield>
+  <datafield tag="941" ind1=" " ind2=" ">
+    <subfield code="5">490072105:683455729</subfield>
+    <subfield code="a">20210107</subfield>
+    <subfield code="b">15:42:53.000</subfield>
+  </datafield>
+</record>
