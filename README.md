@@ -18,7 +18,7 @@ MarcXML2TEI permet de produire à partir d'une notices bibliographiques de docum
 __Transformation simple :__
 
 ```
-saxon-xslt unimarc/252383524.xml xslt/marcxml2tei.xslt > ouput.tei
+saxon-xslt marcxml_sample/252383524.xml xslt/marcxml2tei.xslt > ouput.tei
 ```
 
 __Transformation avancées :__
@@ -26,7 +26,7 @@ __Transformation avancées :__
 Certaines valeurs par défaut, comme le diplôme ou la langue secondaire du document, peuvent être changées lors de l'appel du moteur de tranformation XSLT.
 
 ```
-saxon-xslt unimarc/252383524.xml xslt/marcxml2tei.xslt defaultDegreeCode=23 secondaryLanguage=eng > output.tei
+saxon-xslt marcxml_sample/252383524.xml xslt/marcxml2tei.xslt defaultDegreeCode=23 secondaryLanguage=eng > output.tei
 ```
 
 [Voir la liste complètes des paramètres disponibles](#paramètres)
