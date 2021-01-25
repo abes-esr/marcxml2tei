@@ -29,7 +29,7 @@ Certaines valeurs par défaut, comme le diplôme ou la langue secondaire du docu
 saxon-xslt unimarc/252383524.xml xslt/marcxml2tei.xslt defaultDegreeCode=23 secondaryLanguage=eng > output.tei
 ```
 
-[Voir la liste complètes des paramètres disponibles](#Paramètres)
+[Voir la liste complètes des paramètres disponibles](#paramètres)
 
 ## Paramètres
 
