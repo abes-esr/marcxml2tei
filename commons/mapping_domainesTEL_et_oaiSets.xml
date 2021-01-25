@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListSet>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:540</setSpec>
+            <setName>Chimie, minéralogie, cristallographie</setName>
+        </set>
+        <hal>
+            <code>CHIM:OTHE</code>
+            <codeParent>CHIM</codeParent>
+            <libelle>Autre</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:720</setSpec>
+            <setName>Architecture</setName>
+        </set>
+        <hal>
+            <code>SHS:ARCHI</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Architecture, aménagement de l'espace</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:000</setSpec>
+            <setName>Informatique, information, généralités</setName>
+        </set>
+        <hal>
+            <code>INFO:INFO_CY</code>
+            <codeParent>INFO</codeParent>
+            <libelle>Ordinateur et société</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:004</setSpec>
+            <setName>Informatique</setName>
+        </set>
+        <hal>
+            <code>INFO:INFO_OH</code>
+            <codeParent>INFO</codeParent>
+            <libelle>Autre</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:510</setSpec>
+            <setName>Mathématiques</setName>
+        </set>
+        <hal>
+            <code>MATH:MATH_GM</code>
+            <codeParent>MATH</codeParent>
+            <libelle>Mathématiques générales</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:160</setSpec>
+            <setName>Logique</setName>
+        </set>
+        <hal>
+            <code>MATH:MATH_LO</code>
+            <codeParent>MATH</codeParent>
+            <libelle>Logique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:310</setSpec>
+            <setName>Statistiques générales</setName>
+        </set>
+        <hal>
+            <code>MATH:MATH_ST</code>
+            <codeParent>MATH</codeParent>
+            <libelle>Statistiques</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:530</setSpec>
+            <setName>Physique</setName>
+        </set>
+        <hal>
+            <code>PHYS:COND:CM_GEN</code>
+            <codeParent>PHYS:COND</codeParent>
+            <libelle>Autre</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:520</setSpec>
+            <setName>Astronomie, cartographie, géodésie</setName>
+        </set>
+        <hal>
+            <code>SDU:OTHER</code>
+            <codeParent>SDU</codeParent>
+            <libelle>Autre</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:550</setSpec>
+            <setName>Sciences de la terre</setName>
+        </set>
+        <hal>
+            <code>SDU:STU</code>
+            <codeParent>SDU</codeParent>
+            <libelle>Sciences de la terre</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:560</setSpec>
+            <setName>Paléontologie. Paléozoologie</setName>
+        </set>
+        <hal>
+            <code>SDU:STU:PG</code>
+            <codeParent>SDU:STU</codeParent>
+            <libelle>Paléontologie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:660</setSpec>
+            <setName>Génie chimique, technologies alimentaires</setName>
+        </set>
+        <hal>
+            <code>SDV:AEN</code>
+            <codeParent>SDV</codeParent>
+            <libelle>Alimentation et nutrition</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:590</setSpec>
+            <setName>Animaux. Zoologie</setName>
+        </set>
+        <hal>
+            <code>SDV:BA</code>
+            <codeParent>SDV</codeParent>
+            <libelle>Biologie animale</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:580</setSpec>
+            <setName>Plantes Botanique</setName>
+        </set>
+        <hal>
+            <code>SDV:BV</code>
+            <codeParent>SDV</codeParent>
+            <libelle>Biologie végétale</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:610</setSpec>
+            <setName>Médecine et santé</setName>
+        </set>
+        <hal>
+            <code>SDV:MHEP</code>
+            <codeParent>SDV</codeParent>
+            <libelle>Médecine humaine et pathologique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:500</setSpec>
+            <setName>Sciences de la nature et mathématiques</setName>
+        </set>
+        <hal>
+            <code>SDV:OT</code>
+            <codeParent>SDV</codeParent>
+            <libelle>Autre</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:570</setSpec>
+            <setName>Sciences de la vie, biologie, biochimi</setName>
+        </set>
+        <hal>
+            <code>SDV:SA</code>
+            <codeParent>SDV</codeParent>
+            <libelle>Sciences agricoles</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:630</setSpec>
+            <setName>Agronomie, agriculture et médecine vétérinaire</setName>
+        </set>
+        <hal>
+            <code>SDV:SA</code>
+            <codeParent>SDV</codeParent>
+            <libelle>Sciences agricoles</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:390</setSpec>
+            <setName>Ethnologie</setName>
+        </set>
+        <hal>
+            <code>SHS:ANTHRO_SE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Anthropologie sociale et ethnologie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:930</setSpec>
+            <setName>Histoire ancienne et préhistoire</setName>
+        </set>
+        <hal>
+            <code>SHS:ARCHEO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Archéologie et Préhistoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:380</setSpec>
+            <setName>Commerce, communications, transports</setName>
+        </set>
+        <hal>
+            <code>SHS:ECO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Economies et finances</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:690</setSpec>
+            <setName>Bâtiments</setName>
+        </set>
+        <hal>
+            <code>SHS:ARCHI</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Architecture, aménagement de l'espace</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:710</setSpec>
+            <setName>Urbanisme</setName>
+        </set>
+        <hal>
+            <code>SHS:ARCHI</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Architecture, aménagement de l'espace</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:700</setSpec>
+            <setName>Arts. Beaux-arts et arts décoratifs</setName>
+        </set>
+        <hal>
+            <code>SHS:ART</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Art et histoire de l'art</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:730</setSpec>
+            <setName>Arts plastiques. Sculpture</setName>
+        </set>
+        <hal>
+            <code>SHS:ART</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Art et histoire de l'art</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:740</setSpec>
+            <setName>Dessin. Arts décoratifs</setName>
+        </set>
+        <hal>
+            <code>SHS:ART</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Art et histoire de l'art</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:750</setSpec>
+            <setName>Peinture</setName>
+        </set>
+        <hal>
+            <code>SHS:ART</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Art et histoire de l'art</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:760</setSpec>
+            <setName>Arts graphiques</setName>
+        </set>
+        <hal>
+            <code>SHS:ART</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Art et histoire de l'art</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:770</setSpec>
+            <setName>Photographie et les photographies, art numérique</setName>
+        </set>
+        <hal>
+            <code>SHS:ART</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Art et histoire de l'art</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:340</setSpec>
+            <setName>Droit</setName>
+        </set>
+        <hal>
+            <code>SHS:DROIT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Droit</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:330</setSpec>
+            <setName>Economie</setName>
+        </set>
+        <hal>
+            <code>SHS:ECO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Economies et finances</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:640</setSpec>
+            <setName>Economie domestique. Vie familiale</setName>
+        </set>
+        <hal>
+            <code>SHS:ECO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Economies et finances</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:370</setSpec>
+            <setName>Education et enseignement</setName>
+        </set>
+        <hal>
+            <code>SHS:EDU</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Education</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:796</setSpec>
+            <setName>Sport</setName>
+        </set>
+        <hal>
+            <code>SHS:EDU</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Education</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:910</setSpec>
+            <setName>Géographie et voyages</setName>
+        </set>
+        <hal>
+            <code>SHS:GEO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Géographie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:650</setSpec>
+            <setName>Gestion et organisation de l'entreprise</setName>
+        </set>
+        <hal>
+            <code>SHS:GESTION</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Gestion et management</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:900</setSpec>
+            <setName>Géographie et histoire</setName>
+        </set>
+        <hal>
+            <code>SHS:HIST</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Histoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:920</setSpec>
+            <setName>Biographies générales, généalogie, amblèmes</setName>
+        </set>
+        <hal>
+            <code>SHS:HIST</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Histoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:940</setSpec>
+            <setName>Histoire moderne et contemporaine de l'Europe</setName>
+        </set>
+        <hal>
+            <code>SHS:HIST</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Histoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:944</setSpec>
+            <setName>Histoire générale de la France</setName>
+        </set>
+        <hal>
+            <code>SHS:HIST</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Histoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:950</setSpec>
+            <setName>Histoire générale de l'Asie, Orient, Extrême-Orient</setName>
+        </set>
+        <hal>
+            <code>SHS:HIST</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Histoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:960</setSpec>
+            <setName>Histoire générale de l'Afrique</setName>
+        </set>
+        <hal>
+            <code>SHS:HIST</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Histoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:970</setSpec>
+            <setName>Histoire générale de l'Amérique du Nord</setName>
+        </set>
+        <hal>
+            <code>SHS:HIST</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Histoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:980</setSpec>
+            <setName>Histoire générale de l'Amérique du Sud</setName>
+        </set>
+        <hal>
+            <code>SHS:HIST</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Histoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:990</setSpec>
+            <setName>Histoire générale des autres parties du monde, des mondes extraterrestres. Iles
+                du Pacifique</setName>
+        </set>
+        <hal>
+            <code>SHS:HIST</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Histoire</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:020</setSpec>
+            <setName>Bibliothéconomie et sciences de l'information</setName>
+        </set>
+        <hal>
+            <code>SHS:INFO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Sciences de l'information et de la communication</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:070</setSpec>
+            <setName>Médias d'information, journalisme, édition</setName>
+        </set>
+        <hal>
+            <code>SHS:INFO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Sciences de l'information et de la communication</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:090</setSpec>
+            <setName>Manuscrits et livres rares</setName>
+        </set>
+        <hal>
+            <code>SHS:INFO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Sciences de l'information et de la communication</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:400</setSpec>
+            <setName>Langues et linguistique</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:410</setSpec>
+            <setName>Linguistique générale</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:420</setSpec>
+            <setName>Langue anglaise. Anglo-saxon</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:430</setSpec>
+            <setName>Langues germaniques. Allemand</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:440</setSpec>
+            <setName>Langues romanes. Français</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:450</setSpec>
+            <setName>Langues italienne, roumaine, rhéto-romane</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:460</setSpec>
+            <setName>Langues espagnole et portugaise</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:470</setSpec>
+            <setName>Langues italiques. Latin</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:480</setSpec>
+            <setName>Langues helléniques. Grec classique</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:490</setSpec>
+            <setName>Autres langues</setName>
+        </set>
+        <hal>
+            <code>SHS:LANGUE</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Linguistique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:800</setSpec>
+            <setName>Histoire et critique littéraires, rhétorique</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:810</setSpec>
+            <setName>Littérature américaine en anglais</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:820</setSpec>
+            <setName>Littératures anglaise et anglo-saxonne</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:830</setSpec>
+            <setName>Littérature allemande</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:840</setSpec>
+            <setName>Littérature de langues romanes. Littérature française</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:850</setSpec>
+            <setName>Littérature italienne</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:860</setSpec>
+            <setName>Littératures espagnole et portugaise</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:870</setSpec>
+            <setName>Littérature latine</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:880</setSpec>
+            <setName>Littérature grecque</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:890</setSpec>
+            <setName>Littératures des autres langues</setName>
+        </set>
+        <hal>
+            <code>SHS:LITT</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Littératures</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:060</setSpec>
+            <setName>Organisations générales et muséologie</setName>
+        </set>
+        <hal>
+            <code>SHS:MUSEO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Héritage culturel et muséologie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:780</setSpec>
+            <setName>Musique</setName>
+        </set>
+        <hal>
+            <code>SHS:MUSIQ</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Musique, musicologie et arts de la scène</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:790</setSpec>
+            <setName>Arts du spectacle, loisirs</setName>
+        </set>
+        <hal>
+            <code>SHS:MUSIQ</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Musique, musicologie et arts de la scène</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:100</setSpec>
+            <setName>Philosophie, psychologie</setName>
+        </set>
+        <hal>
+            <code>SHS:PHIL</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Philosophie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:110</setSpec>
+            <setName>Métaphysique</setName>
+        </set>
+        <hal>
+            <code>SHS:PHIL</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Philosophie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:120</setSpec>
+            <setName>Epistémologie, causalité, genre humain</setName>
+        </set>
+        <hal>
+            <code>SHS:PHIL</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Philosophie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:140</setSpec>
+            <setName>Les divers systèmes et écoles philosophiques</setName>
+        </set>
+        <hal>
+            <code>SHS:PHIL</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Philosophie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:170</setSpec>
+            <setName>Morale (éthique)</setName>
+        </set>
+        <hal>
+            <code>SHS:PHIL</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Philosophie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:180</setSpec>
+            <setName>Philosophie de l'Antiquité, du Moyen Âge, de l'Orient</setName>
+        </set>
+        <hal>
+            <code>SHS:PHIL</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Philosophie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:190</setSpec>
+            <setName>Philosophie occidentale moderne et philosophies non orientales</setName>
+        </set>
+        <hal>
+            <code>SHS:PHIL</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Philosophie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:150</setSpec>
+            <setName>Psychologie</setName>
+        </set>
+        <hal>
+            <code>SHS:PSY</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Psychologie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:130</setSpec>
+            <setName>Phénomènes paranormaux, pseudosciences</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:200</setSpec>
+            <setName>Religion</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:210</setSpec>
+            <setName>Philosophie et théorie de la religion</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:220</setSpec>
+            <setName>Bible</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:230</setSpec>
+            <setName>Théologie chrétienne</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:240</setSpec>
+            <setName>Théologie morale et pratiques chrétiennes</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:250</setSpec>
+            <setName>Eglises locales, ordres religieux chrétiens</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:260</setSpec>
+            <setName>Théologie chrétienne et société, ecclésiologie</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:270</setSpec>
+            <setName>Histoire et géographie du christianisme et de l'Eglise chrétienne</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:280</setSpec>
+            <setName>Confessions et sectes de l'Eglise chrétienne</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:290</setSpec>
+            <setName>Autres religions</setName>
+        </set>
+        <hal>
+            <code>SHS:RELIG</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Religions</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:320</setSpec>
+            <setName>Science politique</setName>
+        </set>
+        <hal>
+            <code>SHS:SCIPO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Science politique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:350</setSpec>
+            <setName>Administration publique. Arts et science militaires</setName>
+        </set>
+        <hal>
+            <code>SHS:SCIPO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Science politique</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:300</setSpec>
+            <setName>Sciences sociales, sociologie, anthropologie</setName>
+        </set>
+        <hal>
+            <code>SHS:SOCIO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Sociologie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:360</setSpec>
+            <setName>Problèmes et services sociaux</setName>
+        </set>
+        <hal>
+            <code>SHS:SOCIO</code>
+            <codeParent>SHS</codeParent>
+            <libelle>Sociologie</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:600</setSpec>
+            <setName>Technologie (Sciences appliquées)</setName>
+        </set>
+        <hal>
+            <code>SPI:OTHER</code>
+            <codeParent>SPI</codeParent>
+            <libelle>Autre</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:620</setSpec>
+            <setName>Sciences de l'ingénieur</setName>
+        </set>
+        <hal>
+            <code>SPI:OTHER</code>
+            <codeParent>SPI</codeParent>
+            <libelle>Autre</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:670</setSpec>
+            <setName>Fabrication industrielle</setName>
+        </set>
+        <hal>
+            <code>SPI:OTHER</code>
+            <codeParent>SPI</codeParent>
+            <libelle>Autre</libelle>
+        </hal>
+    </SubjectStruct>
+    <SubjectStruct>
+        <set>
+            <setSpec>ddc:680</setSpec>
+            <setName>Fabrication de produits à usages spécifiques</setName>
+        </set>
+        <hal>
+            <code>SPI:OTHER</code>
+            <codeParent>SPI</codeParent>
+            <libelle>Autre</libelle>
+        </hal>
+    </SubjectStruct>
+</ListSet>

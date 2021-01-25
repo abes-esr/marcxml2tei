@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+    stylesheet="../xslt/marcxml2tei.xsl">
+
+    <x:param name="primaryLanguage">fre</x:param>
+    <x:param name="primaryLanguageCode">fr</x:param>
+    <x:param name="secondaryLanguage">eng</x:param>
+    <x:param name="secondaryLanguageCode">en</x:param>
+    
+    <x:scenario label="joinTitleElements with a title and subtitle">
+        <x:call template="joinTitleElements">
+            <x:param name="input">
+                <value>A title</value>
+                <value>A subtitle</value>
+            </x:param> 
+        </x:call>
+
+        <x:expect label="Title and subtitles should be separated with `:` with no leading `.`">A title : A subtitle</x:expect>
+    </x:scenario>
+    
+    <x:scenario label="joinTitleElements with title and subtitle and a subsubtitle">
+        <x:call template="joinTitleElements">
+            <x:param name="input">
+                <value>A title</value>
+                <value>A subtitle</value>
+                <value>Another subtitle</value>
+            </x:param> 
+        </x:call>
+        
+        <x:expect label="Title and subtitles should be separated with `:` and subtitles with `.` with no leading `.`">A title : A subtitle. Another subtitle</x:expect>
+    </x:scenario>
+
+    <x:scenario label="editionStmt without fileLocation">
+        <x:context>
+            <record>
+                <datafield tag="100" ind1=" " ind2=" ">
+                    <subfield code="a">20050808d2004    k  y0frey50      ba</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="editionStmt"/>
+        
+        <x:expect label="Should display whenWritten. The embargo node (notBefore) shouldn't show up.">
+            <editionStmt xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <edition>
+                    <date type="whenWritten">2004</date>
+                </edition>
+            </editionStmt>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="Original title only">
+        <x:context>
+            <record>
+                <datafield tag="200" ind1="1" ind2=" ">
+                    <subfield code="a">A title</subfield>
+                    <subfield code="e">A subtitle</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="title"/>
+        
+        <x:expect label="Shoud output the original title.">
+            <title xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:hal="http://hal.archives-ouvertes.fr/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xml:lang="fr">A title : A subtitle</title>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="Original and translated title">
+        <x:context>
+            <record>
+                <datafield tag="200" ind1="1" ind2=" ">
+                    <subfield code="a">Un titre</subfield>
+                    <subfield code="e">Un sous-titre</subfield>
+                </datafield>
+                <datafield tag="541" ind1="|" ind2=" ">
+                    <subfield code="a">A title</subfield>
+                    <subfield code="e">A subtitle</subfield>
+                    <subfield code="z">eng</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="title"/>
+        
+        <x:expect label="Shoud output the original and the translated title.">
+            <title xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:hal="http://hal.archives-ouvertes.fr/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xml:lang="fr">Un titre : Un sous-titre</title>        
+            <title xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:hal="http://hal.archives-ouvertes.fr/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xml:lang="en">A title : A subtitle</title>
+        </x:expect>
+    </x:scenario>
+
+    <!-- test title lang -->
+
+    <x:scenario label="Author">
+        <x:context>
+            <record>
+                <datafield tag="700" ind1=" " ind2="1">
+                    <subfield code="3">12345689X</subfield>
+                    <subfield code="a">Doe</subfield>
+                    <subfield code="b">John</subfield>
+                    <subfield code="4">070</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="author"/>
+        
+        <x:expect label="Should output the author.">
+            <author role="aut" xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:hal="http://hal.archives-ouvertes.fr/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <persName>
+                    <forename type="first">Doe</forename>
+                    <surname>John</surname>
+                </persName>
+                <idno type="IdRef">https://www.idref.fr/12345689X</idno>
+            </author>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="Author with invalid function code">
+        <x:context>
+            <record>
+                <datafield tag="700" ind1=" " ind2="1">
+                    <subfield code="3">12345689X</subfield>
+                    <subfield code="a">Doe</subfield>
+                    <subfield code="b">John</subfield>
+                    <subfield code="4">XXX</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="author"/>
+        
+        <x:expect label="Author with invalid function code shouldn't show up."></x:expect>
+    </x:scenario>
+
+    <x:scenario label="Monogr">
+        <x:context>
+            <record>
+                <datafield tag="214" ind1=" " ind2="1">
+                    <subfield code="d">2020-01-01</subfield>
+                </datafield>
+                <datafield tag="711" ind1="0" ind2="2">
+                    <subfield code="3">026402920</subfield>
+                    <subfield code="a">Université d'Angers</subfield>
+                    <subfield code="4">295</subfield>
+                </datafield>
+                <datafield tag="701" ind1=" " ind2="1">
+                    <subfield code="3">031290035</subfield>
+                    <subfield code="a">Bellamy</subfield>
+                    <subfield code="b">David</subfield>
+                    <subfield code="f">1965-....</subfield>
+                    <subfield code="4">727</subfield>
+                  </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="monogr"/>
+        
+        <x:expect label="Should display monogr data.">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:hal="http://hal.archives-ouvertes.fr/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <imprint>
+                    <date type="dateDefended">2020-01-01</date>
+                </imprint>
+                <authority type="institution">Université d'Angers</authority>
+                <authority type="supervisor">David Bellamy</authority>
+            </monogr>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="Monog with incomplete defense date.">
+        <x:context>
+            <record>
+                <datafield tag="214" ind1=" " ind2="1">
+                    <subfield code="d">2020</subfield>
+                </datafield>
+                <datafield tag="711" ind1="0" ind2="2">
+                    <subfield code="3">026402920</subfield>
+                    <subfield code="a">Université d&apos;Angers</subfield>
+                    <subfield code="4">295</subfield>
+                </datafield>
+                <datafield tag="701" ind1=" " ind2="1">
+                    <subfield code="3">031290035</subfield>
+                    <subfield code="a">Bellamy</subfield>
+                    <subfield code="b">David</subfield>
+                    <subfield code="f">1965-....</subfield>
+                    <subfield code="4">727</subfield>
+                  </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="monogr"/>
+        
+        <x:expect label="Defense date YYYY should be reformated automatically to YYY-MM-DD.">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:hal="http://hal.archives-ouvertes.fr/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <imprint>
+                    <date type="dateDefended">2020-01-01</date>
+                </imprint>
+                <authority type="institution">Université d'Angers</authority>
+                <authority type="supervisor">David Bellamy</authority>
+            </monogr>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="Monogr invalid function code.">
+        <x:context>
+            <record>
+                <datafield tag="214" ind1=" " ind2="1">
+                    <subfield code="d">2020</subfield>
+                </datafield>
+                <datafield tag="711" ind1="0" ind2="2">
+                    <subfield code="3">026402920</subfield>
+                    <subfield code="a">Université d&apos;Angers</subfield>
+                    <subfield code="4">XXX</subfield>
+                </datafield>
+                <datafield tag="701" ind1=" " ind2="1">
+                    <subfield code="3">031290035</subfield>
+                    <subfield code="a">Bellamy</subfield>
+                    <subfield code="b">David</subfield>
+                    <subfield code="f">1965-....</subfield>
+                    <subfield code="4">XXX</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="monogr"/>
+        
+        <x:expect label="Authority with invalid function code shouldn't show up.">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:hal="http://hal.archives-ouvertes.fr/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <imprint>
+                    <date type="dateDefended">2020-01-01</date>
+                </imprint>
+            </monogr>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="profileDesc without keywords and without abstract">
+        <x:context>
+            <record>
+                <datafield tag="102" ind1=" " ind2=" ">
+                    <subfield code="a">FR</subfield>
+                </datafield>
+                <datafield tag="686" ind1=" " ind2=" ">
+                    <subfield code="a">940</subfield>
+                    <subfield code="2">TEF</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="profileDesc"/>
+        
+        <x:expect label="Should display profileDesc data">
+            <profileDesc xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:hal="http://hal.archives-ouvertes.fr/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <langUsage>
+                    <language ident="fr" />
+                </langUsage>
+                <textClass>
+                    <classCode scheme="halDomain" n="shs:hist" />
+                    <classCode scheme="halTypology" n="MEM" />
+                </textClass>
+            </profileDesc>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="profileDesc without 102 and 686">
+        <x:context>
+            <record>
+            </record>
+        </x:context>
+
+        <x:call template="profileDesc"/>
+        
+        <x:expect label="Should display profileDesc data">
+            <profileDesc xmlns="http://www.tei-c.org/ns/1.0"
+             xmlns:hal="http://hal.archives-ouvertes.fr/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <textClass>
+                    <classCode scheme="halTypology" n="MEM" />
+                </textClass>
+            </profileDesc>
+        </x:expect>
+    </x:scenario>
+</x:description>
