@@ -6,7 +6,7 @@ _Conversion de documents MarcXML en TEI_
 
 </div>
 
-MarcXML2TEI permet de produire à partir d'une notices bibliographiques de documents universitaires MarcXML [MarcXML](http://documentation.abes.fr/sudoc/manuels/administration/aidewebservices/index.html#SudocMarcXML), des notices TEI. Ces notices peuvent être importées dans HAL grâce à [SWORD](https://api.archives-ouvertes.fr/docs/sword) ou [X2hal](https://doc.archives-ouvertes.fr/x2hal/).
+MarcXML2TEI permet de produire à partir d'une notices bibliographiques de documents universitaires [MarcXML](http://documentation.abes.fr/sudoc/manuels/administration/aidewebservices/index.html#SudocMarcXML), des notices TEI. Ces notices peuvent être importées dans HAL grâce à [SWORD](https://api.archives-ouvertes.fr/docs/sword) ou [X2hal](https://doc.archives-ouvertes.fr/x2hal/).
 
 
 > 📝 __MarcXML2TEI ne prend en charge que les notices Unimarc conformes aux [consignes de cataloguage des documents universitaires hors thèses](http://documentation.abes.fr/sudoc/regles/Catalogage/Regles_Theses_AutresDocsUniv.htm).__
