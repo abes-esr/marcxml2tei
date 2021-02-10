@@ -1,38 +1,33 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="1.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://www.tei-c.org/ns/1.0"
-    xmlns:hal="http://hal.archives-ouvertes.fr/"
-    xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd">
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
 
     <!-- Paramètres pouvant être modifiés par saxon : `saxon-xslt 252383524.xml mapping.xslt secondaryLanguageCode=es degreeCode=22 > output.tei`  -->
     <!-- Langue principale du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue principale du document-->
-    <xsl:param name="primaryLanguage" as="xs:string" required="no" select="'fre'"/>
+    <xsl:param name="primaryLanguage" as="xs:string" required="no" select="'fre'" />
     <!-- Langue secondaire du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue secondaire du document -->
-    <xsl:param name="secondaryLanguage" as="xs:string" required="no" select="'eng'"/>
+    <xsl:param name="secondaryLanguage" as="xs:string" required="no" select="'eng'" />
     <!-- Liste des codes diplôme : https://api.archives-ouvertes.fr/ref/metadataList/?q=metaName_s:dumas_degreeType&rows=70 -->
-    <xsl:param name="degreeCode" as="xs:string" required="no" select="'23'"/>
+    <xsl:param name="degreeCode" as="xs:string" required="no" select="'23'" />
     <!-- Lien vers le fichier PDF. Peut prendre la forme d'un lien ftp -->
-    <xsl:param name="fileLocation" as="xs:string" required="no" select="''"/>
+    <xsl:param name="fileLocation" as="xs:string" required="no" select="''" />
     <!-- Date d'embargo  au format AAAA-MM-JJ -->
-    <xsl:param name="embargoDate" as="xs:string" required="no" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')"/>
+    <xsl:param name="embargoDate" as="xs:string" required="no" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')" />
 
     <!-- Récupération du code langue en 101$a. Valeur par défaut = valeur du paramètre primaryLanguage ou 'fre'-->
     <xsl:variable name="mappingCodeLangue" select="document('code_langues.xml')" />
     <xsl:variable name="primaryLanguageCode">
-        <xsl:variable name="primaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='a'], $primaryLanguage)[1]"/>
-        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$primaryLanguageCode639_2]/../ISO_639_1"/>
+        <xsl:variable name="primaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='a'], $primaryLanguage)[1]" />
+        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$primaryLanguageCode639_2]/../ISO_639_1" />
     </xsl:variable>
 
     <!-- Récupération du code langue en 101$d ou en 451$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
     <xsl:variable name="secondaryLanguageCode">
-        <xsl:variable name="secondaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='d'][2], datafield[@tag = '541']/subfield[@code = 'z'], $secondaryLanguage)[1]"/>
-        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$secondaryLanguageCode639_2]/../ISO_639_1"/>
+        <xsl:variable name="secondaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='d'][2], datafield[@tag = '541']/subfield[@code = 'z'], $secondaryLanguage)[1]" />
+        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$secondaryLanguageCode639_2]/../ISO_639_1" />
     </xsl:variable>
 
-    <xsl:variable name="IdRefBaseUrl" select="'https://www.idref.fr/'"/>
+    <xsl:variable name="IdRefBaseUrl" select="'https://www.idref.fr/'" />
 
     <xsl:template match="record">
         <TEI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd" xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/">
@@ -136,7 +131,7 @@
             </imprint>
             <xsl:if test="datafield[@tag = '711' and subfield[@code = '4'] = '295' ]">
                 <authority type="institution">
-                    <xsl:value-of select="datafield[@tag = '711']/subfield[@code = 'a']"/>
+                    <xsl:value-of select="datafield[@tag = '711']/subfield[@code = 'a']" />
                 </authority>
             </xsl:if>
             <xsl:if test="datafield[@tag = '701' and subfield[@code = '4'] = '727' ]">
@@ -158,13 +153,13 @@
                 </langUsage>
             </xsl:if>
             <textClass>
-                <xsl:call-template name="keywords"/>
-                
+                <xsl:call-template name="keywords" />
+
                 <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
                     <xsl:variable name="oai" select="concat('ddc:', normalize-space(text()))" />
-                    <classCode scheme="halDomain" n="{ lower-case(normalize-space(document('./mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)) }"/>
+                    <classCode scheme="halDomain" n="{ lower-case(normalize-space(document('./mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)) }" />
                 </xsl:for-each>
-                
+
                 <classCode scheme="halTypology" n="MEM" />
             </textClass>
             <xsl:call-template name="abstract" />
@@ -172,10 +167,12 @@
     </xsl:template>
 
     <xsl:template name="keywords">
-        <xsl:if test="datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a']" >
+        <xsl:if test="datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a']">
             <keywords scheme="author">
                 <xsl:for-each select="distinct-values(datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a'])">
-                    <term xml:lang="{$primaryLanguageCode}"><xsl:value-of select="." /></term>
+                    <term xml:lang="{$primaryLanguageCode}">
+                        <xsl:value-of select="." />
+                    </term>
                 </xsl:for-each>
             </keywords>
         </xsl:if>
@@ -223,11 +220,6 @@
         <xsl:if test="string-length($date) = 4">
             <xsl:value-of select="$date" />
             <xsl:text>-01-01</xsl:text>
-        </xsl:if>
-        <xsl:if test="string-length($date) > 4">
-            <xsl:value-of select="
-                    format-date($date,
-                    '[Y0001]-[M01]-[D01]')" />
         </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
