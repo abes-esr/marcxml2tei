@@ -150,7 +150,7 @@
     <xsl:template name="profileDesc">
         <profileDesc>
             <xsl:variable name="valLangue102">
-                <xsl:value-of select="lower-case(datafield[@tag = '102']/subfield[@code = 'a'])" />
+                <xsl:value-of select="translate(datafield[@tag = '102']/subfield[@code = 'a'], 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')" />
             </xsl:variable>
             <xsl:if test="$valLangue102">
                 <langUsage>
@@ -162,7 +162,7 @@
                 
                 <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
                     <xsl:variable name="oai" select="concat('ddc:', normalize-space(text()))" />
-                    <classCode scheme="halDomain" n="{ lower-case(normalize-space(document('./mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)) }"/>
+                    <classCode scheme="halDomain" n="{ translate((normalize-space(document('./mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}"/>
                 </xsl:for-each>
                 
                 <classCode scheme="halTypology" n="MEM" />
