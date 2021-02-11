@@ -7,28 +7,32 @@
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
 
-    <!-- Paramètres pouvant être modifiés par saxon : `saxon-xslt 252383524.xml mapping.xslt secondaryLanguageCode=es degreeCode=22 > output.tei`  -->
-    <!-- Langue principale du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue principale du document-->
+<!--    <!-\- Paramètres pouvant être modifiés par saxon : `saxon-xslt 252383524.xml mapping.xslt secondaryLanguageCode=es degreeCode=22 > output.tei`  -\->
+    <!-\- Langue principale du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue principale du document-\->
     <xsl:param name="primaryLanguage" as="xs:string" required="no" select="'fre'"/>
-    <!-- Langue secondaire du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue secondaire du document -->
+    <!-\- Langue secondaire du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue secondaire du document -\->
     <xsl:param name="secondaryLanguage" as="xs:string" required="no" select="'eng'"/>
-    <!-- Liste des codes diplôme : https://api.archives-ouvertes.fr/ref/metadataList/?q=metaName_s:dumas_degreeType&rows=70 -->
+    <!-\- Liste des codes diplôme : https://api.archives-ouvertes.fr/ref/metadataList/?q=metaName_s:dumas_degreeType&rows=70 -\->
     <xsl:param name="degreeCode" as="xs:string" required="no" select="'23'"/>
-    <!-- Lien vers le fichier PDF. Peut prendre la forme d'un lien ftp -->
+    <!-\- Lien vers le fichier PDF. Peut prendre la forme d'un lien ftp -\->
     <xsl:param name="fileLocation" as="xs:string" required="no" select="''"/>
-    <!-- Date d'embargo  au format AAAA-MM-JJ -->
-    <xsl:param name="embargoDate" as="xs:string" required="no" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')"/>
+    <!-\- Date d'embargo  au format AAAA-MM-JJ -\->
+    <xsl:param name="embargoDate" as="xs:string" required="no" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')"/>-->
 
     <!-- Récupération du code langue en 101$a. Valeur par défaut = valeur du paramètre primaryLanguage ou 'fre'-->
-    <xsl:variable name="mappingCodeLangue" select="document('code_langues.xml')" />
+    <xsl:variable name="primaryLanguage" select="'fre'"/>
+    <xsl:variable name="secondaryLanguage" select="'eng'"/>
+    
+    <xsl:variable name="mappingCodeLangue" select="document('./xslt/code_langues.xml')" />
     <xsl:variable name="primaryLanguageCode">
-        <xsl:variable name="primaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='a'], $primaryLanguage)[1]"/>
-        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$primaryLanguageCode639_2]/../ISO_639_1"/>
+        <xsl:variable name="primaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='a'], 'fre')[1]"/>
+        <xsl:value-of select="$primaryLanguageCode639_2"/>
+<!--        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$primaryLanguageCode639_2]/../ISO_639_1"/>-->
     </xsl:variable>
 
     <!-- Récupération du code langue en 101$d ou en 451$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
     <xsl:variable name="secondaryLanguageCode">
-        <xsl:variable name="secondaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='d'][2], datafield[@tag = '541']/subfield[@code = 'z'], $secondaryLanguage)[1]"/>
+        <xsl:variable name="secondaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z'] or $secondaryLanguage)[1]"/>
         <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$secondaryLanguageCode639_2]/../ISO_639_1"/>
     </xsl:variable>
 
@@ -62,13 +66,13 @@
                 <date type="whenWritten">
                     <xsl:value-of select="substring(datafield[@tag = '100'], 10, 4)" />
                 </date>
-                <xsl:if test="$fileLocation">
+               <!-- <xsl:if test="$fileLocation">
                     <ref type="file" subtype="author" n="1" target="{$fileLocation}">
                         <xsl:if test="$embargoDate">
                             <date notBefore="{$embargoDate}" />
                         </xsl:if>
                     </ref>
-                </xsl:if>
+                </xsl:if>-->
             </edition>
         </editionStmt>
     </xsl:template>
@@ -76,7 +80,7 @@
     <xsl:template name="notesStmt">
         <notesStmt>
             <note type="audience" n="3" />
-            <note type="degree" n="{$degreeCode}" />
+<!--            <note type="degree" n="{$degreeCode}" />-->
         </notesStmt>
     </xsl:template>
 
@@ -90,14 +94,14 @@
     <xsl:template name="title">
         <title xml:lang="{$primaryLanguageCode}">
             <xsl:call-template name="joinTitleElements">
-                <xsl:with-param name="input" select="datafield[@tag = '200']/subfield[@code = ('a', 'e')]" />
+                <xsl:with-param name="input" select="datafield[@tag = '200']/subfield[@code = ('a' or 'e')]" />
             </xsl:call-template>
         </title>
 
-        <xsl:if test="datafield[@tag = '541']/subfield[@code = ('a', 'e')]">
+        <xsl:if test="datafield[@tag = '541']/subfield[@code = ('a' or 'e')]">
             <title xml:lang="{$secondaryLanguageCode}">
                 <xsl:call-template name="joinTitleElements">
-                    <xsl:with-param name="input" select="datafield[@tag = '541']/subfield[@code = ('a', 'e')]" />
+                    <xsl:with-param name="input" select="datafield[@tag = '541']/subfield[@code = ('a' or 'e')]" />
                 </xsl:call-template>
             </title>
         </xsl:if>
@@ -162,7 +166,7 @@
                 
                 <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
                     <xsl:variable name="oai" select="concat('ddc:', normalize-space(text()))" />
-                    <classCode scheme="halDomain" n="{ translate((normalize-space(document('./mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}"/>
+                    <classCode scheme="halDomain" n="{ translate((normalize-space(document('./commons/mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}"/>
                 </xsl:for-each>
                 
                 <classCode scheme="halTypology" n="MEM" />
@@ -174,7 +178,8 @@
     <xsl:template name="keywords">
         <xsl:if test="datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a']" >
             <keywords scheme="author">
-                <xsl:for-each select="distinct-values(datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a'])">
+                <!-- deduplicate keywords-->
+                <xsl:for-each select="(datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a'])[not(preceding::datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a']/. = .)]">
                     <term xml:lang="{$primaryLanguageCode}"><xsl:value-of select="." /></term>
                 </xsl:for-each>
             </keywords>
@@ -206,12 +211,16 @@
             <xsl:if test="position() > 1">
                 <xsl:text>&#x20;</xsl:text>
             </xsl:if>
-
-            <xsl:value-of select="
-                    normalize-space(if (ends-with(., '/') or ends-with(., ';') or ends-with(., ',') or ends-with(., '.')) then
-                        substring(., 1, string-length(.) - 1)
-                    else
-                        .)" />
+            <xsl:variable name="currentValue" select="normalize-space(.)"/>
+            <xsl:variable name="lastChar" select="normalize-space(substring($currentValue, string-length($currentValue)))"/>
+            <xsl:choose>
+                <xsl:when test="$lastChar = '/' or $lastChar = ';' or $lastChar = ',' or $lastChar = '.'">
+                    <xsl:value-of select="normalize-space(substring($currentValue, 1, string-length($currentValue) - 1))"/>                
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="."/>
+                </xsl:otherwise>
+            </xsl:choose>
             <xsl:if test="position() > 1 and count($input) > position()">
                 <xsl:text>.</xsl:text>
             </xsl:if>
@@ -225,7 +234,7 @@
             <xsl:text>-01-01</xsl:text>
         </xsl:if>
         <xsl:if test="string-length($date) > 4">
-            <xsl:value-of select="$date" />
+            <xsl:value-of select="$date"/>
         </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
