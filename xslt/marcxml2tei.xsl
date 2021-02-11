@@ -221,5 +221,8 @@
             <xsl:value-of select="$date" />
             <xsl:text>-01-01</xsl:text>
         </xsl:if>
+        <xsl:if test="string-length($date) > 4">
+            <xsl:value-of select="$date">
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
