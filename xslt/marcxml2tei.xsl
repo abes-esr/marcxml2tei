@@ -167,7 +167,7 @@
             <imprint>
                 <xsl:if test="datafield[@tag = '307']/subfield[@code = ('a')]">                 
                     <biblScope unit="pp">
-                        <!-- supression de : L'impression du document génère  -->
+                        <!-- suppression de la chaine de caractères : "L'impression du document génère"  -->
                         <xsl:value-of select="translate (substring (datafield[@tag = '307']/subfield[@code = ('a')], 33), 'p. ', '')"/>
                     </biblScope>
                 </xsl:if>
