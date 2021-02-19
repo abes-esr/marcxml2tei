@@ -165,6 +165,12 @@
                 <xsl:value-of select="datafield[@tag = '711' and subfield[@code = '4'] = '295' ]/subfield[@code = 'c']" />
             </settlement> -->
             <imprint>
+                <xsl:if test="datafield[@tag = '307']/subfield[@code = ('a')]">                 
+                    <biblScope unit="pp">
+                        <!-- supression de : L'impression du document génère  -->
+                        <xsl:value-of select="translate (substring (datafield[@tag = '307']/subfield[@code = ('a')], 33), 'p. ', '')"/>
+                    </biblScope>
+                </xsl:if>
                 <date type="dateDefended">
                     <xsl:call-template name="formatDate">
                         <xsl:with-param name="date" select="datafield[@tag = '328']/subfield[@code = ('d')]" />
