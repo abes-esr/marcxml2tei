@@ -19,7 +19,6 @@
     <!-- Date d'embargo  au format AAAA-MM-JJ -->
     <!--    <xsl:param name="embargoDate" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')" />-->
 
-
     <xsl:variable name="mappingCodeLangue" select="document('code_langues.xml')" />
     <xsl:variable name="primaryLanguageCode">
         <xsl:variable name="primaryLanguageCode639_2">
