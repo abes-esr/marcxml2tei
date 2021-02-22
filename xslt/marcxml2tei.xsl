@@ -1,7 +1,12 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd" xmlns:ext="http://exslt.org/common">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xmlns:hal="http://hal.archives-ouvertes.fr/" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
+    xmlns:ext="http://exslt.org/common">
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
-    
+
     <!-- Paramètres pouvant être modifiés par saxon : `saxon-xslt 252383524.xml mapping.xslt secondaryLanguageCode=es degreeCode=22 > output.tei`  -->
     <!-- Langue principale du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue principale du document-->
     <xsl:param name="primaryLanguage" select="'fre'" />
@@ -13,8 +18,8 @@
     <xsl:param name="fileLocation" select="''" />
     <!-- Date d'embargo  au format AAAA-MM-JJ -->
     <!--    <xsl:param name="embargoDate" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')" />-->
-    
-    
+
+
     <xsl:variable name="mappingCodeLangue" select="document('code_langues.xml')" />
     <xsl:variable name="primaryLanguageCode">
         <xsl:variable name="primaryLanguageCode639_2">
@@ -29,7 +34,7 @@
         </xsl:variable>
         <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$primaryLanguageCode639_2]/../ISO_639_1" />
     </xsl:variable>
-    
+
     <!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
     <xsl:variable name="secondaryLanguageCode">
         <xsl:variable name="secondaryLanguageCode639_2">
@@ -44,20 +49,20 @@
         </xsl:variable>
         <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$secondaryLanguageCode639_2]/../ISO_639_1" />
     </xsl:variable>
-    
+
     <xsl:variable name="IdRefBaseUrl" select="'https://www.idref.fr/'" />
-    
+
     <!-- https://stackoverflow.com/questions/3678353/apply-xslt-transform-to-an-already-transformed-xml -->
     <!-- On applique un premier traitement XSL et on stock le résultat de la TEI générée dans la variable $tei -->
     <xsl:variable name="tei">
         <xsl:apply-templates />
     </xsl:variable>
-    
+
     <!-- On recréer un DOM à partir du contenu de la variable TEI et on lui applique les transformations postTreatment (suppression des noeuds vides)  -->
     <xsl:template match="/">
         <xsl:apply-templates select="ext:node-set($tei)/*" mode="postTreatment" />
     </xsl:template>
-    
+
     <!--https://stackoverflow.com/questions/24776276/remove-empty-xml-elements-recursively-with-xslt-->
     <!-- Enlève de manière récursive les noeuds vides -->
     <xsl:template match="*[descendant::text() or descendant-or-self::*/@*[string()]]" mode="postTreatment">
@@ -65,14 +70,16 @@
             <xsl:apply-templates select="node()|@*" mode="postTreatment" />
         </xsl:copy>
     </xsl:template>
-    
+
     <!-- Enlève de manière récursive les noeuds vides -->
     <xsl:template match="@*[string()]" mode="postTreatment">
         <xsl:copy />
     </xsl:template>
-    
+
     <xsl:template name="tei" match="record">
-        <TEI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd" xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/">
+        <TEI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
+            xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:hal="http://hal.archives-ouvertes.fr/">
             <text>
                 <body>
                     <listBibl>
@@ -92,7 +99,7 @@
             </text>
         </TEI>
     </xsl:template>
-    
+
     <xsl:template name="editionStmt">
         <editionStmt>
             <edition>
@@ -109,28 +116,28 @@
             </edition>
         </editionStmt>
     </xsl:template>
-    
+
     <xsl:template name="notesStmt">
         <notesStmt>
             <note type="audience" n="3" />
             <!--                        <note type="degree" n="{$degreeCode}" />-->
         </notesStmt>
     </xsl:template>
-    
+
     <xsl:template name="analytic">
         <analytic>
             <xsl:call-template name="title" />
             <xsl:call-template name="author" />
         </analytic>
     </xsl:template>
-    
+
     <xsl:template name="title">
         <title xml:lang="{$primaryLanguageCode}">
             <xsl:call-template name="joinTitleElements">
                 <xsl:with-param name="input" select="datafield[@tag = '200']/subfield[@code = ('a' or 'e')]" />
             </xsl:call-template>
         </title>
-        
+
         <xsl:if test="datafield[@tag = '541']/subfield[@code = ('a' or 'e')]">
             <title xml:lang="{$secondaryLanguageCode}">
                 <xsl:call-template name="joinTitleElements">
@@ -139,7 +146,7 @@
             </title>
         </xsl:if>
     </xsl:template>
-    
+
     <xsl:template name="author">
         <!-- for-each is used to sets the current node context -->
         <xsl:for-each select="datafield[@tag = '700' and subfield[@code = '4'] = '070']">
@@ -158,17 +165,17 @@
             </author>
         </xsl:for-each>
     </xsl:template>
-    
+
     <xsl:template name="monogr">
         <monogr>
             <!-- <settlement>
                 <xsl:value-of select="datafield[@tag = '711' and subfield[@code = '4'] = '295' ]/subfield[@code = 'c']" />
             </settlement> -->
             <imprint>
-                <xsl:if test="datafield[@tag = '307']/subfield[@code = ('a')]">                 
+                <xsl:if test="datafield[@tag = '307']/subfield[@code = ('a')]">
                     <biblScope unit="pp">
                         <!-- suppression de la chaine de caractères : "L'impression du document génère"  -->
-                        <xsl:value-of select="translate (substring (datafield[@tag = '307']/subfield[@code = ('a')], 33), 'p. ', '')"/>
+                        <xsl:value-of select="translate(substring (datafield[@tag = '307']/subfield[@code = ('a')], 33), 'p. ', '')"/>
                     </biblScope>
                 </xsl:if>
                 <date type="dateDefended">
@@ -189,31 +196,31 @@
             </xsl:if>
         </monogr>
     </xsl:template>
-    
+
     <xsl:template name="profileDesc">
         <profileDesc>
             <xsl:variable name="valLangue102">
                 <xsl:value-of select="translate(datafield[@tag = '102']/subfield[@code = 'a'], 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')" />
             </xsl:variable>
-            
+
             <langUsage>
                 <language ident="{$valLangue102}" />
             </langUsage>
-            
+
             <textClass>
                 <xsl:call-template name="keywords" />
-                
+
                 <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
                     <xsl:variable name="oai" select="concat('ddc:', normalize-space(text()))" />
-                    <classCode scheme="halDomain" n="{ translate((normalize-space(document('./commons/mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}" />
+                    <classCode scheme="halDomain" n="{translate((normalize-space(document('./commons/mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}" />
                 </xsl:for-each>
-                
+
                 <classCode scheme="halTypology" n="MEM" />
             </textClass>
             <xsl:call-template name="abstract" />
         </profileDesc>
     </xsl:template>
-    
+
     <xsl:template name="keywords">
         <keywords scheme="author">
             <!-- deduplicate keywords-->
@@ -224,7 +231,7 @@
             </xsl:for-each>
         </keywords>
     </xsl:template>
-    
+
     <xsl:template name="abstract">
         <xsl:for-each select="datafield[@tag = '330']/subfield[@code = 'a']">
             <xsl:if test="position() = 1">
@@ -239,7 +246,7 @@
             </xsl:if>
         </xsl:for-each>
     </xsl:template>
-    
+
     <!-- Joint le titre et les sous-titres selon la syntaxe suivante : `Titre : Sous titre 1. Sous titre 2` -->
     <xsl:template name="joinTitleElements">
         <xsl:param name="input" />
@@ -265,7 +272,7 @@
             </xsl:if>
         </xsl:for-each>
     </xsl:template>
-    
+
     <xsl:template name="formatDate">
         <xsl:param name="date" />
         <xsl:if test="string-length($date) = 4">
