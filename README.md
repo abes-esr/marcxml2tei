@@ -18,7 +18,7 @@ MarcXML2TEI permet de produire à partir de notices bibliographiques de document
 __Transformation simple :__
 
 ```
-saxon-xslt marcxml_sample/252383524.xml xslt/marcxml2tei.xslt > ouput.tei
+saxon-xslt marcxml_sample/252383524.xml xslt/marcxml2tei-2.0.xslt > ouput.tei
 ```
 
 __Transformation avancées :__
@@ -26,7 +26,7 @@ __Transformation avancées :__
 Certaines valeurs par défaut, comme le diplôme ou la langue secondaire du document, peuvent être changées lors de l'appel du moteur de tranformation XSLT.
 
 ```
-saxon-xslt marcxml_sample/252383524.xml xslt/marcxml2tei.xslt defaultDegreeCode=23 secondaryLanguage=eng > output.tei
+saxon-xslt marcxml_sample/252383524.xml xslt/marcxml2tei-2.0.xslt defaultDegreeCode=23 secondaryLanguage=eng > output.tei
 ```
 
 [Voir la liste complètes des paramètres disponibles](#paramètres)
@@ -39,4 +39,4 @@ Unimarc2TEI expose les paramètres suivants au moteur XSLT:
 * `secondaryLanguage` [optionnel, valeur par défaut : 'eng'] : Définit la langue secondaire du document au format [ISO 639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php). Même si il est renseigné, ce paramètre n'est utilisé que lorsque les données Unimarc sont insuffisantes pour déterminer la langue secondaire du document.
 * `degreeCode` [optionnel] : Permet de remplacer la valeur du code diplôme utilisée par défaut : `23`. [Liste des codes diplômes](https://api.archives-ouvertes.fr/ref/metadataList/?q=metaName_s:dumas_degreeType&rows=100&fl=fr_metaLabel_s,metaValue_s).
 * `fileLocation` [optionnel] : Spécifie l'emplacement du fichier. Ce paramètre peut prendre la forme d'un lien HTTP ou FTP.
-* `embargoDate` : Définit une date d'embargo au format `AAAA-MM-JJ`.
+* `embargoDate` : Définit une date d'embargo au format `AAAA-MM-JJ`. (xsl `2.0` uniquement)
