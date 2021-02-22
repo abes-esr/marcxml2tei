@@ -1,0 +1,43 @@
+# This workflow checks if an xml schema stays unchanged
+
+name: Up to date with spec
+env:
+  OUTPUT_DIR: .sha256sum
+  EMAIL: eon@abes.fr
+  USERNAME: Mathis EON
+  URL: https://hal.archives-ouvertes.fr/documents/aofr.xsd
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Installing dependencies
+        run: |
+          sudo apt update
+          sudo apt install minify
+      - name: Create output dir
+        run: mkdir -p $OUTPUT_DIR
+      - name: Download schema and copute sha256sum
+        run: curl -s $URL | minify --type xml | sha256sum > $OUTPUT_DIR/sha256sum-new.sum
+      - name: Compare previous and current checksum
+        run: |
+          if test -f $OUTPUT_DIR/sha256sum.sum; then
+            echo "Comparing checksums"
+            cmp --silent $OUTPUT_DIR/sha256sum.sum $OUTPUT_DIR/sha256sum-new.sum || exit 1
+            echo "Comparing checksums [done]"
+          fi
+      - name: Commit sha256sum
+        run: |
+          mv $OUTPUT_DIR/sha256sum-new.sum $OUTPUT_DIR/sha256sum.sum
+          git config --global user.name "$USERNAME"
+          git config --global user.email "$EMAIL"
+          git add $OUTPUT_DIR/sha256sum.sum
+          git commit -am "Updating sha256sum" || exit 0
+          git push || exit 0
+            mv $OUTPUT_DIR/$i.sha256sum-new.sum $OUTPUT_DIR/$i.sha256sum.sum
+          done
