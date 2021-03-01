@@ -90,9 +90,7 @@
                 </date>
                 <xsl:if test="$fileLocation">
                     <ref type="file" subtype="author" n="1" target="{$fileLocation}">
-                        <!-- <xsl:if test="$embargoDate"> -->
-                            <date notBefore="{$embargoDate}" />
-                        <!-- </xsl:if> -->
+                        <date notBefore="{$embargoDate}" />
                     </ref>
                 </xsl:if>
             </edition>
@@ -116,14 +114,16 @@
     <xsl:template name="title">
         <title xml:lang="{$primaryLanguageCode}">
             <xsl:call-template name="joinTitleElements">
-                <xsl:with-param name="input" select="datafield[@tag = '200']/subfield[@code = ('a', 'e')]" />
+                <xsl:with-param name="titles" select="datafield[@tag = '200']/subfield[@code = 'a']" />
+                <xsl:with-param name="subtitles" select="datafield[@tag = '200']/subfield[@code = 'e']" />
             </xsl:call-template>
         </title>
 
         <xsl:if test="datafield[@tag = '541']/subfield[@code = ('a', 'e')]">
             <title xml:lang="{$secondaryLanguageCode}">
                 <xsl:call-template name="joinTitleElements">
-                    <xsl:with-param name="input" select="datafield[@tag = '541']/subfield[@code = ('a', 'e')]" />
+                    <xsl:with-param name="titles" select="datafield[@tag = '541']/subfield[@code = 'a']" />
+                    <xsl:with-param name="subtitles" select="datafield[@tag = '541']/subfield[@code = 'e']" />
                 </xsl:call-template>
             </title>
         </xsl:if>
@@ -155,11 +155,11 @@
             </settlement> -->
             <imprint>
                 <xsl:analyze-string select="datafield[@tag = '307']/subfield[@code = ('a')]/text()" regex="L.impression du document génère (\d+) p\.">
-                    <xsl:matching-substring>
-                        <biblScope unit="pp">
-                            <xsl:value-of select="regex-group(1)"/>
-                        </biblScope>
-                    </xsl:matching-substring>
+                        <xsl:matching-substring>
+                            <biblScope unit="pp">
+                                <xsl:value-of select="regex-group(1)"/>
+                            </biblScope>
+                        </xsl:matching-substring>
                 </xsl:analyze-string>
                 <date type="dateDefended">
                     <xsl:call-template name="formatDate">
@@ -231,30 +231,47 @@
 
     <!-- Joint le titre et les sous-titres selon la syntaxe suivante : `Titre : Sous titre 1. Sous titre 2` -->
     <xsl:template name="joinTitleElements">
-        <xsl:param name="input" />
-        <xsl:for-each select="$input">
-            <xsl:if test="position() = 2">
-                <xsl:text> :</xsl:text>
+        <xsl:param name="titles" />
+        <xsl:param name="subtitles" />
+
+        <!-- Joint les titres par ; -->
+        <xsl:for-each select="$titles">
+            <xsl:if test="position() > 1">
+                <xsl:text>&#x20;;&#x20;</xsl:text>
+            </xsl:if>
+
+            <xsl:call-template name="removeTrailingPunctuation">
+                <xsl:with-param name="input" select="."/>
+            </xsl:call-template>
+        </xsl:for-each>
+
+        <xsl:for-each select="$subtitles">
+            <xsl:if test="position() = 1">
+                <xsl:text>&#x20;:&#x20;</xsl:text>
             </xsl:if>
             <xsl:if test="position() > 1">
-                <xsl:text>&#x20;</xsl:text>
+                <xsl:text>.&#x20;</xsl:text>
             </xsl:if>
-            <xsl:value-of select="
-                    normalize-space(if (ends-with(., '/') or ends-with(., ';') or ends-with(., ',') or ends-with(., '.')) then
-                        substring(., 1, string-length(.) - 1)
-                    else
-                        .)" />
-            <xsl:if test="position() > 1 and count($input) > position()">
-                <xsl:text>.</xsl:text>
-            </xsl:if>
+
+            <xsl:call-template name="removeTrailingPunctuation">
+                <xsl:with-param name="input" select="."/>
+            </xsl:call-template>
         </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template name="removeTrailingPunctuation">
+        <xsl:param name="input" />
+        <xsl:value-of select="
+            normalize-space(if (ends-with($input, '/') or ends-with($input, ';') or ends-with($input, ',') or ends-with($input, '.')) then
+                substring($input, 1, string-length(.) - 1)
+            else
+                $input)" />
     </xsl:template>
 
     <xsl:template name="formatDate">
         <xsl:param name="date" />
         <xsl:if test="string-length($date) = 4">
-            <xsl:value-of select="$date" />
-            <xsl:text>-01-01</xsl:text>
+            <xsl:value-of select="xs:date(concat($date, '-01-01'))" />
         </xsl:if>
         <xsl:if test="string-length($date) > 4">
             <xsl:value-of select="$date" />
