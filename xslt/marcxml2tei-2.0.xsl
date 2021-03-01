@@ -90,9 +90,7 @@
                 </date>
                 <xsl:if test="$fileLocation">
                     <ref type="file" subtype="author" n="1" target="{$fileLocation}">
-                        <!-- <xsl:if test="$embargoDate"> -->
-                            <date notBefore="{$embargoDate}" />
-                        <!-- </xsl:if> -->
+                        <date notBefore="{$embargoDate}" />
                     </ref>
                 </xsl:if>
             </edition>
@@ -157,11 +155,11 @@
             </settlement> -->
             <imprint>
                 <xsl:analyze-string select="datafield[@tag = '307']/subfield[@code = ('a')]/text()" regex="L.impression du document génère (\d+) p\.">
-                    <xsl:matching-substring>
-                        <biblScope unit="pp">
-                            <xsl:value-of select="regex-group(1)"/>
-                        </biblScope>
-                    </xsl:matching-substring>
+                        <xsl:matching-substring>
+                            <biblScope unit="pp">
+                                <xsl:value-of select="regex-group(1)"/>
+                            </biblScope>
+                        </xsl:matching-substring>
                 </xsl:analyze-string>
                 <date type="dateDefended">
                     <xsl:call-template name="formatDate">
@@ -246,7 +244,7 @@
                 <xsl:with-param name="input" select="."/>
             </xsl:call-template>
         </xsl:for-each>
-        
+
         <xsl:for-each select="$subtitles">
             <xsl:if test="position() = 1">
                 <xsl:text>&#x20;:&#x20;</xsl:text>
@@ -254,7 +252,7 @@
             <xsl:if test="position() > 1">
                 <xsl:text>.&#x20;</xsl:text>
             </xsl:if>
-            
+
             <xsl:call-template name="removeTrailingPunctuation">
                 <xsl:with-param name="input" select="."/>
             </xsl:call-template>
@@ -264,17 +262,16 @@
     <xsl:template name="removeTrailingPunctuation">
         <xsl:param name="input" />
         <xsl:value-of select="
-                    normalize-space(if (ends-with($input, '/') or ends-with($input, ';') or ends-with($input, ',') or ends-with($input, '.')) then
-                        substring($input, 1, string-length(.) - 1)
-                    else
-                        $input)" />
+            normalize-space(if (ends-with($input, '/') or ends-with($input, ';') or ends-with($input, ',') or ends-with($input, '.')) then
+                substring($input, 1, string-length(.) - 1)
+            else
+                $input)" />
     </xsl:template>
 
     <xsl:template name="formatDate">
         <xsl:param name="date" />
         <xsl:if test="string-length($date) = 4">
-            <xsl:value-of select="$date" />
-            <xsl:text>-01-01</xsl:text>
+            <xsl:value-of select="xs:date(concat($date, '-01-01'))" />
         </xsl:if>
         <xsl:if test="string-length($date) > 4">
             <xsl:value-of select="$date" />

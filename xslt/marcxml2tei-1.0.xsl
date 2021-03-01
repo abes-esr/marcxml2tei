@@ -280,6 +280,7 @@
 
     <xsl:template name="removeTrailingPunctuation">
         <xsl:param name="input" />
+
         <xsl:variable name="currentValue" select="normalize-space($input)" />
         <xsl:variable name="lastChar" select="normalize-space(substring($currentValue, string-length($currentValue)))" />
         <xsl:choose>
@@ -295,8 +296,7 @@
     <xsl:template name="formatDate">
         <xsl:param name="date" />
         <xsl:if test="string-length($date) = 4">
-            <xsl:value-of select="$date" />
-            <xsl:text>-01-01</xsl:text>
+            <xsl:value-of select="xs:date(concat($date, '-01-01'))" />
         </xsl:if>
         <xsl:if test="string-length($date) > 4">
             <xsl:value-of select="$date" />
