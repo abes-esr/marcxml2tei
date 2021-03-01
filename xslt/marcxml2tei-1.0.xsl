@@ -133,14 +133,16 @@
     <xsl:template name="title">
         <title xml:lang="{$primaryLanguageCode}">
             <xsl:call-template name="joinTitleElements">
-                <xsl:with-param name="input" select="datafield[@tag = '200']/subfield[@code = ('a' or 'e')]" />
+                <xsl:with-param name="titles" select="datafield[@tag = '200']/subfield[@code = 'a']" />
+                <xsl:with-param name="subtitles" select="datafield[@tag = '200']/subfield[@code = 'e']" />
             </xsl:call-template>
         </title>
 
         <xsl:if test="datafield[@tag = '541']/subfield[@code = ('a' or 'e')]">
             <title xml:lang="{$secondaryLanguageCode}">
                 <xsl:call-template name="joinTitleElements">
-                    <xsl:with-param name="input" select="datafield[@tag = '541']/subfield[@code = ('a' or 'e')]" />
+                    <xsl:with-param name="titles" select="datafield[@tag = '541']/subfield[@code = 'a']"/>
+                    <xsl:with-param name="subtitles" select="datafield[@tag = '541']/subfield[@code = 'e']" />
                 </xsl:call-template>
             </title>
         </xsl:if>
@@ -248,28 +250,46 @@
 
     <!-- Joint le titre et les sous-titres selon la syntaxe suivante : `Titre : Sous titre 1. Sous titre 2` -->
     <xsl:template name="joinTitleElements">
-        <xsl:param name="input" />
-        <xsl:for-each select="$input">
-            <xsl:if test="position() = 2">
-                <xsl:text> :</xsl:text>
+        <xsl:param name="titles" />
+        <xsl:param name="subtitles" />
+
+        <!-- Joint les titres par ; -->
+        <xsl:for-each select="$titles">
+            <xsl:if test="position() > 1">
+                <xsl:text>&#x20;;&#x20;</xsl:text>
+            </xsl:if>
+
+            <xsl:call-template name="removeTrailingPunctuation">
+                <xsl:with-param name="input" select="."/>
+            </xsl:call-template>
+        </xsl:for-each>
+        
+        <xsl:for-each select="$subtitles">
+            <xsl:if test="position() = 1">
+                <xsl:text>&#x20;:&#x20;</xsl:text>
             </xsl:if>
             <xsl:if test="position() > 1">
-                <xsl:text>&#x20;</xsl:text>
+                <xsl:text>.&#x20;</xsl:text>
             </xsl:if>
-            <xsl:variable name="currentValue" select="normalize-space(.)" />
-            <xsl:variable name="lastChar" select="normalize-space(substring($currentValue, string-length($currentValue)))" />
-            <xsl:choose>
-                <xsl:when test="$lastChar = '/' or $lastChar = ';' or $lastChar = ',' or $lastChar = '.'">
-                    <xsl:value-of select="normalize-space(substring($currentValue, 1, string-length($currentValue) - 1))" />
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="." />
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:if test="position() > 1 and count($input) > position()">
-                <xsl:text>.</xsl:text>
-            </xsl:if>
+            
+            <xsl:call-template name="removeTrailingPunctuation">
+                <xsl:with-param name="input" select="."/>
+            </xsl:call-template>
         </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template name="removeTrailingPunctuation">
+        <xsl:param name="input" />
+        <xsl:variable name="currentValue" select="normalize-space($input)" />
+        <xsl:variable name="lastChar" select="normalize-space(substring($currentValue, string-length($currentValue)))" />
+        <xsl:choose>
+            <xsl:when test="$lastChar = '/' or $lastChar = ';' or $lastChar = ',' or $lastChar = '.'">
+                <xsl:value-of select="normalize-space(substring($currentValue, 1, string-length($currentValue) - 1))" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$input" />
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template name="formatDate">
