@@ -116,14 +116,16 @@
     <xsl:template name="title">
         <title xml:lang="{$primaryLanguageCode}">
             <xsl:call-template name="joinTitleElements">
-                <xsl:with-param name="input" select="datafield[@tag = '200']/subfield[@code = ('a', 'e')]" />
+                <xsl:with-param name="titles" select="datafield[@tag = '200']/subfield[@code = 'a']" />
+                <xsl:with-param name="subtitles" select="datafield[@tag = '200']/subfield[@code = 'e']" />
             </xsl:call-template>
         </title>
 
         <xsl:if test="datafield[@tag = '541']/subfield[@code = ('a', 'e')]">
             <title xml:lang="{$secondaryLanguageCode}">
                 <xsl:call-template name="joinTitleElements">
-                    <xsl:with-param name="input" select="datafield[@tag = '541']/subfield[@code = ('a', 'e')]" />
+                    <xsl:with-param name="titles" select="datafield[@tag = '541']/subfield[@code = 'a']" />
+                    <xsl:with-param name="subtitles" select="datafield[@tag = '541']/subfield[@code = 'e']" />
                 </xsl:call-template>
             </title>
         </xsl:if>
@@ -231,23 +233,41 @@
 
     <!-- Joint le titre et les sous-titres selon la syntaxe suivante : `Titre : Sous titre 1. Sous titre 2` -->
     <xsl:template name="joinTitleElements">
-        <xsl:param name="input" />
-        <xsl:for-each select="$input">
-            <xsl:if test="position() = 2">
-                <xsl:text> :</xsl:text>
+        <xsl:param name="titles" />
+        <xsl:param name="subtitles" />
+
+        <!-- Joint les titres par ; -->
+        <xsl:for-each select="$titles">
+            <xsl:if test="position() > 1">
+                <xsl:text>&#x20;;&#x20;</xsl:text>
+            </xsl:if>
+
+            <xsl:call-template name="removeTrailingPunctuation">
+                <xsl:with-param name="input" select="."/>
+            </xsl:call-template>
+        </xsl:for-each>
+        
+        <xsl:for-each select="$subtitles">
+            <xsl:if test="position() = 1">
+                <xsl:text>&#x20;:&#x20;</xsl:text>
             </xsl:if>
             <xsl:if test="position() > 1">
-                <xsl:text>&#x20;</xsl:text>
+                <xsl:text>.&#x20;</xsl:text>
             </xsl:if>
-            <xsl:value-of select="
-                    normalize-space(if (ends-with(., '/') or ends-with(., ';') or ends-with(., ',') or ends-with(., '.')) then
-                        substring(., 1, string-length(.) - 1)
-                    else
-                        .)" />
-            <xsl:if test="position() > 1 and count($input) > position()">
-                <xsl:text>.</xsl:text>
-            </xsl:if>
+            
+            <xsl:call-template name="removeTrailingPunctuation">
+                <xsl:with-param name="input" select="."/>
+            </xsl:call-template>
         </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template name="removeTrailingPunctuation">
+        <xsl:param name="input" />
+        <xsl:value-of select="
+                    normalize-space(if (ends-with($input, '/') or ends-with($input, ';') or ends-with($input, ',') or ends-with($input, '.')) then
+                        substring($input, 1, string-length(.) - 1)
+                    else
+                        $input)" />
     </xsl:template>
 
     <xsl:template name="formatDate">
