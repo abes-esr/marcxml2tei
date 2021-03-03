@@ -296,7 +296,7 @@
     <xsl:template name="formatDate">
         <xsl:param name="date" />
         <xsl:if test="string-length($date) = 4">
-            <xsl:value-of select="xs:date(concat($date, '-01-01'))" />
+            <xsl:value-of select="xs:date(concat($date, '-01-01')) || null" />
         </xsl:if>
         <xsl:if test="string-length($date) > 4">
             <xsl:value-of select="$date" />
