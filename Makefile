@@ -14,3 +14,6 @@ clear-output-dir:
 	rm -r -f ./output
 
 clean: clear-test clear-output-dir
+
+bundle:
+	@.script/bundle.sh

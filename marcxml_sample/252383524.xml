@@ -121,6 +121,10 @@
     <subfield code="a">Thèses et écrits académiques</subfield>
     <subfield code="2">rameau</subfield>
   </datafield>
+  <datafield tag="686" ind1=" " ind2=" ">
+		<subfield code="a">700</subfield>
+		<subfield code="2">TEF</subfield>
+	</datafield>
   <datafield tag="700" ind1=" " ind2="1">
     <subfield code="3">252385659</subfield>
     <subfield code="a">Carpi</subfield>
