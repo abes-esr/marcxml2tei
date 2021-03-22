@@ -22,7 +22,7 @@ jobs:
         with:
           ref: embedded-oiaset
       - name: Install xmllint
-        run: sudo apt-get install libxml2-utils
+        run: sudo apt-get install libxml2-utils libsaxon-java
 
       - name: bundle
         run: chmod +x .script/bundle.sh && .script/bundle.sh > bundle.xslt && cat bundle.xslt
