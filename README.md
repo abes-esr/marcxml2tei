@@ -47,7 +47,7 @@ Unimarc2TEI expose les paramètres suivants au moteur XSLT:
 > 
 > Cette section s'adresse aux développeurs qui souhaitent « empaqueter » eux-mêmes les fichiers XSL dans différentes versions. 
 > 
-> La génération des fichiers XSL requiert l'installation de `xmllint` et de `saxon-xslt`.
+> La génération des fichiers XSL requiert l'installation de `make`, `xmllint` et de `saxon-xslt`.
 
 __Version compatible Oracle (oracle.xsl)__
 
