@@ -11,12 +11,6 @@ MarcXML2TEI permet de produire à partir de notices bibliographiques de document
 
 > 📝 __MarcXML2TEI ne prend en charge que les notices Unimarc conformes aux [consignes de catalogage des documents universitaires hors thèses](http://documentation.abes.fr/sudoc/regles/Catalogage/Regles_Theses_AutresDocsUniv.htm).__
 
-## Compilation du fichier XSL
-
-```
-make bundle
-```
-
 ## Utilisation
 
 > Cette section expose en bref l'utilisation de marcxml2tei. Un [guide d'utilisation pas à pas](./guide.md) est également disponible 📔
@@ -46,3 +40,55 @@ Unimarc2TEI expose les paramètres suivants au moteur XSLT:
 * `degreeCode` [optionnel] : Permet de remplacer la valeur du code diplôme utilisée par défaut : `23`. [Liste des codes diplômes](https://api.archives-ouvertes.fr/ref/metadataList/?q=metaName_s:dumas_degreeType&rows=100&fl=fr_metaLabel_s,metaValue_s).
 * `fileLocation` [optionnel] : Spécifie l'emplacement du fichier. Ce paramètre peut prendre la forme d'un lien HTTP ou FTP.
 * `embargoDate` : Définit une date d'embargo au format `AAAA-MM-JJ`. (xsl `2.0` uniquement)
+
+## Génération des fichier XSL
+
+> Les différentes version de marxml2tei peuvent récupérées directement depuis la page release de ce depôt.
+> 
+> Cette section s'adresse aux dévelopeurs qui souhaitent « empaqueter » eux-mêmes les fichiers XSL dans différentes versions. 
+> 
+> La génération des fichiers XSL requiert l'installation de `xmllint` et de `saxon-xslt`.
+
+__Version compatible Oracle (oracle.xsl)__
+
+Produit une version compatible avec Oracle. Cette version ne contient ni les codes de langue ni les codes OAI qui doivent être gérés directement dans Oracle.
+
+```
+make oracle
+```
+
+__Version empaquetée XSL 1.0 (bundle.1.0.xsl)__
+
+Produit une version compatible avec XSL 1.0. Le fichier XSL intègre l'ensemble des codes OAI et des codes de langue.
+
+```
+make bundle.1.0
+```
+
+__Version empaquetée XSL 2.0 (bundle.2.0.xsl)__
+
+Produit une version compatible avec XSL 2.0. Le fichier XSL intègre l'ensemble des codes OAI et des codes de langue.
+
+```
+make bundle.2.0
+```
+
+## Organisation du dépôt
+
+`.script/` : Contient les scripts qui permettent de générer les différentes versions du mapping marcxml2tei (oracle, bundle.1.0 et bundle.2.0). Ces scripts sont appelés par le Makefile.
+
+`/commons` : Contient les fichiers XSL importés par les fichiers `xslt/marcxml2tei.*.xsl`. Ce dossier contient en particulier les mapping de code langue et les mapping de code OAI au format XSL, ainsi qu'un fichier XSL permetant d'enlever de manière récursive les noeuds vides (`commons/cleaner.xsl`).
+
+`/mapping` : Contient les données brutes qui servent à créer dans le dossier `/commons` les mapping XSL pour les codes de langue et les codes OAI.
+
+`/marcxml_sample` : Contient des exemples de documents universitaires au format marcxml. Les noms de fichiers correspondent à leur PPN.
+
+`/schema` : Contient une copie du schéma Aofr utilisé par le CCSD.
+
+`/template` : Contient des template XSL qui permettent de générer les différentes version de marcxml2tei (bundle.1.0.xsl, bundle.2.0.xsl, oracle.xsl).
+
+`/test` : Contient l'ensemble des tests xspec.
+
+`/utils` : Contient des fichiers XSL qui permettent de générer à partir des données brutes du dossier `/mapping` des mappings au format XSL placés dans `/commons`.
+
+`/xslt` : Contient les mappings marxcml2tei.

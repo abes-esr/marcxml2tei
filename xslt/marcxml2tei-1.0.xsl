@@ -1,12 +1,14 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://www.tei-c.org/ns/1.0"
     xmlns:hal="http://hal.archives-ouvertes.fr/" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
-    xmlns:ext="http://exslt.org/common"
-    xmlns:xi="http://www.w3.org/2001/XInclude">
+    xmlns:ext="http://exslt.org/common">
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template or by bundle template with fresh data-->
+    <xsl:import href="../commons/code_langues.xsl" />
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template or by bundle template with fresh data-->
+    <xsl:import href="../commons/mapping_domainesTEL_et_oaiSets.xsl" />
 
     <!-- Paramètres pouvant être modifiés par saxon : `saxon-xslt 252383524.xml mapping.xslt secondaryLanguageCode=es degreeCode=22 > output.tei`  -->
     <!-- Langue principale du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue principale du document-->
@@ -20,9 +22,7 @@
     <!-- Date d'embargo  au format AAAA-MM-JJ -->
     <!--    <xsl:param name="embargoDate" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')" />-->
 
-    <xi:include href="../commons/mapping_domainesTEL_et_oaiSets.xsl" />
-    <xi:include href="../commons/code_langues.xsl"/>
-
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template -->
     <xsl:variable name="primaryLanguageCode">
         <xsl:variable name="primaryLanguageCode639_2">
             <xsl:choose>
@@ -40,6 +40,7 @@
         </xsl:call-template>
     </xsl:variable>
 
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template -->
     <!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
     <xsl:variable name="secondaryLanguageCode">
         <xsl:variable name="secondaryLanguageCode639_2">
@@ -59,8 +60,6 @@
     </xsl:variable>
 
     <xsl:variable name="IdRefBaseUrl" select="'https://www.idref.fr/'" />
-
-    <!-- <xi:include href="../commons/cleaner.xsl" xpointer="xpointer(/cleaner//*)"/> -->
 
     <xsl:template name="tei" match="record">
         <TEI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
@@ -287,7 +286,7 @@
     <xsl:template name="formatDate">
         <xsl:param name="date" />
         <xsl:if test="string-length($date) = 4">
-            <xsl:value-of select="xs:date(concat($date, '-01-01'))" />
+            <xsl:value-of select="concat($date, '-01-01')" />
         </xsl:if>
         <xsl:if test="string-length($date) > 4">
             <xsl:value-of select="$date" />
