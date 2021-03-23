@@ -49,5 +49,5 @@
     </xsl:template>
 
     <!-- Importe le contenu de ./xslt/marcxml2tei-1.0.xsl sauf le prologue xslt, primaryLanguageCode et secondaryLanguageCode -->
-    <xi:include href="../xslt/marcxml2tei-1.0.xsl" xpointer="xmlns(xsl=http://www.w3.org/1999/XSL/Transform)xpointer(//xsl:stylesheet/*[(name() != 'xsl:import' and name() != 'xsl:output' and name() != 'xsl:strip-space') or (@name != 'primaryLanguageCode' and @name != 'secondaryLanguageCode' and @name != 'codeOai' and @name != 'codeLangue')])"/>
+    <xi:include href="../xslt/marcxml2tei-1.0.xsl" xpointer="xmlns(xsl=http://www.w3.org/1999/XSL/Transform)xpointer(//xsl:stylesheet/*[(name() != 'xsl:import' and name() != 'xsl:output' and name() != 'xsl:strip-space') and (@name != 'primaryLanguageCode' and @name != 'secondaryLanguageCode' and @name != 'codeOai' and @name != 'codeLangue')])"/>
 </xsl:stylesheet>
