@@ -25,10 +25,10 @@ jobs:
 
       - name: templating
         run: |
-        chmod +x .script/*.sh
-        make bundle.1.0 > marcxml2tei-1.0.xsl
-        make bundle.2.0 > marcxml2tei-2.0.xsl
-        make oracle > marcxml2tei-oracle.xsl
+          chmod +x .script/*.sh
+          make bundle.1.0 > marcxml2tei-1.0.xsl
+          make bundle.2.0 > marcxml2tei-2.0.xsl
+          make oracle > marcxml2tei-oracle.xsl
       
       - name: Create Release
         id: create_release
