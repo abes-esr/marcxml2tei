@@ -33,7 +33,7 @@ saxon-xslt marcxml_sample/252383524.xml xslt/marcxml2tei-2.0.xslt defaultDegreeC
 
 ## Paramètres
 
-Unimarc2TEI expose les paramètres suivants au moteur XSLT:
+MarcXML2TEI expose les paramètres suivants au moteur XSLT:
 
 * `primaryLanguage` [optionnel, valeur par défaut : 'fre'] : Définit la langue principale du document au format [ISO 639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php). Même si il est renseigné, ce paramètre n'est utilisé que lorsque les données Unimarc sont insuffisantes pour déterminer la langue principale du document.
 * `secondaryLanguage` [optionnel, valeur par défaut : 'eng'] : Définit la langue secondaire du document au format [ISO 639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php). Même si il est renseigné, ce paramètre n'est utilisé que lorsque les données Unimarc sont insuffisantes pour déterminer la langue secondaire du document.
