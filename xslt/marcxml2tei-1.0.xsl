@@ -1,11 +1,14 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://www.tei-c.org/ns/1.0"
     xmlns:hal="http://hal.archives-ouvertes.fr/" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
     xmlns:ext="http://exslt.org/common">
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template or by bundle template with fresh data-->
+    <xsl:import href="../commons/code_langues.xsl" />
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template or by bundle template with fresh data-->
+    <xsl:import href="../commons/mapping_domainesTEL_et_oaiSets.xsl" />
 
     <!-- Paramètres pouvant être modifiés par saxon : `saxon-xslt 252383524.xml mapping.xslt secondaryLanguageCode=es degreeCode=22 > output.tei`  -->
     <!-- Langue principale du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue principale du document-->
@@ -19,7 +22,7 @@
     <!-- Date d'embargo  au format AAAA-MM-JJ -->
     <!--    <xsl:param name="embargoDate" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')" />-->
 
-    <xsl:variable name="mappingCodeLangue" select="document('code_langues.xml')" />
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template -->
     <xsl:variable name="primaryLanguageCode">
         <xsl:variable name="primaryLanguageCode639_2">
             <xsl:choose>
@@ -31,49 +34,32 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$primaryLanguageCode639_2]/../ISO_639_1" />
+
+        <xsl:call-template name="codeLangue">
+            <xsl:with-param name="code" select="$primaryLanguageCode639_2"/>
+        </xsl:call-template>
     </xsl:variable>
 
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template -->
     <!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
     <xsl:variable name="secondaryLanguageCode">
         <xsl:variable name="secondaryLanguageCode639_2">
             <xsl:choose>
                 <xsl:when test="(/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']) and normalize-space(/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']) != null">
-                    <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='d'][2] || datafield[@tag = '541']/subfield[@code = 'z']" />
+                    <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']" />
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:value-of select="$secondaryLanguage" />
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$secondaryLanguageCode639_2]/../ISO_639_1" />
+
+        <xsl:call-template name="codeLangue">
+            <xsl:with-param name="code" select="$secondaryLanguageCode639_2"/>
+        </xsl:call-template>
     </xsl:variable>
 
     <xsl:variable name="IdRefBaseUrl" select="'https://www.idref.fr/'" />
-
-    <!-- https://stackoverflow.com/questions/3678353/apply-xslt-transform-to-an-already-transformed-xml -->
-    <!-- On applique un premier traitement XSL et on stock le résultat de la TEI générée dans la variable $tei -->
-    <xsl:variable name="tei">
-        <xsl:apply-templates />
-    </xsl:variable>
-
-    <!-- On recréer un DOM à partir du contenu de la variable TEI et on lui applique les transformations postTreatment (suppression des noeuds vides)  -->
-    <xsl:template match="/">
-        <xsl:apply-templates select="ext:node-set($tei)/*" mode="postTreatment" />
-    </xsl:template>
-
-    <!--https://stackoverflow.com/questions/24776276/remove-empty-xml-elements-recursively-with-xslt-->
-    <!-- Enlève de manière récursive les noeuds vides -->
-    <xsl:template match="*[descendant::text() or descendant-or-self::*/@*[string()]]" mode="postTreatment">
-        <xsl:copy>
-            <xsl:apply-templates select="node()|@*" mode="postTreatment" />
-        </xsl:copy>
-    </xsl:template>
-
-    <!-- Enlève de manière récursive les noeuds vides -->
-    <xsl:template match="@*[string()]" mode="postTreatment">
-        <xsl:copy />
-    </xsl:template>
 
     <xsl:template name="tei" match="record">
         <TEI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
@@ -212,8 +198,12 @@
                 <xsl:call-template name="keywords" />
 
                 <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
-                    <xsl:variable name="oai" select="concat('ddc:', normalize-space(text()))" />
-                    <classCode scheme="halDomain" n="{translate((normalize-space(document('./commons/mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')}" />
+                    <xsl:variable name="oai">
+                        <xsl:call-template name="codeOai">
+                            <xsl:with-param name="code" select="concat('ddc:', normalize-space(text()))"/>
+                        </xsl:call-template>
+                    </xsl:variable>
+                    <classCode scheme="halDomain" n="{$oai}" />
                 </xsl:for-each>
 
                 <classCode scheme="halTypology" n="MEM" />
@@ -263,7 +253,7 @@
                 <xsl:with-param name="input" select="."/>
             </xsl:call-template>
         </xsl:for-each>
-        
+
         <xsl:for-each select="$subtitles">
             <xsl:if test="position() = 1">
                 <xsl:text>&#x20;:&#x20;</xsl:text>
@@ -271,7 +261,7 @@
             <xsl:if test="position() > 1">
                 <xsl:text>.&#x20;</xsl:text>
             </xsl:if>
-            
+
             <xsl:call-template name="removeTrailingPunctuation">
                 <xsl:with-param name="input" select="."/>
             </xsl:call-template>
@@ -296,7 +286,7 @@
     <xsl:template name="formatDate">
         <xsl:param name="date" />
         <xsl:if test="string-length($date) = 4">
-            <xsl:value-of select="xs:date(concat($date, '-01-01'))" />
+            <xsl:value-of select="concat($date, '-01-01')" />
         </xsl:if>
         <xsl:if test="string-length($date) > 4">
             <xsl:value-of select="$date" />
