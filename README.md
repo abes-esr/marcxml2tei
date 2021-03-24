@@ -27,7 +27,7 @@ __Transformation simple :__
 saxon-xslt marcxml_sample/252383524.xml xslt/marcxml2tei-2.0.xslt > ouput.tei
 ```
 
-__Transformation avancées :__
+__Transformations avancées :__
 
 Certaines valeurs par défaut, comme le diplôme ou la langue secondaire du document, peuvent être changées lors de l'appel du moteur de tranformation XSLT.
 
