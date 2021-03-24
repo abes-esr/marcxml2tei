@@ -4,7 +4,6 @@
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
 
-
     <!--https://stackoverflow.com/questions/24776276/remove-empty-xml-elements-recursively-with-xslt-->
     <!-- Enlève de manière récursive les noeuds vides -->
     <xsl:template match="*[descendant::text() or descendant-or-self::*/@*[string()]]"

@@ -2,7 +2,7 @@
 
 name: Release
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   workflow_dispatch:
@@ -30,7 +30,8 @@ jobs:
           make bundle.1.0 > marcxml2tei-1.0.xsl
           make bundle.2.0 > marcxml2tei-2.0.xsl
           make oracle > marcxml2tei-oracle.xsl
-      
+          cp ./commons/oracle-cleaner.xsl .
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -41,7 +42,7 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
-      
+
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
@@ -49,5 +50,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./*.xsl         
+          asset_path: ./*.xsl
           asset_content_type: text/xsl
