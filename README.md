@@ -49,7 +49,7 @@ MarcXML2TEI expose les paramètres suivants au moteur XSLT:
 
 ## Génération des fichiers XSL
 
-> Les différentes versions de marxml2tei peuvent êtres récupérées directement depuis la page release de ce dépôt.
+> Les différentes versions de marxml2tei peuvent êtres récupérées directement depuis la page [release](https://github.com/abes-esr/marcxml2tei/releases/latest) de ce dépôt.
 > 
 > Cette section s'adresse aux développeurs qui souhaitent « empaqueter » eux-mêmes les fichiers XSL dans différentes versions. 
 > 
