@@ -6,6 +6,10 @@
     xmlns:ext="http://exslt.org/common">
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template or by bundle template with fresh data-->
+    <xsl:import href="../commons/code_langues.xsl" />
+    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template or by bundle template with fresh data-->
+    <xsl:import href="../commons/mapping_domainesTEL_et_oaiSets.xsl" />
 
     <!-- Paramètres pouvant être modifiés par saxon : `saxon-xslt 252383524.xml mapping.xslt secondaryLanguageCode=es degreeCode=22 > output.tei`  -->
     <!-- Langue principale du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue principale du document-->
@@ -23,40 +27,20 @@
     <xsl:variable name="mappingCodeLangue" select="document('code_langues.xml')" />
     <xsl:variable name="primaryLanguageCode">
         <xsl:variable name="primaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='a'], $primaryLanguage)[1]"/>
-        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$primaryLanguageCode639_2]/../ISO_639_1"/>
+        <xsl:call-template name="codeLangue">
+            <xsl:with-param name="code" select="$primaryLanguageCode639_2"/>
+        </xsl:call-template>
     </xsl:variable>
 
     <!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
     <xsl:variable name="secondaryLanguageCode">
         <xsl:variable name="secondaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='d'][2], datafield[@tag = '541']/subfield[@code = 'z'], $secondaryLanguage)[1]"/>
-        <xsl:value-of select="$mappingCodeLangue/languages/language/ISO_639_2[text()=$secondaryLanguageCode639_2]/../ISO_639_1"/>
+        <xsl:call-template name="codeLangue">
+            <xsl:with-param name="code" select="$secondaryLanguageCode639_2"/>
+        </xsl:call-template>
     </xsl:variable>
 
     <xsl:variable name="IdRefBaseUrl" select="'https://www.idref.fr/'"/>
-
-    <!-- https://stackoverflow.com/questions/3678353/apply-xslt-transform-to-an-already-transformed-xml -->
-    <!-- On applique un premier traitement XSL et on stock le résultat de la TEI générée dans la variable $tei -->
-    <xsl:variable name="tei">
-        <xsl:apply-templates />
-    </xsl:variable>
-
-    <!-- On recréer un DOM à partir du contenu de la variable TEI et on lui applique les transformations postTreatment (suppression des noeuds vides)  -->
-    <xsl:template match="/">
-        <xsl:apply-templates select="ext:node-set($tei)/*" mode="postTreatment" />
-    </xsl:template>
-
-    <!--https://stackoverflow.com/questions/24776276/remove-empty-xml-elements-recursively-with-xslt-->
-    <!-- Enlève de manière récursive les noeuds vides -->
-    <xsl:template match="*[descendant::text() or descendant-or-self::*/@*[string()]]" mode="postTreatment">
-        <xsl:copy>
-            <xsl:apply-templates select="node()|@*" mode="postTreatment" />
-        </xsl:copy>
-    </xsl:template>
-
-    <!-- Enlève de manière récursive les noeuds vides -->
-    <xsl:template match="@*[string()]" mode="postTreatment">
-        <xsl:copy />
-    </xsl:template>
 
     <xsl:template match="record">
         <TEI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
@@ -155,11 +139,11 @@
             </settlement> -->
             <imprint>
                 <xsl:analyze-string select="datafield[@tag = '307']/subfield[@code = ('a')]/text()" regex="L.impression du document génère (\d+) p\.">
-                        <xsl:matching-substring>
-                            <biblScope unit="pp">
-                                <xsl:value-of select="regex-group(1)"/>
-                            </biblScope>
-                        </xsl:matching-substring>
+                    <xsl:matching-substring>
+                        <biblScope unit="pp">
+                            <xsl:value-of select="regex-group(1)"/>
+                        </biblScope>
+                    </xsl:matching-substring>
                 </xsl:analyze-string>
                 <date type="dateDefended">
                     <xsl:call-template name="formatDate">
@@ -194,8 +178,12 @@
                 <xsl:call-template name="keywords"/>
 
                 <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
-                    <xsl:variable name="oai" select="concat('ddc:', normalize-space(text()))" />
-                    <classCode scheme="halDomain" n="{ lower-case(normalize-space(document('./mapping_domainesTEL_et_oaiSets.xml')/ListSet/SubjectStruct[set/setSpec[contains(.,$oai)] ]/hal/code)) }"/>
+                    <xsl:variable name="oai">
+                        <xsl:call-template name="codeOai">
+                            <xsl:with-param name="code" select="concat('ddc:', normalize-space(text()))"/>
+                        </xsl:call-template>
+                    </xsl:variable>
+                    <classCode scheme="halDomain" n="{$oai}" />
                 </xsl:for-each>
 
                 <classCode scheme="halTypology" n="MEM" />
