@@ -37,7 +37,7 @@ saxon-xslt marcxml_sample/252383524.xml xslt/marcxml2tei-2.0.xslt defaultDegreeC
 
 [Voir la liste complètes des paramètres disponibles](#paramètres)
 
-## Paramètres
+### Paramètres
 
 MarcXML2TEI expose les paramètres suivants au moteur XSLT:
 
