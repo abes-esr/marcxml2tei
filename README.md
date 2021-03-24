@@ -47,7 +47,7 @@ MarcXML2TEI expose les paramètres suivants au moteur XSLT:
 * `fileLocation` [optionnel] : Spécifie l'emplacement du fichier. Ce paramètre peut prendre la forme d'un lien HTTP ou FTP.
 * `embargoDate` : Définit une date d'embargo au format `AAAA-MM-JJ`. (xsl `2.0` uniquement)
 
-## Génération des fichier XSL
+## Génération des fichiers XSL
 
 > Les différentes versions de marxml2tei peuvent êtres récupérées directement depuis la page release de ce dépôt.
 > 
