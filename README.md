@@ -93,7 +93,7 @@ make bundle.2.0
 
 `/template` : Contient des template XSL qui permettent de générer les différentes versions de marcxml2tei (bundle.1.0.xsl, bundle.2.0.xsl, oracle.xsl).
 
-`/test` : Contient l'ensemble des tests xspec.
+`/tests` : Contient l'ensemble des tests xspec.
 
 `/utils` : Contient des fichiers XSL qui permettent de générer à partir des données brutes du dossier `/mapping` des mappings au format XSL placés dans `/commons`.
 
