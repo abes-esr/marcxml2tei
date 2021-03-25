@@ -81,7 +81,7 @@ make bundle.2.0
 
 ## Organisation du dépôt
 
-[`.script`](.script) : Contient les scripts qui permettent de générer les différentes versions du mapping marcxml2tei (oracle, bundle.1.0 et bundle.2.0). Ces scripts sont appelés par le Makefile.
+[`.script`](.script) : Contient les scripts qui permettent de générer les différentes versions de marcxml2tei (oracle, bundle.1.0 et bundle.2.0). Ces scripts sont appelés par le Makefile.
 
 [`/commons`](/commons) : Contient les fichiers XSL importés par les fichiers `xslt/marcxml2tei.*.xsl`. Ce dossier contient en particulier les mappings de code langue et les mappings de code OAI au format XSL, ainsi qu'un fichier XSL permetant d'enlever de manière récursive les noeuds vides ([`commons/cleaner.xsl`](commons/cleaner.xsl)).
 
