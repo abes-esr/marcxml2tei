@@ -39,7 +39,6 @@ jobs:
           make bundle.2.0 > marcxml2tei-2.0.xsl
           make oracle > marcxml2tei-oracle.xsl
           cp ./commons/oracle-cleaner.xsl .
-      s
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
