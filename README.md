@@ -81,20 +81,21 @@ make bundle.2.0
 
 ## Organisation du dépôt
 
-`.script/` : Contient les scripts qui permettent de générer les différentes versions du mapping marcxml2tei (oracle, bundle.1.0 et bundle.2.0). Ces scripts sont appelés par le Makefile.
+[`.script`](.script) : Contient les scripts qui permettent de générer les différentes versions du mapping marcxml2tei (oracle, bundle.1.0 et bundle.2.0). Ces scripts sont appelés par le Makefile.
 
-`/commons` : Contient les fichiers XSL importés par les fichiers `xslt/marcxml2tei.*.xsl`. Ce dossier contient en particulier les mappings de code langue et les mappings de code OAI au format XSL, ainsi qu'un fichier XSL permetant d'enlever de manière récursive les noeuds vides (`commons/cleaner.xsl`).
+[`/commons`](/commons) : Contient les fichiers XSL importés par les fichiers `xslt/marcxml2tei.*.xsl`. Ce dossier contient en particulier les mappings de code langue et les mappings de code OAI au format XSL, ainsi qu'un fichier XSL permetant d'enlever de manière récursive les noeuds vides ([`commons/cleaner.xsl`](commons/cleaner.xsl)).
 
-`/mapping` : Contient les données brutes qui servent à créer dans le dossier `/commons` les mappings XSL pour les codes de langue et les codes OAI.
+[`/mapping`](/mapping) : Contient les données brutes qui servent à créer dans le dossier 
+[`/commons`](/commons) les mappings XSL pour les codes de langue et les codes OAI.
 
-`/marcxml_sample` : Contient des exemples de documents universitaires au format marcxml. Les noms de fichiers correspondent à leur PPN.
+[`/marcxml_sample`](/marcxml_sample) : Contient des exemples de documents universitaires au format marcxml. Les noms de fichiers correspondent à leur PPN.
 
-`/schema` : Contient une copie du schéma Aofr utilisé par le CCSD.
+[`/schema`](/schema) : Contient une copie du schéma Aofr utilisé par le CCSD.
 
-`/template` : Contient des template XSL qui permettent de générer les différentes versions de marcxml2tei (bundle.1.0.xsl, bundle.2.0.xsl, oracle.xsl).
+[`/template`](/template) : Contient des template XSL qui permettent de générer les différentes versions de marcxml2tei (bundle.1.0.xsl, bundle.2.0.xsl, oracle.xsl).
 
-`/tests` : Contient l'ensemble des tests xspec.
+[`/tests`](/tests) : Contient l'ensemble des tests xspec.
 
-`/utils` : Contient des fichiers XSL qui permettent de générer à partir des données brutes du dossier `/mapping` des mappings au format XSL placés dans `/commons`.
+[`/utils`](/utils) : Contient des fichiers XSL qui permettent de générer à partir des données brutes du dossier [`/mapping`](/mapping) des mappings au format XSL placés dans [`/commons`](/commons).
 
-`/xslt` : Contient les mappings marxcml2tei.
+[`/xslt`](/xslt) : Contient les mappings marxcml2tei.
