@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
-    stylesheet="../xslt/marcxml2tei.xsl">
+    stylesheet="../xslt/marcxml2tei-1.0.xsl">
 
     <x:param name="primaryLanguage">fre</x:param>
     <x:param name="primaryLanguageCode">fr</x:param>
@@ -10,10 +10,12 @@
     
     <x:scenario label="joinTitleElements with a title and subtitle">
         <x:call template="joinTitleElements">
-            <x:param name="input">
+            <x:param name="titles">
                 <value>A title</value>
+            </x:param>
+            <x:param name="subtitles">
                 <value>A subtitle</value>
-            </x:param> 
+            </x:param>
         </x:call>
 
         <x:expect label="Title and subtitles should be separated with `:` with no leading `.`">A title : A subtitle</x:expect>
@@ -21,11 +23,13 @@
     
     <x:scenario label="joinTitleElements with title and subtitle and a subsubtitle">
         <x:call template="joinTitleElements">
-            <x:param name="input">
+            <x:param name="titles">
                 <value>A title</value>
+            </x:param>
+            <x:param name="subtitles">
                 <value>A subtitle</value>
                 <value>Another subtitle</value>
-            </x:param> 
+            </x:param>
         </x:call>
         
         <x:expect label="Title and subtitles should be separated with `:` and subtitles with `.` with no leading `.`">A title : A subtitle. Another subtitle</x:expect>
@@ -34,8 +38,8 @@
     <x:scenario label="editionStmt without fileLocation">
         <x:context>
             <record>
-                <datafield tag="100" ind1=" " ind2=" ">
-                    <subfield code="a">20050808d2004    k  y0frey50      ba</subfield>
+                <datafield tag="328" ind1=" " ind2="1">
+                    <subfield code="d">2004</subfield>
                 </datafield>
             </record>
         </x:context>
@@ -43,7 +47,9 @@
         <x:call template="editionStmt"/>
         
         <x:expect label="Should display whenWritten. The embargo node (notBefore) shouldn't show up.">
-            <editionStmt xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <editionStmt xmlns:ext="http://exslt.org/common"
+             xmlns:hal="http://hal.archives-ouvertes.fr/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <edition>
                     <date type="whenWritten">2004</date>
                 </edition>
@@ -64,7 +70,7 @@
         <x:call template="title"/>
         
         <x:expect label="Shoud output the original title.">
-            <title xmlns="http://www.tei-c.org/ns/1.0"
+            <title xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xml:lang="fr">A title : A subtitle</title>
@@ -89,11 +95,11 @@
         <x:call template="title"/>
         
         <x:expect label="Shoud output the original and the translated title.">
-            <title xmlns="http://www.tei-c.org/ns/1.0"
+            <title xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xml:lang="fr">Un titre : Un sous-titre</title>        
-            <title xmlns="http://www.tei-c.org/ns/1.0"
+            xml:lang="fr">Un titre : Un sous-titre</title>
+            <title xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xml:lang="en">A title : A subtitle</title>
@@ -117,14 +123,15 @@
         <x:call template="author"/>
         
         <x:expect label="Should output the author.">
-            <author role="aut" xmlns="http://www.tei-c.org/ns/1.0"
+            <author xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <persName>
-                    <forename type="first">Doe</forename>
-                    <surname>John</surname>
-                </persName>
-                <idno type="IdRef">https://www.idref.fr/12345689X</idno>
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            role="aut">
+            <persName>
+                <forename type="first">Doe</forename>
+                <surname>John</surname>
+            </persName>
+            <idno type="IdRef">https://www.idref.fr/12345689X</idno>
             </author>
         </x:expect>
     </x:scenario>
@@ -149,8 +156,8 @@
     <x:scenario label="Monogr">
         <x:context>
             <record>
-                <datafield tag="214" ind1=" " ind2="1">
-                    <subfield code="d">2020-01-01</subfield>
+                <datafield tag="328" ind1=" " ind2="1">
+                    <subfield code="d">2020</subfield>
                 </datafield>
                 <datafield tag="711" ind1="0" ind2="2">
                     <subfield code="3">026402920</subfield>
@@ -170,7 +177,7 @@
         <x:call template="monogr"/>
         
         <x:expect label="Should display monogr data.">
-            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+            <monogr xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
@@ -185,7 +192,7 @@
     <x:scenario label="Monog with incomplete defense date.">
         <x:context>
             <record>
-                <datafield tag="214" ind1=" " ind2="1">
+                <datafield tag="328" ind1=" " ind2="1">
                     <subfield code="d">2020</subfield>
                 </datafield>
                 <datafield tag="711" ind1="0" ind2="2">
@@ -206,7 +213,7 @@
         <x:call template="monogr"/>
         
         <x:expect label="Defense date YYYY should be reformated automatically to YYY-MM-DD.">
-            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+            <monogr xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
@@ -221,7 +228,7 @@
     <x:scenario label="Monogr invalid function code.">
         <x:context>
             <record>
-                <datafield tag="214" ind1=" " ind2="1">
+                <datafield tag="328" ind1=" " ind2="1">
                     <subfield code="d">2020</subfield>
                 </datafield>
                 <datafield tag="711" ind1="0" ind2="2">
@@ -242,7 +249,7 @@
         <x:call template="monogr"/>
         
         <x:expect label="Authority with invalid function code shouldn't show up.">
-            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+            <monogr xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
@@ -268,14 +275,11 @@
         <x:call template="profileDesc"/>
         
         <x:expect label="Should display profileDesc data">
-            <profileDesc xmlns="http://www.tei-c.org/ns/1.0"
+            <profileDesc xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <langUsage>
-                    <language ident="fr" />
-                </langUsage>
                 <textClass>
-                    <classCode scheme="halDomain" n="shs:hist" />
+                    <classCode scheme="halDomain" n="SHS:HIST" />
                     <classCode scheme="halTypology" n="MEM" />
                 </textClass>
             </profileDesc>
@@ -291,9 +295,9 @@
         <x:call template="profileDesc"/>
         
         <x:expect label="Should display profileDesc data">
-            <profileDesc xmlns="http://www.tei-c.org/ns/1.0"
-             xmlns:hal="http://hal.archives-ouvertes.fr/"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <profileDesc xmlns:ext="http://exslt.org/common"
+            xmlns:hal="http://hal.archives-ouvertes.fr/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <textClass>
                     <classCode scheme="halTypology" n="MEM" />
                 </textClass>

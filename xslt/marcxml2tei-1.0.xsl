@@ -190,9 +190,11 @@
                 <xsl:value-of select="translate(datafield[@tag = '102']/subfield[@code = 'a'], 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')" />
             </xsl:variable>
 
-            <langUsage>
-                <language ident="{$valLangue102}" />
-            </langUsage>
+            <xsl:if test="$valLangue102 != null and $valLangue102 != ''">
+                <langUsage>
+                    <language ident="{$valLangue102}" />
+                </langUsage>
+            </xsl:if>
 
             <textClass>
                 <xsl:call-template name="keywords" />
@@ -213,14 +215,17 @@
     </xsl:template>
 
     <xsl:template name="keywords">
-        <keywords scheme="author">
-            <!-- deduplicate keywords-->
-            <xsl:for-each select="(datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a'])[not(preceding::datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a']/. = .)]">
-                <term xml:lang="{$primaryLanguageCode}">
-                    <xsl:value-of select="." />
-                </term>
-            </xsl:for-each>
-        </keywords>
+        <xsl:variable name="keywords" select="(datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a'])[not(preceding::datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a']/. = .)]"/>
+        <xsl:if test="$keywords">
+            <keywords scheme="author">
+                <!-- deduplicate keywords-->
+                <xsl:for-each select="$keywords">
+                    <term xml:lang="{$primaryLanguageCode}">
+                        <xsl:value-of select="." />
+                    </term>
+                </xsl:for-each>
+            </keywords>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="abstract">

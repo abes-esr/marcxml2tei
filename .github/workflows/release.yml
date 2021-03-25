@@ -20,6 +20,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: Install xspec
+        run: |
+          git clone -b master https://github.com/xspec/xspec.git /tmp/xspec
+          mkdir -p /tmp/saxon
+          export SAXON_CP=/tmp/saxon/saxon9he.jar
+          wget -O "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/9.9.1-7/Saxon-HE-9.9.1-7.jar
+      -name: Tests
+        run: |
+          chmod +x .script/*sh
+          .script/xspec-test.sh
       - name: Install xmllint
         run: sudo apt-get install libxml2-utils libsaxon-java
       - name: Templating
@@ -29,6 +39,7 @@ jobs:
           make bundle.2.0 > marcxml2tei-2.0.xsl
           make oracle > marcxml2tei-oracle.xsl
           cp ./commons/oracle-cleaner.xsl .
+      s
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')

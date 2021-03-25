@@ -2,7 +2,7 @@ convert: create-output-dir
 	for i in marcxml_sample/*.xml; do saxon-xslt $$i xslt/marcxml2tei.xsl > output/$$(basename -- $$i).tei ; done
 
 test: tests/*.xspec
-	xspec tests/*.xspec
+	for i in tests/*.xspec; do xspec.sh $$i; done
 
 clear-test:
 	rm -r -f tests/xspec/

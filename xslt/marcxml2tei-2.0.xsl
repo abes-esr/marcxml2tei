@@ -1,7 +1,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://www.tei-c.org/ns/1.0"
     xmlns:hal="http://hal.archives-ouvertes.fr/" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
     xmlns:ext="http://exslt.org/common">
     <xsl:strip-space elements="*" />
@@ -169,7 +168,7 @@
             <xsl:variable name="valLangue102">
                 <xsl:value-of select="lower-case(datafield[@tag = '102']/subfield[@code = 'a'])" />
             </xsl:variable>
-            <xsl:if test="$valLangue102">
+            <xsl:if test="$valLangue102 != null and $valLangue102 != ''">
                 <langUsage>
                     <language ident="{$valLangue102}" />
                 </langUsage>
@@ -193,13 +192,16 @@
     </xsl:template>
 
     <xsl:template name="keywords">
-        <keywords scheme="author">
-            <xsl:for-each select="distinct-values(datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a'])">
-                <term xml:lang="{$primaryLanguageCode}">
-                    <xsl:value-of select="." />
-                </term>
-            </xsl:for-each>
-        </keywords>
+        <xsl:variable name="keywords" select="(datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a'])[not(preceding::datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a']/. = .)]"/>
+        <xsl:if test="$keywords">
+            <keywords scheme="author">
+                <xsl:for-each select="distinct-values($keywords)">
+                    <term xml:lang="{$primaryLanguageCode}">
+                        <xsl:value-of select="." />
+                    </term>
+                </xsl:for-each>
+            </keywords>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="abstract">
