@@ -47,7 +47,8 @@
         <x:call template="editionStmt"/>
         
         <x:expect label="Should display whenWritten. The embargo node (notBefore) shouldn't show up.">
-            <editionStmt xmlns:ext="http://exslt.org/common"
+            <editionStmt xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:ext="http://exslt.org/common"
              xmlns:hal="http://hal.archives-ouvertes.fr/"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <edition>
@@ -70,7 +71,8 @@
         <x:call template="title"/>
         
         <x:expect label="Shoud output the original title.">
-            <title xmlns:ext="http://exslt.org/common"
+            <title xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xml:lang="fr">A title : A subtitle</title>
@@ -94,15 +96,16 @@
 
         <x:call template="title"/>
         
-        <x:expect label="Shoud output the original and the translated title.">
+        <x:expect label="Shoud output the original and the translated title.">    
+            <title xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:ext="http://exslt.org/common"
+                xmlns:hal="http://hal.archives-ouvertes.fr/"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xml:lang="fr">Un titre : Un sous-titre</title>
             <title xmlns:ext="http://exslt.org/common"
-            xmlns:hal="http://hal.archives-ouvertes.fr/"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xml:lang="fr">Un titre : Un sous-titre</title>
-            <title xmlns:ext="http://exslt.org/common"
-            xmlns:hal="http://hal.archives-ouvertes.fr/"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xml:lang="en">A title : A subtitle</title>
+                xmlns:hal="http://hal.archives-ouvertes.fr/"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xml:lang="en">A title : A subtitle</title>
         </x:expect>
     </x:scenario>
 
@@ -123,7 +126,8 @@
         <x:call template="author"/>
         
         <x:expect label="Should output the author.">
-            <author xmlns:ext="http://exslt.org/common"
+            <author xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             role="aut">
@@ -177,7 +181,8 @@
         <x:call template="monogr"/>
         
         <x:expect label="Should display monogr data.">
-            <monogr xmlns:ext="http://exslt.org/common"
+            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
@@ -213,7 +218,8 @@
         <x:call template="monogr"/>
         
         <x:expect label="Defense date YYYY should be reformated automatically to YYY-MM-DD.">
-            <monogr xmlns:ext="http://exslt.org/common"
+            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
@@ -249,7 +255,8 @@
         <x:call template="monogr"/>
         
         <x:expect label="Authority with invalid function code shouldn't show up.">
-            <monogr xmlns:ext="http://exslt.org/common"
+            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
@@ -275,7 +282,8 @@
         <x:call template="profileDesc"/>
         
         <x:expect label="Should display profileDesc data">
-            <profileDesc xmlns:ext="http://exslt.org/common"
+            <profileDesc xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <textClass>
@@ -295,7 +303,8 @@
         <x:call template="profileDesc"/>
         
         <x:expect label="Should display profileDesc data">
-            <profileDesc xmlns:ext="http://exslt.org/common"
+            <profileDesc xmlns="http://www.tei-c.org/ns/1.0"
+            xmlns:ext="http://exslt.org/common"
             xmlns:hal="http://hal.archives-ouvertes.fr/"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <textClass>
