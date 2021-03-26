@@ -1,17 +1,26 @@
+validation: convert
+	@.script/validate.sh output/*.tei
+	
 convert: create-output-dir
-	for i in marcxml_sample/*.xml; do saxon-xslt $$i xslt/marcxml2tei.xsl > output/$$(basename -- $$i).tei ; done
+	@for xsl in xslt/*.xsl;	\
+	do	\
+		for i in marcxml_sample/*.xml;	\
+		do	\
+			saxon-xslt $$i $$xsl > output/$$(basename -- $$i ".xml")-$$(basename -- $$xsl ".xsl").tei;	\
+		done;	\
+	done;
 
 test: tests/*.xspec
-	for i in tests/*.xspec; do xspec.sh $$i; done
+	@for i in tests/*.xspec; do xspec.sh $$i; done
 
 clear-test:
-	rm -r -f tests/xspec/
+	@rm -r -f tests/xspec/
 
 create-output-dir:
-	mkdir -p ./output
+	@mkdir -p ./output
 
 clear-output-dir:
-	rm -r -f ./output
+	@rm -r -f ./output
 
 clean: clear-test clear-output-dir
 
