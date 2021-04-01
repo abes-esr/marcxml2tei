@@ -38,4 +38,4 @@ bundle.2.0: rebuild-mapping
 
 # builds an xslt compliant with Oracle
 oracle:
-	@.script/template.sh template/oracle.xsl
+	@.script/template.sh template/oracle.xsl | sed -r 's/ xml:base=".*?"| xmlns:xi=".*?"//g'
