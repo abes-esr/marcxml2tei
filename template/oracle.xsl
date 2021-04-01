@@ -15,7 +15,7 @@
                     <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='a']" />
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="$primaryLanguage" />
+                    <xsl:value-of select="fr" />
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -32,7 +32,7 @@
                     <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']" />
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="$secondaryLanguage" />
+                    <xsl:value-of select="en" />
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
