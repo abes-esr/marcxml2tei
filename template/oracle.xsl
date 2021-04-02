@@ -8,38 +8,39 @@
     <xsl:output method="xml" indent="yes" />
 
     <!-- On redéfinit le comportement de primaryLanguageCode : dans le contexte d'Oracle on récupère juste la valeur en 101$a (qui a été modifiée péalablement par Oracle) -->
-    <xsl:variable name="primaryLanguageCode">
-        <xsl:variable name="primaryLanguageCode639_2">
-            <xsl:choose>
-                <xsl:when test="/record/datafield[@tag='101']/subfield[@code='a']">
-                    <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='a']" />
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="fr" />
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-
-        <!-- In Oracle context we return the original value which is modified beforehand by Oracle -->
-        <xsl:value-of select="$primaryLanguageCode639_2"/>
-    </xsl:variable>
+  	<xsl:variable name="primaryLanguageCode">
+		<xsl:variable name="primaryLanguageCode639_2">
+		  <xsl:choose>
+			<xsl:when test="/record/datafield[@tag='101']/subfield[@code='a']">
+			  <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='a']"/>
+			</xsl:when>
+			<xsl:otherwise>
+			  <xsl:text>fr</xsl:text>
+			</xsl:otherwise>
+		  </xsl:choose>
+		</xsl:variable>
+		<!-- In Oracle context we return the original value which is modified beforehand by Oracle -->
+		<xsl:value-of select="$primaryLanguageCode639_2"/>
+  	</xsl:variable>
 
     <!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
     <xsl:variable name="secondaryLanguageCode">
-        <xsl:variable name="secondaryLanguageCode639_2">
-            <xsl:choose>
-                <xsl:when test="(/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']) and normalize-space(/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']) != null">
-                    <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']" />
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="en" />
-                </xsl:otherwise>
-            </xsl:choose>
+		<xsl:variable name="secondaryLanguageCode639_2">
+		  <xsl:choose>
+			<xsl:when test="/record/datafield[@tag='101']/subfield[@code='d'][2]">
+			  <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='d'][2]"/>
+			</xsl:when>
+			<xsl:when test="/record/datafield[@tag = '541']/subfield[@code = 'z'][1]">
+			  <xsl:value-of select="/record/datafield[@tag = '541']/subfield[@code = 'z']"/>
+			</xsl:when>
+			<xsl:otherwise>
+			  <xsl:text>en</xsl:text>
+			</xsl:otherwise>
+		  </xsl:choose>
         </xsl:variable>
-
         <!-- In Oracle context we return the original value which is modified beforehand by Oracle -->
-        <xsl:value-of select="$secondaryLanguageCode639_2"/>
-    </xsl:variable>
+	<xsl:value-of select="$secondaryLanguageCode639_2"/>   
+  </xsl:variable>
 
     <xsl:template name="codeOai">
         <xsl:param name="code" />
