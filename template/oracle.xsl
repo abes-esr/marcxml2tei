@@ -8,7 +8,7 @@
     <xsl:output method="xml" indent="yes" />
 
     <!-- On redéfinit le comportement de primaryLanguageCode : dans le contexte d'Oracle on récupère juste la valeur en 101$a (qui a été modifiée péalablement par Oracle) -->
-  	<xsl:variable name="primaryLanguageCode">
+	<xsl:variable name="primaryLanguageCode">
 		<xsl:variable name="primaryLanguageCode639_2">
 		  <xsl:choose>
 			<xsl:when test="/record/datafield[@tag='101']/subfield[@code='a']">
@@ -21,7 +21,7 @@
 		</xsl:variable>
 		<!-- In Oracle context we return the original value which is modified beforehand by Oracle -->
 		<xsl:value-of select="$primaryLanguageCode639_2"/>
-  	</xsl:variable>
+	</xsl:variable>
 
     <!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
     <xsl:variable name="secondaryLanguageCode">
