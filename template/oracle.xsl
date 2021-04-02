@@ -2,8 +2,6 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:hal="http://hal.archives-ouvertes.fr/" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
-    xmlns:ext="http://exslt.org/common"
-	xmlns:xml="http://www.w3.org/XML/1998/namespace"
     xmlns:xi="http://www.w3.org/2001/XInclude">
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
