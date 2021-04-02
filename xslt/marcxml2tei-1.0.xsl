@@ -45,8 +45,11 @@
     <xsl:variable name="secondaryLanguageCode">
         <xsl:variable name="secondaryLanguageCode639_2">
             <xsl:choose>
-                <xsl:when test="(/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']) and normalize-space(/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']) != null">
-                    <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='d'][2] or datafield[@tag = '541']/subfield[@code = 'z']" />
+                <xsl:when test="/record/datafield[@tag='101']/subfield[@code='d'][2]">
+                    <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='d'][2]" />
+                </xsl:when>
+                <xsl:when test="/record/datafield[@tag = '541']/subfield[@code = 'z'][1]">
+                    <xsl:value-of select="/record/datafield[@tag = '541']/subfield[@code = 'z'][1]" />
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:value-of select="$secondaryLanguage" />
