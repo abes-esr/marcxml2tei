@@ -1,4 +1,5 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns="http://www.tei-c.org/ns/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:hal="http://hal.archives-ouvertes.fr/" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
@@ -65,9 +66,7 @@
     <xsl:variable name="IdRefBaseUrl" select="'https://www.idref.fr/'" />
 
     <xsl:template name="tei" match="record">
-        <TEI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
-            xmlns="http://www.tei-c.org/ns/1.0"
-            xmlns:hal="http://hal.archives-ouvertes.fr/">
+        <TEI>
             <text>
                 <body>
                     <listBibl>
@@ -89,7 +88,7 @@
     </xsl:template>
 
     <xsl:template name="editionStmt">
-        <editionStmt xmlns="http://www.tei-c.org/ns/1.0">
+        <editionStmt>
             <edition>
                 <date type="whenWritten">
                     <xsl:value-of select="datafield[@tag = '328']/subfield[@code = 'd']" />
@@ -106,21 +105,21 @@
     </xsl:template>
 
     <xsl:template name="notesStmt">
-        <notesStmt xmlns="http://www.tei-c.org/ns/1.0">
+        <notesStmt>
             <note type="audience" n="3" />
             <!--                        <note type="degree" n="{$degreeCode}" />-->
         </notesStmt>
     </xsl:template>
 
     <xsl:template name="analytic">
-        <analytic xmlns="http://www.tei-c.org/ns/1.0">
+        <analytic>
             <xsl:call-template name="title" />
             <xsl:call-template name="author" />
         </analytic>
     </xsl:template>
 
     <xsl:template name="title">
-        <title xmlns="http://www.tei-c.org/ns/1.0" xml:lang="{$primaryLanguageCode}">
+        <title xml:lang="{$primaryLanguageCode}">
             <xsl:call-template name="joinTitleElements">
                 <xsl:with-param name="titles" select="datafield[@tag = '200']/subfield[@code = 'a']" />
                 <xsl:with-param name="subtitles" select="datafield[@tag = '200']/subfield[@code = 'e']" />
@@ -140,7 +139,7 @@
     <xsl:template name="author">
         <!-- for-each is used to sets the current node context -->
         <xsl:for-each select="datafield[@tag = '700' and subfield[@code = '4'] = '070']">
-            <author xmlns="http://www.tei-c.org/ns/1.0" role="aut">
+            <author role="aut">
                 <persName>
                     <forename type="first">
                         <xsl:value-of select="subfield[@code = 'a']" />
@@ -157,7 +156,7 @@
     </xsl:template>
 
     <xsl:template name="monogr">
-        <monogr xmlns="http://www.tei-c.org/ns/1.0">
+        <monogr>
             <!-- <settlement>
                 <xsl:value-of select="datafield[@tag = '711' and subfield[@code = '4'] = '295' ]/subfield[@code = 'c']" />
             </settlement> -->
@@ -188,7 +187,7 @@
     </xsl:template>
 
     <xsl:template name="profileDesc">
-        <profileDesc xmlns="http://www.tei-c.org/ns/1.0">
+        <profileDesc>
             <xsl:variable name="valLangue102">
                 <xsl:value-of select="translate(datafield[@tag = '102']/subfield[@code = 'a'], 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')" />
             </xsl:variable>
@@ -220,7 +219,7 @@
     <xsl:template name="keywords">
         <xsl:variable name="keywords" select="(datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a'])[not(preceding::datafield[@tag = '610' or @tag = '606' or @tag = '607']/subfield[@code = 'a']/. = .)]"/>
         <xsl:if test="$keywords">
-            <keywords xmlns="http://www.tei-c.org/ns/1.0" scheme="author">
+            <keywords scheme="author">
                 <!-- deduplicate keywords-->
                 <xsl:for-each select="$keywords">
                     <term xml:lang="{$primaryLanguageCode}">
@@ -234,12 +233,12 @@
     <xsl:template name="abstract">
         <xsl:for-each select="datafield[@tag = '330']/subfield[@code = 'a']">
             <xsl:if test="position() = 1">
-                <abstract xmlns="http://www.tei-c.org/ns/1.0" xml:lang="{$primaryLanguageCode}">
+                <abstract xml:lang="{$primaryLanguageCode}">
                     <xsl:value-of select="." />
                 </abstract>
             </xsl:if>
             <xsl:if test="position() = 2">
-                <abstract xmlns="http://www.tei-c.org/ns/1.0" xml:lang="{$secondaryLanguageCode}">
+                <abstract xml:lang="{$secondaryLanguageCode}">
                     <xsl:value-of select="." />
                 </abstract>
             </xsl:if>
