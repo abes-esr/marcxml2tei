@@ -201,13 +201,16 @@
             <textClass>
                 <xsl:call-template name="keywords" />
 
-                <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
+                <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a' or @code = 'HALDOMAIN']">
                     <xsl:variable name="oai">
                         <xsl:call-template name="codeOai">
-                            <xsl:with-param name="code" select="concat('ddc:', normalize-space(text()))"/>
+                            <xsl:with-param name="code" select="normalize-space(text())"/>
                         </xsl:call-template>
                     </xsl:variable>
-                    <classCode scheme="halDomain" n="{$oai}" />
+
+                    <xsl:if test="$oai != ''">
+                        <classCode scheme="halDomain" n="{$oai}" />
+                    </xsl:if>
                 </xsl:for-each>
 
                 <classCode scheme="halTypology" n="MEM" />
