@@ -182,7 +182,9 @@
                             <xsl:with-param name="code" select="concat('ddc:', normalize-space(text()))"/>
                         </xsl:call-template>
                     </xsl:variable>
-                    <classCode scheme="halDomain" n="{$oai}" />
+                    <xsl:if test="$oai != ''">
+                        <classCode scheme="halDomain" n="{$oai}" />
+                    </xsl:if>
                 </xsl:for-each>
 
                 <classCode scheme="halTypology" n="MEM" />
