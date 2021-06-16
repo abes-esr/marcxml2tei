@@ -43,11 +43,15 @@
 		<xsl:value-of select="$secondaryLanguageCode639_2"/>
 	</xsl:variable>
 
+
+
 	<xsl:template name="codeOai">
 		<xsl:param name="code" />
+		<!-- ORACLE preprocessing plsql doesn't remove set data so we filter them -->
+		<xsl:if test="not(contains('0123456789', substring($code, 1, 1)))">
+			<xsl:value-of select="$code"/>
+		</xsl:if>
 
-		<!-- In Oracle context we return the original value which is modified beforehand by Oracle -->
-		<xsl:value-of select="$code"/>
 	</xsl:template>
 
 	<!-- Importe le contenu de ./xslt/marcxml2tei-1.0.xsl sauf le prologue xslt, primaryLanguageCode et secondaryLanguageCode -->
