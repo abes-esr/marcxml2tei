@@ -148,9 +148,11 @@
                         <xsl:value-of select="subfield[@code = 'b']" />
                     </surname>
                 </persName>
-                <idno type="IdRef">
-                    <xsl:value-of select="concat($IdRefBaseUrl, subfield[@code = '3'])" />
-                </idno>
+                <xsl:if test="subfield[@code = '3']">
+                    <idno type="IdRef">
+                        <xsl:value-of select="concat($IdRefBaseUrl, subfield[@code = '3'])" />
+                    </idno>
+                </xsl:if>
             </author>
         </xsl:for-each>
     </xsl:template>
@@ -161,15 +163,15 @@
                 <xsl:value-of select="datafield[@tag = '711' and subfield[@code = '4'] = '295' ]/subfield[@code = 'c']" />
             </settlement> -->
             <imprint>
-                <xsl:if test="datafield[@tag = '307']/subfield[@code = ('a')]">
+                <xsl:if test="(datafield[@tag = '307']/subfield[@code = ('a') and contains(., 'impression du document génère')])[1]">
                     <biblScope unit="pp">
                         <!-- suppression de la chaine de caractères : "L'impression du document génère"  -->
-                        <xsl:value-of select="translate(substring (datafield[@tag = '307']/subfield[@code = ('a')], 33), 'p. ', '')"/>
+                        <xsl:value-of select="translate(substring ((datafield[@tag = '307']/subfield[@code = ('a') and contains(., 'impression du document génère')])[1], 33), 'p. ', '')"/>
                     </biblScope>
                 </xsl:if>
                 <date type="dateDefended">
                     <xsl:call-template name="formatDate">
-                        <xsl:with-param name="date" select="datafield[@tag = '328']/subfield[@code = ('d')]" />
+                        <xsl:with-param name="date" select="(datafield[@tag = '328']/subfield[@code = ('d')])[1]" />
                     </xsl:call-template>
                 </date>
             </imprint>

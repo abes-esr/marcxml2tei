@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+    <leader>     clm0 22        450 </leader>
+    <controlfield tag="001">24276858X</controlfield>
+    <controlfield tag="002">5</controlfield>
+    <controlfield tag="003">http://www.sudoc.fr/24276858X</controlfield>
+    <controlfield tag="004">20200304</controlfield>
+    <controlfield tag="005">20200305020402.000</controlfield>
+    <controlfield tag="006">800219901</controlfield>
+    <controlfield tag="007">0499</controlfield>
+    <controlfield tag="008">Oax3</controlfield>
+    <datafield tag="029" ind1=" " ind2=" ">
+        <subfield code="a">FR</subfield>
+        <subfield code="b">2019AMIEM163</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2=" ">
+        <subfield code="a">20200304d2020    k  y0frey50      ba</subfield>
+    </datafield>
+    <datafield tag="101" ind1="0" ind2=" ">
+        <subfield code="a">fre</subfield>
+        <subfield code="d">fre</subfield>
+        <subfield code="d">eng</subfield>
+    </datafield>
+    <datafield tag="102" ind1=" " ind2=" ">
+        <subfield code="a">FR</subfield>
+    </datafield>
+    <datafield tag="105" ind1=" " ind2=" ">
+        <subfield code="a">a   va  000yy</subfield>
+    </datafield>
+    <datafield tag="135" ind1=" " ind2=" ">
+        <subfield code="a">dr|||||||||||</subfield>
+    </datafield>
+    <datafield tag="181" ind1=" " ind2=" ">
+        <subfield code="6">z01</subfield>
+        <subfield code="c">txt</subfield>
+        <subfield code="2">rdacontent</subfield>
+    </datafield>
+    <datafield tag="181" ind1=" " ind2="1">
+        <subfield code="6">z01</subfield>
+        <subfield code="a">i#</subfield>
+        <subfield code="b">xxxe##</subfield>
+    </datafield>
+    <datafield tag="182" ind1=" " ind2=" ">
+        <subfield code="6">z01</subfield>
+        <subfield code="c">c</subfield>
+        <subfield code="2">rdamedia</subfield>
+    </datafield>
+    <datafield tag="182" ind1=" " ind2="1">
+        <subfield code="6">z01</subfield>
+        <subfield code="a">b</subfield>
+    </datafield>
+    <datafield tag="183" ind1=" " ind2="1">
+        <subfield code="6">z01</subfield>
+        <subfield code="a">ceb</subfield>
+        <subfield code="2">rdacarrier</subfield>
+    </datafield>
+    <datafield tag="200" ind1="1" ind2=" ">
+        <subfield code="a">Le syndrome de l&apos;apnée du sommeil</subfield>
+        <subfield code="e">problématiques du dépistage chez les médecins généralistes picards</subfield>
+        <subfield code="f">Dzomo Kenmo Florentine Michelle</subfield>
+        <subfield code="g">[sous la direction de] Aimeric Lefetz [i.e.] Lefetz Aimeric</subfield>
+    </datafield>
+    <datafield tag="214" ind1=" " ind2="2">
+        <subfield code="a">Amiens</subfield>
+        <subfield code="c">Université de Picardie</subfield>
+        <subfield code="d">2020</subfield>
+    </datafield>
+    <datafield tag="230" ind1=" " ind2=" ">
+        <subfield code="a">Données textuelles</subfield>
+    </datafield>
+    <datafield tag="303" ind1=" " ind2=" ">
+        <subfield code="a">Description d&apos;après la consultation, 2020-03-04</subfield>
+    </datafield>
+    <datafield tag="304" ind1=" " ind2=" ">
+        <subfield code="a">Titre provenant de la page de titre du document numérisé</subfield>
+    </datafield>
+    <datafield tag="307" ind1=" " ind2=" ">
+        <subfield code="a">En annexes : guide d&apos;entretien, échelle de somnolence d&apos;Epworth, questionnaire de Berlin</subfield>
+    </datafield>
+    <datafield tag="307" ind1=" " ind2=" ">
+        <subfield code="a">L&apos;impression du document génère 59 p.</subfield>
+    </datafield>
+    <datafield tag="320" ind1=" " ind2=" ">
+        <subfield code="a">Bibliogr. p. 50-55. Liste des abréviations. Annexes</subfield>
+    </datafield>
+    <datafield tag="328" ind1=" " ind2="0">
+        <subfield code="z">Reproduction de</subfield>
+        <subfield code="b">Thèse d&apos;exercice</subfield>
+        <subfield code="c">Médecine générale</subfield>
+        <subfield code="e">Amiens</subfield>
+        <subfield code="d">2019</subfield>
+    </datafield>
+    <datafield tag="328" ind1=" " ind2="0">
+        <subfield code="z">Reproduction de</subfield>
+        <subfield code="b">Mémoire de DES</subfield>
+        <subfield code="c">Médecine générale</subfield>
+        <subfield code="e">Amiens</subfield>
+        <subfield code="d">2019</subfield>
+    </datafield>
+    <datafield tag="330" ind1=" " ind2=" ">
+        <subfield code="a">Le syndrome d&apos;apnées du sommeil (SAS) a une prévalence de 4 à 8% chez les hommes et 2 à 6% chez les femmes. Les enjeux socio-économiques et les conséquences cardiovasculaires et métaboliques sont importants. Mais il reste sous dépisté en médecine générale. Explorer et analyser les problématiques du sous dépistage du SAS, puis proposer des pistes d&apos;amélioration. Étude qualitative en entretiens individuels semi-dirigés et menée auprès de neuf médecins généralistes picards en exercice libéral. Les entretiens ont été enregistrés, anonymisés et retranscrits intégralement. L&apos;analyse thématique a été réalisée grâce au logiciel QSR Nvivo12. L&apos;absence de doléances et de conjoint étaient problématiques. Le déni du patient et sa peur de l&apos;appareillage étaient évoqués. La sensibilisation des patients par des affiches informatives serait utile. Les consultations chronophages ne laissaient pas de place au dépistage, aussi les outils d&apos;aide au dépistage étaient jugés inutiles. L&apos;insuffisance de formation des médecins, leur méconnaissance des signes atypiques du SAS et la variabilité clinique du SAS représentaient un frein. Une meilleure sensibilisation des médecins à travers des formations initiale et continue plus axées sur le SAS serait importante. Un accès plus accru à la polygraphie ventilatoire (PV) serait nécessaire pour réduire les délais d&apos;attente au pneumologue. Des alternatives thérapeutiques autres que la pression positive continue (PPC) existent. Le développement de programmes d&apos;éducation thérapeutique du patient (ETP) serait à valoriser. Les problématiques du dépistage du SAS sont nombreuses mais des solutions existent, notamment améliorer la formation des médecins, sensibiliser les patients, développer la PV et l&apos;ETP.</subfield>
+    </datafield>
+    <datafield tag="337" ind1=" " ind2=" ">
+        <subfield code="a">Un logiciel capable de lire un fichier au format PDF</subfield>
+    </datafield>
+    <datafield tag="455" ind1=" " ind2="|">
+        <subfield code="0">242768075</subfield>
+        <subfield code="t">Le syndrome de l&apos;apnée du sommeil</subfield>
+        <subfield code="o">problématiques du dépistage chez les médecins généralistes picards</subfield>
+        <subfield code="f">Dzomo Kenmo Florentine Michelle</subfield>
+        <subfield code="d">2019</subfield>
+        <subfield code="p">1 vol. (59 p.)</subfield>
+    </datafield>
+    <datafield tag="541" ind1="|" ind2=" ">
+        <subfield code="a">Sleep apnea syndrome</subfield>
+        <subfield code="e">screening problems for picardy&apos;s general practitioners</subfield>
+        <subfield code="z">eng</subfield>
+    </datafield>
+    <datafield tag="579" ind1=" " ind2=" ">
+        <subfield code="1">0499</subfield>
+        <subfield code="3">242787428</subfield>
+    </datafield>
+    <datafield tag="606" ind1=" " ind2=" ">
+        <subfield code="3">029474299</subfield>
+        <subfield code="a">Syndromes des apnées du sommeil</subfield>
+        <subfield code="3">027357236</subfield>
+        <subfield code="x">Dépistage</subfield>
+        <subfield code="2">rameau</subfield>
+    </datafield>
+    <datafield tag="606" ind1=" " ind2=" ">
+        <subfield code="3">027338215</subfield>
+        <subfield code="a">Médecins généralistes</subfield>
+        <subfield code="3">027226794</subfield>
+        <subfield code="y">France</subfield>
+        <subfield code="3">027244938</subfield>
+        <subfield code="y">Picardie (France)</subfield>
+        <subfield code="2">rameau</subfield>
+    </datafield>
+    <datafield tag="608" ind1=" " ind2=" ">
+        <subfield code="3">027253139</subfield>
+        <subfield code="a">Thèses et écrits académiques</subfield>
+        <subfield code="2">rameau</subfield>
+    </datafield>
+    <datafield tag="700" ind1=" " ind2="1">
+        <!-- <subfield code="3">242768016</subfield> -->
+        <subfield code="a">Dzomo Kenmo</subfield>
+        <subfield code="b">Florentine Michelle</subfield>
+        <subfield code="f">1984-....</subfield>
+        <subfield code="4">070</subfield>
+    </datafield>
+    <datafield tag="701" ind1=" " ind2="1">
+        <subfield code="3">078084431</subfield>
+        <subfield code="a">Lefetz</subfield>
+        <subfield code="b">Aimeric</subfield>
+        <subfield code="f">1973-....</subfield>
+        <subfield code="4">727</subfield>
+    </datafield>
+    <datafield tag="711" ind1="0" ind2="2">
+        <subfield code="3">026403714</subfield>
+        <subfield code="a">Université de Picardie Jules Verne</subfield>
+        <subfield code="4">295</subfield>
+    </datafield>
+    <datafield tag="801" ind1=" " ind2="3">
+        <subfield code="a">FR</subfield>
+        <subfield code="b">Abes</subfield>
+        <subfield code="c">20200305</subfield>
+        <subfield code="g">AFNOR</subfield>
+    </datafield>
+    <datafield tag="856" ind1="4" ind2=" ">
+        <subfield code="q">PDF</subfield>
+        <subfield code="u">https://dumas.ccsd.cnrs.fr/dumas-02498021</subfield>
+        <subfield code="z">Accès au texte intégral</subfield>
+    </datafield>
+    <datafield tag="930" ind1=" " ind2=" ">
+        <subfield code="5">800219901:657043397</subfield>
+        <subfield code="b">800219901</subfield>
+    </datafield>
+    <datafield tag="940" ind1=" " ind2=" ">
+        <subfield code="5">800219901:657043397</subfield>
+        <subfield code="a">20200304</subfield>
+        <subfield code="b">x</subfield>
+    </datafield>
+    <datafield tag="941" ind1=" " ind2=" ">
+        <subfield code="5">800219901:657043397</subfield>
+        <subfield code="a">20200304</subfield>
+        <subfield code="b">09:45:55.000</subfield>
+    </datafield>
+</record>
