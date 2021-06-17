@@ -23,7 +23,7 @@
                         <xsl:value-of select="concat(';', ./set/setSpec, '=', ./hal/code)"></xsl:value-of>
                     </xsl:for-each>
                 </axsl:variable>
-                <axsl:value-of select="substring-before(substring-after($var, concat(';', $code, '=')), ';')" />
+                <axsl:value-of select="substring-before(substring-after($var, concat(';', concat('ddc:', $code), '=')), ';')" />
             </axsl:template>
         </axsl:stylesheet>
     </xsl:template>

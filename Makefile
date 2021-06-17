@@ -30,12 +30,12 @@ rebuild-mapping:
 
 # builds an all-in-one file which embeds the mapping data and the cleaner
 bundle.1.0: rebuild-mapping
-	@.script/template.sh template/bundle.1.0.xsl
+	@.script/template.sh template/bundle.1.0.xsl | sed -r 's! xmlns:xi="http://www.w3.org/2001/XInclude"!!g'
 
 # builds an all-in-one file which embeds the mapping data and the cleaner
 bundle.2.0: rebuild-mapping
-	@.script/template.sh template/bundle.2.0.xsl
+	@.script/template.sh template/bundle.2.0.xsl | sed -r 's! xmlns:xi="http://www.w3.org/2001/XInclude"!!g'
 
 # builds an xslt compliant with Oracle
 oracle:
-	@.script/template.sh template/oracle.xsl
+	@.script/template.sh template/oracle.xsl | sed -r 's! xmlns:xi="http://www.w3.org/2001/XInclude"! xmlns:xml="http://www.w3.org/XML/1998/namespace"!g'
