@@ -1,20 +1,21 @@
 openapi: 3.0.0
 servers:
   # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
-    url: https://www.sudoc.fr/
+    url: https://virtserver.swaggerhub.com/eonm-abes/TEI/1.0.0
+  - description: SwaggerHub API Auto Mocking
+    url: https://www.sudoc.fr/services/marxml2tei
 info:
   description: |
-    Produit des notices TEI à partir de notices de documents universitaires au format [MarcXML](http://documentation.abes.fr/sudoc/manuels/administration/aidewebservices/index.html#SudocMarcXML). Ces notices peuvent être importées dans HAL grâce à [SWORD](https://api.archives-ouvertes.fr/docs/sword) ou [X2hal](https://doc.archives-ouvertes.fr/x2hal/).
+    Produit des notices TEI à partir de notices de documents universitaires au format [MarcXML](http://documentation.abes.fr/sudoc/manuels/administration/aidewebservices/index.html#SudocMarcXML).
   version: "1.0.0"
   title: MarcXML2TEI
-  contact:
-    email: no-reply@abes.fr
   license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    name: CeCILL 2.1
+    url: 'https://cecill.info/licences/Licence_CeCILL_V2.1-fr.txt'
 paths:
-  /{ppn}.tei:
+  /{ppn}:
     parameters:
     - in: path
       name: ppn
@@ -25,10 +26,10 @@ paths:
       example: "252383524"
       description: PPN de la notice Sudoc
     get:
-      summary: Transforme une notice Sudoc en TEI
+      summary: Transforme une notice marcXML en TEI
       operationId: MarcXML2TEI
       description: |
-        Transforme une notice Sudoc en TEI
+        Transforme une notice marcXML en TEI
         
         Seule les notices conformes aux règles de catalogage des [travaux universitaires hors thèses](http://documentation.abes.fr/sudoc/regles/Catalogage/Regles_Theses_AutresDocsUniv.htm) peuvent être transformées au format TEI.
 
@@ -49,70 +50,85 @@ paths:
                     <p>The requested URL /252383524.tei was not found on this server.</p>
                   </body>
                 </html>
+        
+        '500':
+          description: Échec de la transformation. Le document n'est pas un travail universitaire hors thèses.
+          content:
+            application/xml:
+              schema:
+                "$ref": "#/components/schemas/error"
+              example: |
+                <error>Found a null xml in result : values={leppn=254516424}, query=select autorites.biblio_tei(#leppn#) from dual</error>
         '200':
           description: Succès de la transformation
           content:
             application/xml:
               schema:
-                xml:
-                  name: TEI
-                type: object
-                example: |
-                  <TEI xmlns="http://www.tei-c.org/ns/1.0"
-                    xmlns:ext="http://exslt.org/common"
-                    xmlns:hal="http://hal.archives-ouvertes.fr/"
-                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                    xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd">
-                    <text>
-                      <body>
-                        <listBibl>
-                          <biblFull>
-                            <editionStmt>
-                              <edition>
-                                <date type="whenWritten">2020</date>
-                              </edition>
-                            </editionStmt>
-                            <notesStmt>
-                              <note type="audience" n="3"/>
-                              <note type="degree" n="23"/>
-                            </notesStmt>
-                            <sourceDesc>
-                              <biblStruct>
-                                <analytic>
-                                  <title xml:lang="fr">La longévité politique : être et rester un élu de la République. L’exemple d’Amédée Bouquerel, sénateur de l’Oise de 1948 à 1992</title>
-                                  <author role="aut">
-                                    <persName>
-                                      <forename type="first">Carpi</forename>
-                                        <surname>Benjamin</surname>
-                                      </persName>
-                                    <idno type="IdRef">https://www.idref.fr/252385659</idno>
-                                  </author>
-                                </analytic>
-                                <monogr>
-                                  <imprint>
-                                    <biblScope unit="pp">183</biblScope>
-                                    <date type="dateDefended">2020-01-01</date>
-                                  </imprint>
-                                  <authority type="supervisor">David Bellamy</authority>
-                                </monogr>
-                              </biblStruct>
-                            </sourceDesc>
-                            <profileDesc>
-                              <langUsage>
-                                <language ident="fr"/>
-                              </langUsage>
-                              <textClass>
-                                <keywords scheme="author">
-                                  <term xml:lang="fr">Gaullisme</term>
-                                  <term xml:lang="fr">France</term>
-                                </keywords>
-                                <classCode scheme="halTypology" n="MEM"/>
-                              </textClass>
-                              <abstract xml:lang="fr">Lorem ipsum dolor sit amet</abstract>
-                              <abstract xml:lang="en">Lorem ipsum dolor sit amet</abstract>
-                              </profileDesc>
-                            </biblFull>
-                          </listBibl>
-                        </body>
-                      </text>
-                    </TEI>
+                "$ref": "#/components/schemas/TEI"
+              example: |
+                <TEI xmlns="http://www.tei-c.org/ns/1.0"
+                  xmlns:ext="http://exslt.org/common"
+                  xmlns:hal="http://hal.archives-ouvertes.fr/"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd">
+                  <text>
+                    <body>
+                      <listBibl>
+                        <biblFull>
+                          <editionStmt>
+                            <edition>
+                              <date type="whenWritten">2020</date>
+                            </edition>
+                          </editionStmt>
+                          <notesStmt>
+                            <note type="audience" n="3"/>
+                            <note type="degree" n="23"/>
+                          </notesStmt>
+                          <sourceDesc>
+                            <biblStruct>
+                              <analytic>
+                                <title xml:lang="fr">La longévité politique : être et rester un élu de la République. L’exemple d’Amédée Bouquerel, sénateur de l’Oise de 1948 à 1992</title>
+                                <author role="aut">
+                                  <persName>
+                                    <forename type="first">Carpi</forename>
+                                      <surname>Benjamin</surname>
+                                    </persName>
+                                  <idno type="IdRef">https://www.idref.fr/252385659</idno>
+                                </author>
+                              </analytic>
+                              <monogr>
+                                <imprint>
+                                  <biblScope unit="pp">183</biblScope>
+                                  <date type="dateDefended">2020-01-01</date>
+                                </imprint>
+                                <authority type="supervisor">David Bellamy</authority>
+                              </monogr>
+                            </biblStruct>
+                          </sourceDesc>
+                          <profileDesc>
+                            <langUsage>
+                              <language ident="fr"/>
+                            </langUsage>
+                            <textClass>
+                              <keywords scheme="author">
+                                <term xml:lang="fr">Gaullisme</term>
+                                <term xml:lang="fr">France</term>
+                              </keywords>
+                              <classCode scheme="halTypology" n="MEM"/>
+                            </textClass>
+                            <abstract xml:lang="fr">Lorem ipsum dolor sit amet</abstract>
+                            <abstract xml:lang="en">Lorem ipsum dolor sit amet</abstract>
+                            </profileDesc>
+                          </biblFull>
+                        </listBibl>
+                      </body>
+                    </text>
+                  </TEI>
+components:
+  schemas:
+    TEI:
+      type: object
+      description: "données au format tei"
+    error:
+      type: string
+      description: "message d'erreur"
