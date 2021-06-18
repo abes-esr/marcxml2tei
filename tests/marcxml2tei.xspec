@@ -98,14 +98,15 @@
         
         <x:expect label="Shoud output the original and the translated title.">    
             <title xmlns="http://www.tei-c.org/ns/1.0"
-                xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xml:lang="fr">Un titre : Un sous-titre</title>
-            <title xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xml:lang="en">A title : A subtitle</title>
+                   xmlns:ext="http://exslt.org/common"
+                   xmlns:hal="http://hal.archives-ouvertes.fr/"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xml:lang="fr">Un titre : Un sous-titre</title>
+            <title xmlns="http://www.tei-c.org/ns/1.0"
+                   xmlns:ext="http://exslt.org/common"
+                   xmlns:hal="http://hal.archives-ouvertes.fr/"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xml:lang="en">A title : A subtitle</title>
         </x:expect>
     </x:scenario>
 
