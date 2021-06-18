@@ -181,7 +181,7 @@
                 <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
                     <xsl:variable name="oai">
                         <xsl:call-template name="codeOai">
-                            <xsl:with-param name="code" select="concat('ddc:', normalize-space(text()))"/>
+                            <xsl:with-param name="code" select="normalize-space(text())"/>
                         </xsl:call-template>
                     </xsl:variable>
                     <xsl:if test="$oai != ''">
