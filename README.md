@@ -17,6 +17,10 @@ MarcXML2TEI permet de produire à partir de notices bibliographiques de document
 
 > 📝 __MarcXML2TEI ne prend en charge que les notices Unimarc conformes aux [consignes de catalogage des documents universitaires hors thèses](http://documentation.abes.fr/sudoc/regles/Catalogage/Regles_Theses_AutresDocsUniv.htm).__
 
+## API
+
+[Documentation de l'API](https://petstore.swagger.io/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fabes-esr%2Fmarcxml2tei%2Fmain%2Fmarcxml2tei-OpenAPI-schema.yaml)
+
 ## Utilisation
 
 > Cette section expose en bref l'utilisation de marcxml2tei. ~Un [guide d'utilisation pas à pas](./guide.md) est également disponible~ 📔
