@@ -6,7 +6,7 @@ convert: create-output-dir
 	do	\
 		for i in marcxml_sample/*.xml;	\
 		do	\
-			saxon-xslt $$i $$xsl > output/$$(basename -- $$i ".xml")-$$(basename -- $$xsl ".xsl").tei;	\
+			java -jar $$SAXON_CP $$i $$xsl > output/$$(basename -- $$i ".xml")-$$(basename -- $$xsl ".xsl").tei;	\
 		done;	\
 	done;
 
