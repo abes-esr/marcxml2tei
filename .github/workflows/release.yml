@@ -33,7 +33,7 @@ jobs:
           export SAXON_CP=/tmp/saxon/saxon9he.jar
           chmod +x .script/*sh
           .script/xspec-test.sh
-          make validate
+          make validatation
       - name: Templating
         run: |
           chmod +x .script/*.sh
