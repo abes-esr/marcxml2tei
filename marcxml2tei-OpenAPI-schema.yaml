@@ -29,24 +29,7 @@ paths:
         
         Seule les notices conformes aux règles de catalogage des [travaux universitaires hors thèses](http://documentation.abes.fr/sudoc/regles/Catalogage/Regles_Theses_AutresDocsUniv.htm) peuvent être transformées au format TEI.
 
-      responses:
-        '404':
-          description: La ressource demandée ou le PPN n'existent pas
-          content:
-            text/html:
-              schema:
-                type: string
-              example: |
-                <html>
-                  <head>
-                    <title>404 Not Found</title>
-                  </head>
-                  <body>
-                    <h1>Not Found</h1>
-                    <p>The requested URL /252383524.tei was not found on this server.</p>
-                  </body>
-                </html>
-        
+      responses:      
         '500':
           description: Échec de la transformation. Le document n'est pas un travail universitaire hors thèses.
           content:
