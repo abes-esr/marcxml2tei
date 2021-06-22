@@ -1,9 +1,5 @@
 openapi: 3.0.0
 servers:
-  # Added by API Auto Mocking Plugin
-  # Added by API Auto Mocking Plugin
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/eonm-abes/TEI/1.0.0
   - description: SwaggerHub API Auto Mocking
     url: https://www.sudoc.fr/services/marcxml2tei
 info:
