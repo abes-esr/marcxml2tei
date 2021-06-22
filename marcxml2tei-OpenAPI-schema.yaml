@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - description: SwaggerHub API Auto Mocking
+  - description: Service web marcxml2tei
     url: https://www.sudoc.fr/services/marcxml2tei
 info:
   description: |
