@@ -2,8 +2,8 @@
 name: Signaler un bug
 about: Créez un rapport de bug  pour que nous puissions améliorer marcxml2tei
 title: ''
-labels: ''
-assignees: ''
+labels: bug
+assignees: eonm-abes
 
 ---
 
