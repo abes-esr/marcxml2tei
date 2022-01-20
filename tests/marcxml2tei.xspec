@@ -133,8 +133,8 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             role="aut">
             <persName>
-                <forename type="first">Doe</forename>
-                <surname>John</surname>
+                <forename type="first">John</forename>
+                <surname>Doe</surname>
             </persName>
             <idno type="IdRef">https://www.idref.fr/12345689X</idno>
             </author>
