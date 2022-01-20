@@ -142,10 +142,10 @@
             <author role="aut">
                 <persName>
                     <forename type="first">
-                        <xsl:value-of select="subfield[@code = 'a']" />
+                        <xsl:value-of select="subfield[@code = 'b']" />
                     </forename>
                     <surname>
-                        <xsl:value-of select="subfield[@code = 'b']" />
+                        <xsl:value-of select="subfield[@code = 'a']" />
                     </surname>
                 </persName>
                 <xsl:if test="subfield[@code = '3']">
