@@ -18,8 +18,7 @@
             </x:param>
         </x:call>
 
-        <x:expect label="Title and subtitles should be separated with `:` with no leading `.`">A
-            title : A subtitle</x:expect>
+        <x:expect label="Title and subtitles should be separated with `:` with no leading `.`">A title : A subtitle</x:expect>
     </x:scenario>
 
     <x:scenario label="joinTitleElements with title and subtitle and a subsubtitle">
