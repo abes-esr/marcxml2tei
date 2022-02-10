@@ -33,9 +33,7 @@
             </x:param>
         </x:call>
 
-        <x:expect
-            label="Title and subtitles should be separated with `:` and subtitles with `.` with no leading `.`"
-            >A title : A subtitle. Another subtitle</x:expect>
+        <x:expect label="Title and subtitles should be separated with `:` and subtitles with `.` with no leading `.`">A title : A subtitle. Another subtitle</x:expect>
     </x:scenario>
 
     <x:scenario label="editionStmt without fileLocation">
@@ -76,8 +74,7 @@
         <x:expect label="Shoud output the original title.">
             <title xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
                 xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="fr">A title : A
-                subtitle</title>
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="fr">A title : A subtitle</title>
         </x:expect>
     </x:scenario>
 
@@ -101,12 +98,10 @@
         <x:expect label="Shoud output the original and the translated title.">
             <title xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
                 xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="fr">Un titre : Un
-                sous-titre</title>
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="fr">Un titre : Un sous-titre</title>
             <title xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
                 xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en">A title : A
-                subtitle</title>
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en">A title : A subtitle</title>
         </x:expect>
     </x:scenario>
 
@@ -162,17 +157,20 @@
                 <datafield tag="328" ind1=" " ind2="1">
                     <subfield code="d">2020</subfield>
                 </datafield>
-                <datafield tag="711" ind1="0" ind2="2">
-                    <subfield code="3">026402920</subfield>
-                    <subfield code="a">Université d'Angers</subfield>
-                    <subfield code="4">295</subfield>
+                <datafield tag="700" ind1=" " ind2="1">
+                    <subfield code="3">235246093</subfield>
+                    <subfield code="a">Cordero Gamboa</subfield>
+                    <subfield code="b">Nadia</subfield>
+                    <subfield code="f">1978-....</subfield>
+                    <subfield code="4">070</subfield>
                 </datafield>
                 <datafield tag="701" ind1=" " ind2="1">
-                    <subfield code="3">031290035</subfield>
-                    <subfield code="a">Bellamy</subfield>
-                    <subfield code="b">David</subfield>
-                    <subfield code="f">1965-....</subfield>
+                    <subfield code="3">028278666</subfield>
+                    <subfield code="a">Sélim</subfield>
+                    <subfield code="b">Monique</subfield>
+                    <subfield code="f">1951-....</subfield>
                     <subfield code="4">727</subfield>
+                    <subfield code="4">555</subfield>
                 </datafield>
                 <datafield tag="701" ind1=" " ind2="1">
                     <subfield code="3">052206211</subfield>
@@ -211,6 +209,11 @@
                     <subfield code="f">19..-....</subfield>
                     <subfield code="4">555</subfield>
                 </datafield>
+                <datafield tag="711" ind1="0" ind2="2">
+                    <subfield code="3">19077990X</subfield>
+                    <subfield code="a">Université Sorbonne Paris Cité</subfield>
+                    <subfield code="4">295</subfield>
+                </datafield>
             </record>
         </x:context>
 
@@ -223,16 +226,17 @@
                 <imprint>
                     <date type="dateDefended">2020-01-01</date>
                 </imprint>
-                <authority type="institution">Université d'Angers</authority>
-                <authority type="supervisor">David Bellamy</authority>
+                <authority type="institution">Université Sorbonne Paris Cité</authority>
+                <authority type="supervisor">Monique Sélim</authority>
                 <authority type="jury">Saeed Paivandi [Président]</authority>
-                <authority type="jury">Yao Gnabeli Roch [Rapporteur]</authority>
-                <authority type="jury">Moulier Boutang Yann [Rapporteur]</authority>
-                <authority type="jury">Sélim Monique</authority>
-                <authority type="jury">Yao Gnabeli Roch</authority>
-                <authority type="jury">Moulier Boutang Yann</authority>
-                <authority type="jury">Agulhon Catherine</authority>
-                <authority type="jury">Benveniste Annie</authority>
+                <authority type="jury">Roch Yao Gnabeli [Rapporteur]</authority>
+                <authority type="jury">Yann Moulier Boutang [Rapporteur]</authority>
+                <authority type="jury">Monique Sélim</authority>
+                <authority type="jury">Saeed Paivandi</authority>
+                <authority type="jury">Roch Yao Gnabeli</authority>
+                <authority type="jury">Yann Moulier Boutang</authority>
+                <authority type="jury">Catherine Agulhon</authority>
+                <authority type="jury">Annie Benveniste</authority>
             </monogr>
         </x:expect>
     </x:scenario>

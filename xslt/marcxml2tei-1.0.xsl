@@ -282,7 +282,7 @@
         <xsl:param name="jury_member"/>
         <xsl:param name="role"/>
         
-        <xsl:variable name="prenom_nom" select="concat(subfield[@code='a'], ' ', subfield[@code='b'])"/>
+        <xsl:variable name="prenom_nom" select="concat(subfield[@code='b'], ' ', subfield[@code='a'])"/>
         <xsl:variable name="formated_role">
             <xsl:if test="$role">[<xsl:value-of select="$role"/>]</xsl:if>
         </xsl:variable>
