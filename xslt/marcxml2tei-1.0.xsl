@@ -185,8 +185,6 @@
                     <xsl:value-of select="normalize-space(concat(datafield[@tag = '701']/subfield[@code = 'b'], ' ', datafield[@tag = '701']/subfield[@code = 'a']))" />
                 </authority>
             </xsl:if>
-            
-            <xsl:call-template name="jury"/>
         </monogr>
     </xsl:template>
 
@@ -250,52 +248,6 @@
                 </abstract>
             </xsl:if>
         </xsl:for-each>
-    </xsl:template>
-    
-    <xsl:template name="president_jury">
-        <xsl:for-each select="datafield[@tag='701'][subfield[@code='4']/text()='956']">
-            <xsl:call-template name="format_jury_member">
-                <xsl:with-param name="jury_member"><xsl:value-of select="."/></xsl:with-param>
-                <xsl:with-param name="role">Président</xsl:with-param>
-            </xsl:call-template>
-        </xsl:for-each>
-    </xsl:template>
-    
-    <xsl:template name="rapporteurs_jury">
-        <xsl:for-each select="datafield[@tag='701'][subfield[@code='4']/text()='958']">
-            <xsl:call-template name="format_jury_member">
-                <xsl:with-param name="jury_member"><xsl:value-of select="."/></xsl:with-param>
-                <xsl:with-param name="role">Rapporteur</xsl:with-param>
-            </xsl:call-template>
-        </xsl:for-each>
-    </xsl:template>
-    
-    <xsl:template name="membres_jury">
-        <xsl:for-each select="datafield[@tag='701'][subfield[@code='4']/text()='555']">
-            <xsl:call-template name="format_jury_member">
-                <xsl:with-param name="jury_member"><xsl:value-of select="."/></xsl:with-param>
-            </xsl:call-template>
-        </xsl:for-each>
-    </xsl:template>
-        
-    <xsl:template name="format_jury_member">
-        <xsl:param name="jury_member"/>
-        <xsl:param name="role"/>
-        
-        <xsl:variable name="prenom_nom" select="concat(subfield[@code='a'], ' ', subfield[@code='b'])"/>
-        <xsl:variable name="formated_role">
-            <xsl:if test="$role">[<xsl:value-of select="$role"/>]</xsl:if>
-        </xsl:variable>
-        
-        <authority type="jury">
-            <xsl:value-of select="normalize-space(concat($prenom_nom, ' ', $formated_role))"/>
-        </authority>
-    </xsl:template>
-    
-    <xsl:template name="jury">
-        <xsl:call-template name="president_jury"/>
-        <xsl:call-template name="rapporteurs_jury"/>
-        <xsl:call-template name="membres_jury"/>
     </xsl:template>
 
     <!-- Joint le titre et les sous-titres selon la syntaxe suivante : `Titre : Sous titre 1. Sous titre 2` -->
