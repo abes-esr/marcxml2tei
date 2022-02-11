@@ -199,6 +199,7 @@
                     <subfield code="a">Agulhon</subfield>
                     <subfield code="b">Catherine</subfield>
                     <subfield code="f">19..-....</subfield>
+                    <subfield code="4">727</subfield>
                     <subfield code="4">555</subfield>
                 </datafield>
                 <datafield tag="701" ind1=" " ind2="1">
@@ -227,6 +228,7 @@
                 </imprint>
                 <authority type="institution">Université Sorbonne Paris Cité</authority>
                 <authority type="supervisor">Monique Sélim</authority>
+                <authority type="supervisor">Catherine Agulhon</authority>
                 <authority type="jury">Saeed Paivandi [Président]</authority>
                 <authority type="jury">Roch Yao Gnabeli [Rapporteur]</authority>
                 <authority type="jury">Yann Moulier Boutang [Rapporteur]</authority>
