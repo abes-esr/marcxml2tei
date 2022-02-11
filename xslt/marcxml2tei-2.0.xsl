@@ -157,12 +157,12 @@
                 <authority type="institution">
                     <xsl:value-of select="datafield[@tag = '711']/subfield[@code = 'a']"/>
                 </authority>
-            </xsl:if>
-            <xsl:if test="datafield[@tag = '701' and subfield[@code = '4'] = '727' ]">
+            </xsl:if>           
+            <xsl:for-each select="datafield[@tag='701'][subfield[@code='4']/text()='727']">
                 <authority type="supervisor">
-                    <xsl:value-of select="normalize-space(concat(datafield[@tag = '701']/subfield[@code = 'b'], ' ', datafield[@tag = '701']/subfield[@code = 'a']))" />
+                    <xsl:value-of select="normalize-space(concat(subfield[@code = 'b'], ' ', subfield[@code = 'a']))" />
                 </authority>
-            </xsl:if>
+            </xsl:for-each>
             
             <xsl:call-template name="jury"/>
         </monogr>
@@ -261,9 +261,11 @@
             <xsl:if test="$role">[<xsl:value-of select="$role"/>]</xsl:if>
         </xsl:variable>
         
-        <authority type="jury">
-            <xsl:value-of select="normalize-space(concat($prenom_nom, ' ', $formated_role))"/>
-        </authority>
+        <xsl:if test="$prenom_nom">
+            <authority type="jury">
+                <xsl:value-of select="normalize-space(concat($prenom_nom, ' ', $formated_role))"/>
+            </authority>
+        </xsl:if>
     </xsl:template>
     
     <xsl:template name="jury">
