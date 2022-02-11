@@ -115,7 +115,7 @@
 
     <xsl:template name="author">
         <!-- for-each is used to sets the current node context -->
-        <xsl:for-each select="datafield[@tag = '700' and subfield[@code = '4'] = '070' ]">
+        <xsl:for-each select="datafield[@tag = '700'][subfield[@code = '4'] = '070' ]">
             <author xmlns="http://www.tei-c.org/ns/1.0" role="aut">
                 <persName>
                     <forename type="first">
@@ -153,7 +153,7 @@
                     </xsl:call-template>
                 </date>
             </imprint>
-            <xsl:if test="datafield[@tag = '711' and subfield[@code = '4'] = '295' ]">
+            <xsl:if test="datafield[@tag = '711'][subfield[@code = '4'] = '295' ]">
                 <authority type="institution">
                     <xsl:value-of select="datafield[@tag = '711']/subfield[@code = 'a']"/>
                 </authority>
@@ -181,7 +181,7 @@
             <textClass>
                 <xsl:call-template name="keywords"/>
 
-                <xsl:for-each select="datafield[@tag = '686' and subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
+                <xsl:for-each select="datafield[@tag = '686'][subfield[@code = '2'] = 'TEF']/subfield[@code = 'a']">
                     <xsl:variable name="oai">
                         <xsl:call-template name="codeOai">
                             <xsl:with-param name="code" select="normalize-space(text())"/>
