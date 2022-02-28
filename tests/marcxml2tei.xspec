@@ -356,4 +356,50 @@
             </profileDesc>
         </x:expect>
     </x:scenario>
+
+    <x:scenario label="Monogr should extract pages.">
+        <x:context>
+            <record>
+                <datafield tag="307" ind1=" " ind2=" ">
+                    <subfield code="a">L&apos;impression du document génère 59 pages</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="monogr"/>
+
+        <x:expect label="Monogr should extract pages.">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
+                xmlns:hal="http://hal.archives-ouvertes.fr/"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <imprint>
+                    <biblScope unit="pp">59</biblScope>
+                    <date type="dateDefended" />
+                </imprint>
+            </monogr>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="Monogr should extract pages even when data is partially faulty.">
+        <x:context>
+            <record>
+                <datafield tag="307" ind1=" " ind2=" ">
+                    <subfield code="a">L&apos;impression du document génère 59 p.</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="monogr"/>
+
+        <x:expect label="Monogr should extract pages.">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
+                xmlns:hal="http://hal.archives-ouvertes.fr/"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <imprint>
+                    <biblScope unit="pp">59</biblScope>
+                    <date type="dateDefended" />
+                </imprint>
+            </monogr>
+        </x:expect>
+    </x:scenario>
 </x:description>

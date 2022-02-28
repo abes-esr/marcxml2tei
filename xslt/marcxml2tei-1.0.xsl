@@ -166,7 +166,7 @@
                 <xsl:if test="(datafield[@tag = '307']/subfield[@code = ('a') and contains(., 'impression du document génère')])[1]">
                     <biblScope unit="pp">
                         <!-- suppression de la chaine de caractères : "L'impression du document génère"  -->
-                        <xsl:value-of select="translate(substring ((datafield[@tag = '307']/subfield[@code = ('a') and contains(., 'impression du document génère')])[1], 33), 'p. ', '')"/>
+                        <xsl:value-of select="translate(translate(substring ((datafield[@tag = '307']/subfield[@code = ('a') and contains(., 'impression du document génère')])[1], 33), 'p. ', ''), translate(.,'0123456789',''), '')"/>
                     </biblScope>
                 </xsl:if>
                 <date type="dateDefended">

@@ -140,7 +140,7 @@
                 <xsl:value-of select="datafield[@tag = '711' and subfield[@code = '4'] = '295' ]/subfield[@code = 'c']" />
             </settlement> -->
             <imprint>
-                <xsl:analyze-string select="(datafield[@tag = '307']/subfield[@code = ('a') and contains(., 'impression du document génère')])[1]/text()" regex="impression du document génère (\d+) p\.">
+                <xsl:analyze-string select="(datafield[@tag = '307']/subfield[@code = ('a') and contains(., 'impression du document génère')])[1]/text()" regex="impression du document génère (\d+) p">
                     <xsl:matching-substring>
                         <biblScope unit="pp">
                             <xsl:value-of select="regex-group(1)"/>
