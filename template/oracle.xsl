@@ -27,27 +27,6 @@
         </xsl:call-template>
     </xsl:variable>
 
-	<!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
-	<xsl:variable name="secondaryLanguageCode">
-		<xsl:variable name="secondaryLanguageCode639_2">
-			<xsl:choose>
-				<xsl:when test="/record/datafield[@tag='101']/subfield[@code='d'][2]">
-					<xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='d'][2]"/>
-				</xsl:when>
-				<xsl:when test="/record/datafield[@tag = '541']/subfield[@code = 'z'][1]">
-					<xsl:value-of select="/record/datafield[@tag = '541']/subfield[@code = 'z'][1]"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:text>en</xsl:text>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<!-- In Oracle context we return the original value which is modified beforehand by Oracle -->
-		<xsl:value-of select="$secondaryLanguageCode639_2"/>
-	</xsl:variable>
-
-
-
 	<xsl:template name="codeOai">
 		<xsl:param name="code" />
 		<!-- ORACLE preprocessing plsql doesn't remove set data so we filter them -->

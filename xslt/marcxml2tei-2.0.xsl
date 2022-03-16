@@ -11,11 +11,6 @@
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
     
-    <!-- Paramètres pouvant être modifiés par saxon : `saxon-xslt 252383524.xml mapping.xslt secondaryLanguageCode=es degreeCode=22 > output.tei`  -->
-    <!-- Langue principale du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue principale du document-->
-    <xsl:param name="primaryLanguage" as="xs:string" required="no" select="'fre'"/>
-    <!-- Langue secondaire du document. Au format ISO 639-2. Lorsqu'il est renseigné, ce paramètre n'est utilisé que s'il est impossible de trouver la langue secondaire du document -->
-    <xsl:param name="secondaryLanguage" as="xs:string" required="no" select="'eng'"/>
     <!-- Liste des codes diplôme : https://api.archives-ouvertes.fr/ref/metadataList/?q=metaName_s:dumas_degreeType&rows=70 -->
     <xsl:param name="degreeCode" as="xs:string" required="no" select="'23'"/>
     <!-- Lien vers le fichier PDF. Peut prendre la forme d'un lien ftp -->
@@ -40,14 +35,6 @@
 
         <xsl:call-template name="codeLangue">
             <xsl:with-param name="code" select="$mainTitleLang639_2"/>
-        </xsl:call-template>
-    </xsl:variable>
-
-    <!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
-    <xsl:variable name="secondaryLanguageCode">
-        <xsl:variable name="secondaryLanguageCode639_2" select="(/record/datafield[@tag='101']/subfield[@code='d'][2], datafield[@tag = '541']/subfield[@code = 'z'], $secondaryLanguage)[1]"/>
-        <xsl:call-template name="codeLangue">
-            <xsl:with-param name="code" select="$secondaryLanguageCode639_2"/>
         </xsl:call-template>
     </xsl:variable>
 
@@ -230,18 +217,17 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="abstract">
+    <xsl:template name="abstract"> 
         <xsl:for-each select="datafield[@tag = '330']/subfield[@code = 'a']">
-            <xsl:if test="position() = 1">
-                <abstract xmlns="http://www.tei-c.org/ns/1.0" xml:lang="{$primaryLanguageCode}">
-                    <xsl:value-of select="." />
-                </abstract>
-            </xsl:if>
-            <xsl:if test="position() = 2">
-                <abstract xmlns="http://www.tei-c.org/ns/1.0" xml:lang="{$secondaryLanguageCode}">
-                    <xsl:value-of select="." />
-                </abstract>
-            </xsl:if>
+            <xsl:variable name="abstractIndex" select="position()"/>
+            <xsl:variable name="abstractLang">
+                <xsl:call-template name="codeLangue">
+                    <xsl:with-param name="code" select="//datafield[@tag='101']/subfield[@code='d'][$abstractIndex]"/>
+                </xsl:call-template>
+            </xsl:variable>
+            <abstract xml:lang="{$abstractLang}">
+                <xsl:value-of select="." />
+            </abstract>
         </xsl:for-each>
     </xsl:template>
 
