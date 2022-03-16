@@ -9,20 +9,23 @@
 	<xsl:output method="xml" indent="yes" />
 
 	<!-- On redéfinit le comportement de primaryLanguageCode : dans le contexte d'Oracle on récupère juste la valeur en 101$a (qui a été modifiée péalablement par Oracle) -->
-	<xsl:variable name="primaryLanguageCode">
-		<xsl:variable name="primaryLanguageCode639_2">
-			<xsl:choose>
-				<xsl:when test="/record/datafield[@tag='101']/subfield[@code='a']">
-					<xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='a']"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:text>fr</xsl:text>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<!-- In Oracle context we return the original value which is modified beforehand by Oracle -->
-		<xsl:value-of select="$primaryLanguageCode639_2"/>
-	</xsl:variable>
+    <xsl:variable name="mainTitleLang">
+        <xsl:variable name="mainTitleLang639_2">
+            <xsl:choose>
+                <xsl:when test="count(/record/datafield[@tag='101']/subfield[@code='a']) = 1">
+                    <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='a'][1]"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <!-- Par défaut on considère que le document est en Français s'il y a plusieurs 101$a -->
+                    <xsl:text>fre</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <xsl:call-template name="codeLangue">
+            <xsl:with-param name="code" select="$mainTitleLang639_2"/>
+        </xsl:call-template>
+    </xsl:variable>
 
 	<!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
 	<xsl:variable name="secondaryLanguageCode">
