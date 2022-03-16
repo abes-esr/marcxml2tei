@@ -203,7 +203,7 @@
         <xsl:if test="$keywords">
             <keywords xmlns="http://www.tei-c.org/ns/1.0" scheme="author">
                 <xsl:for-each select="distinct-values($keywords)">
-                    <term xml:lang="{$primaryLanguageCode}">
+                    <term xml:lang="fr">
                         <xsl:value-of select="." />
                     </term>
                 </xsl:for-each>

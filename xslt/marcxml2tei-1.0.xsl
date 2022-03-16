@@ -204,7 +204,6 @@
 
             <textClass>
                 <xsl:call-template name="keywords" />
-
                 <xsl:for-each select="datafield[@tag = '686'][subfield[@code = '2'] = 'TEF']/subfield[@code = 'a' or @code = 'HALDOMAIN']">
                     <xsl:variable name="oai">
                         <xsl:call-template name="codeOai">
@@ -229,7 +228,7 @@
             <keywords scheme="author">
                 <!-- deduplicate keywords-->
                 <xsl:for-each select="$keywords">
-                    <term xml:lang="{$primaryLanguageCode}">
+                    <term xml:lang="fr">
                         <xsl:value-of select="." />
                     </term>
                 </xsl:for-each>
