@@ -78,14 +78,13 @@
 
     <xsl:template name="title">
         <xsl:variable name="mainTitleLang">
-            <xsl:variable name="numberOfMainLang" select="count(/record/datafield[@tag='101']/subfield[@code='a'])" />
             <xsl:variable name="mainTitleLang639_2">
                 <xsl:choose>
-                    <xsl:when test="$numberOfMainLang=1">
+                    <xsl:when test="count(/record/datafield[@tag='101']/subfield[@code='a'])=1">
                         <xsl:value-of select="/record/datafield[@tag='101']//subfield[@code='a'][1]"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:text>fre</xsl:text>
+                        <xsl:text>fr</xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
