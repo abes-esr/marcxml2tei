@@ -18,25 +18,8 @@
     <!-- Date d'embargo  au format AAAA-MM-JJ -->
     <xsl:param name="embargoDate" as="xs:string" required="no" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')"/>
 
-    <!-- Récupération du code langue en 101$a. Valeur par défaut = valeur du paramètre primaryLanguage ou 'fre'-->
+    <!-- Récupération du code langue en 101$a. Valeur par défaut = 'fre'-->
     <xsl:variable name="mappingCodeLangue" select="document('code_langues.xml')" />
-    <xsl:variable name="mainTitleLang">
-        <xsl:variable name="mainTitleLang639_2">
-            <xsl:choose>
-                <xsl:when test="count(/record/datafield[@tag='101']/subfield[@code='a']) = 1">
-                    <xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='a'][1]"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <!-- Par défaut on considère que le document est en Français s'il y a plusieurs 101$a -->
-                    <xsl:text>fre</xsl:text>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-
-        <xsl:call-template name="codeLangue">
-            <xsl:with-param name="code" select="$mainTitleLang639_2"/>
-        </xsl:call-template>
-    </xsl:variable>
 
     <xsl:variable name="IdRefBaseUrl" select="'https://www.idref.fr/'"/>
 
@@ -94,6 +77,24 @@
     </xsl:template>
 
     <xsl:template name="title">
+        <xsl:variable name="mainTitleLang">
+            <xsl:variable name="numberOfMainLang" select="count(/record/datafield[@tag='101']/subfield[@code='a'])" />
+            <xsl:variable name="mainTitleLang639_2">
+                <xsl:choose>
+                    <xsl:when test="$numberOfMainLang=1">
+                        <xsl:value-of select="/record/datafield[@tag='101']//subfield[@code='a'][1]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>fre</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+    
+            <xsl:call-template name="codeLangue">
+                <xsl:with-param name="code" select="$mainTitleLang639_2"/>
+            </xsl:call-template>
+        </xsl:variable>
+
         <title xmlns="http://www.tei-c.org/ns/1.0" xml:lang="{$mainTitleLang}">
             <xsl:call-template name="joinTitleElements">
                 <xsl:with-param name="titles" select="datafield[@tag = '200']/subfield[@code = 'a']" />
