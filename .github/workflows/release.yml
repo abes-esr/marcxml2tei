@@ -37,19 +37,19 @@ jobs:
       - name: Templating
         run: |
           chmod +x .script/*.sh
-          make bundle.1.0 > marcxml2tei-1.0.xsl
-          make bundle.2.0 > marcxml2tei-2.0.xsl
-          make oracle > marcxml2tei-oracle.xsl
-          cp ./commons/oracle-cleaner.xsl .
+          make bundle.1.0
+          make bundle.2.0
+          make oracle
+          cp ./commons/oracle-cleaner.xsl /bundle/oracle-cleaner.xsl
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            marcxml2tei-1.0.xsl
-            marcxml2tei-2.0.xsl
-            marcxml2tei-oracle.xsl
-            oracle-cleaner.xsl
+            bundle/marcxml2tei-1.0.xsl
+            bundle/marcxml2tei-2.0.xsl
+            bundle/marcxml2tei-oracle.xsl
+            bundle/oracle-cleaner.xsl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           

@@ -10,7 +10,7 @@ convert: create-output-dir
 		done;	\
 	done;
 
-test: tests/*.xspec
+test: tests/*.xspec bundle.1.0 bundle.2.0
 	@for i in tests/*.xspec; do xspec.sh $$i; done
 
 clear-test:
@@ -30,12 +30,15 @@ rebuild-mapping:
 
 # builds an all-in-one file which embeds the mapping data and the cleaner
 bundle.1.0: rebuild-mapping
-	@.script/template.sh template/bundle.1.0.xsl | sed -r 's! xmlns:xi="http://www.w3.org/2001/XInclude"!!g'
+	mkdir -p bundle
+	@.script/template.sh template/bundle.1.0.xsl | sed -r 's! xmlns:xi="http://www.w3.org/2001/XInclude"!!g' > bundle/marcxml2tei-1.0.xsl
 
 # builds an all-in-one file which embeds the mapping data and the cleaner
 bundle.2.0: rebuild-mapping
-	@.script/template.sh template/bundle.2.0.xsl | sed -r 's! xmlns:xi="http://www.w3.org/2001/XInclude"!!g'
+	mkdir -p bundle
+	@.script/template.sh template/bundle.2.0.xsl | sed -r 's! xmlns:xi="http://www.w3.org/2001/XInclude"!!g' > bundle/marcxml2tei-2.0.xsl
 
 # builds an xslt compliant with Oracle
 oracle:
-	@.script/template.sh template/oracle.xsl | sed -r 's! xmlns:xi="http://www.w3.org/2001/XInclude"! xmlns:xml="http://www.w3.org/XML/1998/namespace"!g'
+	mkdir -p bundle
+	@.script/template.sh template/oracle.xsl | sed -r 's! xmlns:xi="http://www.w3.org/2001/XInclude"! xmlns:xml="http://www.w3.org/XML/1998/namespace"!g' > bundle/marcxml2tei-oracle.xsl
