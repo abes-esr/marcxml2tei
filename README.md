@@ -5,14 +5,14 @@
 _Conversion de documents MarcXML en TEI_
 
 [![Release](https://github.com/abes-esr/marcxml2tei/actions/workflows/release.yml/badge.svg?style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/actions/workflows/release.yml)
-[![Latest Build](https://img.shields.io/badge/%F0%9F%93%A6%20lastest%20build-marcxml2tei.xsl-yellow?style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/releases/latest/download/marcxml2tei-2.0.xsl)
+[![Latest Build](https://img.shields.io/badge/%F0%9F%93%A6%20lastest%20build-marcxml2tei.xsl-yellow?style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/releases/latest/download/marcxml2tei.xsl)
 [![GitHub release](https://img.shields.io/github/release/abes-esr/marcxml2tei.svg?style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/releases/latest)
 [![Contribution Welcome](https://img.shields.io/badge/contribution-welcome-green.svg?style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/pulls)
 [![license](https://img.shields.io/badge/license-CeCILL%202.1-blue.svg?style=for-the-badge)](https://cecill.info/licences/Licence_CeCILL_V2.1-en.txt)
 
 </div>
 
-MarcXML2TEI permet de produire à partir de notices bibliographiques de documents universitaires [MarcXML](http://documentation.abes.fr/sudoc/manuels/administration/aidewebservices/index.html#SudocMarcXML), des notices TEI. Ces notices peuvent être importées dans HAL grâce à [SWORD](https://api.archives-ouvertes.fr/docs/sword) ou [X2hal](https://doc.archives-ouvertes.fr/x2hal/).
+MarcXML2TEI permet de produire à partir de notices bibliographiques de documents universitaires [MarcXML](http://documentation.abes.fr/sudoc/manuels/administration/aidewebservices/index.html#SudocMarcXML), des notices TEI. Ces notices peuvent être importées dans HAL grâce au [WebService](https://fil.abes.fr/2022/02/23/sudoc-et-dumas-faciliter-le-signalement-des-documents-universitaires/) du même nom.
 
 
 > 📝 __MarcXML2TEI ne prend en charge que les notices Unimarc conformes aux [consignes de catalogage des documents universitaires hors thèses](http://documentation.abes.fr/sudoc/regles/Catalogage/Regles_Theses_AutresDocsUniv.htm).__
