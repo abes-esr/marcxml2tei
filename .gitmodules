@@ -1,0 +1,3 @@
+[submodule "rameau"]
+	path = rameau
+	url = https://github.com/eonm-abes/rameau
