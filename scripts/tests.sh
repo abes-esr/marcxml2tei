@@ -1,4 +1,6 @@
-#! /bin/bash
+#!/usr/bin/env bash
+
+export SAXON_CP=/tmp/saxon/saxon9he.jar
 
 for xspecfile in tests/*.xspec; do
     if /tmp/xspec/bin/xspec.sh -e "${xspecfile}" &> result.log; then

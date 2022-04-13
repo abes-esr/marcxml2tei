@@ -4,10 +4,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:hal="http://hal.archives-ouvertes.fr/" xsi:schemaLocation="http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd"
     xmlns:ext="http://exslt.org/common">
-     <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template or by bundle template with fresh data-->
-    <xsl:import href="../commons/code_langues.xsl" />
-    <!-- /!\ For development and tests purposes only. Will be overwrited by Oracle template or by bundle template with fresh data-->
-    <xsl:import href="../commons/mapping_domainesTEL_et_oaiSets.xsl" />
     <xsl:strip-space elements="*" />
     <xsl:output method="xml" indent="yes" />
 
@@ -15,8 +11,6 @@
     <xsl:param name="degreeCode" select="'23'" />
     <!-- Lien vers le fichier PDF. Peut prendre la forme d'un lien ftp -->
     <xsl:param name="fileLocation" select="''" />
-    <!-- Date d'embargo  au format AAAA-MM-JJ -->
-    <!--    <xsl:param name="embargoDate" select="format-date(current-date(),'[Y0001]-[M01]-[D01]')" />-->
 
     <xsl:variable name="IdRefBaseUrl" select="'https://www.idref.fr/'" />
 
@@ -62,7 +56,7 @@
     <xsl:template name="notesStmt">
         <notesStmt>
             <note type="audience" n="3" />
-            <!--                        <note type="degree" n="{$degreeCode}" />-->
+            <!--<note type="degree" n="{$degreeCode}" />-->
         </notesStmt>
     </xsl:template>
 

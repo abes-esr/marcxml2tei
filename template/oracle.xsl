@@ -18,7 +18,6 @@
 
 	<xsl:template name="codeOai">
 		<xsl:param name="code" />
-		<!-- ORACLE preprocessing plsql doesn't remove set data so we filter them -->
 		<xsl:if test="not(contains('0123456789', substring($code, 1, 1)))">
 			<xsl:value-of select="$code"/>
 		</xsl:if>

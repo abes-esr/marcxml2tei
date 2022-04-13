@@ -1,55 +1,32 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Release
 
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     tags:
-      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "v*" # Seulement pour les versions
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  release:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Install xmllint
-        run: sudo apt-get install libxml2-utils libsaxon-java
-      - name: Install xspec
+      - uses: actions/checkout@v3
+      - name: Install dependencies
         run: |
-          git clone -b master https://github.com/xspec/xspec.git /tmp/xspec
-          mkdir -p /tmp/saxon
-          export SAXON_CP=/tmp/saxon/saxon9he.jar
-          wget -O "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/9.9.1-7/Saxon-HE-9.9.1-7.jar
-      - name: Tests
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils libsaxon-java default-jre
+          make install-saxon
+          make install-xspec
+      - name: Run tests
         run: |
           export SAXON_CP=/tmp/saxon/saxon9he.jar
-          chmod +x .script/*sh
-          .script/xspec-test.sh
-          make validation
-      - name: Templating
-        run: |
-          chmod +x .script/*.sh
-          make bundle.1.0
-          make bundle.2.0
-          make oracle
-          cp ./commons/oracle-cleaner.xsl /bundle/oracle-cleaner.xsl
+          make full-tests
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
             bundle/marcxml2tei-1.0.xsl
-            bundle/marcxml2tei-2.0.xsl
             bundle/marcxml2tei-oracle.xsl
-            bundle/oracle-cleaner.xsl
+            utils/oracle-cleaner.xsl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
