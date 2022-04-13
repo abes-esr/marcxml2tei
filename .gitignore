@@ -1,2 +1,4 @@
 bundle
 output
+tests/xspec/
+commons/
