@@ -8,52 +8,21 @@
 	<xsl:strip-space elements="*" />
 	<xsl:output method="xml" indent="yes" />
 
-	<!-- On redéfinit le comportement de primaryLanguageCode : dans le contexte d'Oracle on récupère juste la valeur en 101$a (qui a été modifiée péalablement par Oracle) -->
-	<xsl:variable name="primaryLanguageCode">
-		<xsl:variable name="primaryLanguageCode639_2">
-			<xsl:choose>
-				<xsl:when test="/record/datafield[@tag='101']/subfield[@code='a']">
-					<xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='a']"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:text>fr</xsl:text>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<!-- In Oracle context we return the original value which is modified beforehand by Oracle -->
-		<xsl:value-of select="$primaryLanguageCode639_2"/>
-	</xsl:variable>
-
-	<!-- Récupération du code langue en 101$d ou en 541$z. Valeur par défaut = valeur du paramètre secondaryLanguage ou 'eng' -->
-	<xsl:variable name="secondaryLanguageCode">
-		<xsl:variable name="secondaryLanguageCode639_2">
-			<xsl:choose>
-				<xsl:when test="/record/datafield[@tag='101']/subfield[@code='d'][2]">
-					<xsl:value-of select="/record/datafield[@tag='101']/subfield[@code='d'][2]"/>
-				</xsl:when>
-				<xsl:when test="/record/datafield[@tag = '541']/subfield[@code = 'z'][1]">
-					<xsl:value-of select="/record/datafield[@tag = '541']/subfield[@code = 'z'][1]"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:text>en</xsl:text>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:variable>
-		<!-- In Oracle context we return the original value which is modified beforehand by Oracle -->
-		<xsl:value-of select="$secondaryLanguageCode639_2"/>
-	</xsl:variable>
-
-
+	<!-- On redéfinit le comportement de codeLangue pour Oracle. -->
+	<!-- Dans le contexte d'Oracle code langue ne fait rien.-->
+	<!-- Il retourne les données qu'il reçoit en entrée, car les données sont déjà modifiées en amont par Oracle. -->
+	<xsl:template name="codeLangue">
+		<xsl:param name="code" />
+		<xsl:value-of select="$code"/>
+	</xsl:template>
 
 	<xsl:template name="codeOai">
 		<xsl:param name="code" />
-		<!-- ORACLE preprocessing plsql doesn't remove set data so we filter them -->
 		<xsl:if test="not(contains('0123456789', substring($code, 1, 1)))">
 			<xsl:value-of select="$code"/>
 		</xsl:if>
-
 	</xsl:template>
 
 	<!-- Importe le contenu de ./xslt/marcxml2tei-1.0.xsl sauf le prologue xslt, primaryLanguageCode et secondaryLanguageCode -->
-	<xi:include href="../xslt/marcxml2tei-1.0.xsl" xpointer="xmlns(xsl=http://www.w3.org/1999/XSL/Transform)xpointer(//xsl:stylesheet/*[(name() != 'xsl:import' and name() != 'xsl:output' and name() != 'xsl:strip-space') and (@name != 'primaryLanguageCode' and @name != 'secondaryLanguageCode' and @name != 'codeOai' and @name != 'codeLangue')])"/>
+	<xi:include href="../xslt/marcxml2tei-1.0.xsl" xpointer="xmlns(xsl=http://www.w3.org/1999/XSL/Transform)xpointer(//xsl:stylesheet/*[(name() != 'xsl:import' and name() != 'xsl:output' and name() != 'xsl:strip-space') and (@name != 'codeOai' and @name != 'codeLangue')])"/>
 </xsl:stylesheet>

@@ -1,0 +1,23 @@
+name: Tests
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils libsaxon-java default-jre
+          make install-saxon
+          make install-xspec
+      - name: Run tests
+        run: |
+          export SAXON_CP=/tmp/saxon/saxon9he.jar
+          make full-tests

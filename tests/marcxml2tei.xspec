@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
-    stylesheet="../xslt/marcxml2tei-1.0.xsl">
-
-    <x:param name="primaryLanguage">fre</x:param>
-    <x:param name="primaryLanguageCode">fr</x:param>
-    <x:param name="secondaryLanguage">eng</x:param>
-    <x:param name="secondaryLanguageCode">en</x:param>
-
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" stylesheet="../bundle/marcxml2tei-1.0.xsl">
     <x:scenario label="joinTitleElements with a title and subtitle">
         <x:call template="joinTitleElements">
             <x:param name="titles">
@@ -44,13 +37,10 @@
             </record>
         </x:context>
 
-        <x:call template="editionStmt"/>
+        <x:call template="editionStmt" />
 
-        <x:expect
-            label="Should display whenWritten. The embargo node (notBefore) shouldn't show up.">
-            <editionStmt xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <x:expect label="Should display whenWritten. The embargo node (notBefore) shouldn't show up.">
+            <editionStmt xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <edition>
                     <date type="whenWritten">2004</date>
                 </edition>
@@ -61,6 +51,9 @@
     <x:scenario label="Original title only">
         <x:context>
             <record>
+                <datafield tag="101" ind1="0" ind2=" ">
+                    <subfield code="a">fre</subfield>
+                </datafield>
                 <datafield tag="200" ind1="1" ind2=" ">
                     <subfield code="a">A title</subfield>
                     <subfield code="e">A subtitle</subfield>
@@ -68,18 +61,19 @@
             </record>
         </x:context>
 
-        <x:call template="title"/>
+        <x:call template="title" />
 
         <x:expect label="Shoud output the original title.">
-            <title xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="fr">A title : A subtitle</title>
+            <title xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="fr">A title : A subtitle</title>
         </x:expect>
     </x:scenario>
 
     <x:scenario label="Original and translated title">
         <x:context>
             <record>
+                <datafield tag="101" ind1="0" ind2=" ">
+                    <subfield code="a">fre</subfield>
+                </datafield>
                 <datafield tag="200" ind1="1" ind2=" ">
                     <subfield code="a">Un titre</subfield>
                     <subfield code="e">Un sous-titre</subfield>
@@ -92,19 +86,14 @@
             </record>
         </x:context>
 
-        <x:call template="title"/>
+        <x:call template="title" />
 
         <x:expect label="Shoud output the original and the translated title.">
-            <title xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="fr">Un titre : Un sous-titre</title>
-            <title xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en">A title : A subtitle</title>
+            <title xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="fr">Un titre : Un sous-titre</title>
+            <title xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en">A title : A subtitle</title>
         </x:expect>
     </x:scenario>
 
-    <!-- test title lang -->
 
     <x:scenario label="Author">
         <x:context>
@@ -118,12 +107,10 @@
             </record>
         </x:context>
 
-        <x:call template="author"/>
+        <x:call template="author" />
 
         <x:expect label="Should output the author.">
-            <author xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" role="aut">
+            <author xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" role="aut">
                 <persName>
                     <forename type="first">John</forename>
                     <surname>Doe</surname>
@@ -145,14 +132,17 @@
             </record>
         </x:context>
 
-        <x:call template="author"/>
+        <x:call template="author" />
 
-        <x:expect label="Author with invalid function code shouldn't show up."/>
+        <x:expect label="Author with invalid function code shouldn't show up." />
     </x:scenario>
 
     <x:scenario label="Monogr">
         <x:context>
             <record>
+                <datafield tag="101" ind1="0" ind2=" ">
+                    <subfield code="a">fre</subfield>
+                </datafield>
                 <datafield tag="328" ind1=" " ind2="1">
                     <subfield code="d">2020</subfield>
                 </datafield>
@@ -217,12 +207,10 @@
             </record>
         </x:context>
 
-        <x:call template="monogr"/>
+        <x:call template="monogr" />
 
         <x:expect label="Should display monogr data.">
-            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
                     <date type="dateDefended">2020-01-01</date>
                 </imprint>
@@ -263,12 +251,10 @@
             </record>
         </x:context>
 
-        <x:call template="monogr"/>
+        <x:call template="monogr" />
 
         <x:expect label="Defense date YYYY should be reformated automatically to YYY-MM-DD.">
-            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
                     <date type="dateDefended">2020-01-01</date>
                 </imprint>
@@ -299,12 +285,10 @@
             </record>
         </x:context>
 
-        <x:call template="monogr"/>
+        <x:call template="monogr" />
 
         <x:expect label="Authority with invalid function code shouldn't show up.">
-            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
                     <date type="dateDefended">2020-01-01</date>
                 </imprint>
@@ -325,15 +309,13 @@
             </record>
         </x:context>
 
-        <x:call template="profileDesc"/>
+        <x:call template="profileDesc" />
 
         <x:expect label="Should display profileDesc data">
-            <profileDesc xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <profileDesc xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <textClass>
-                    <classCode scheme="halDomain" n="SHS:HIST"/>
-                    <classCode scheme="halTypology" n="MEM"/>
+                    <classCode scheme="halDomain" n="SHS:HIST" />
+                    <classCode scheme="halTypology" n="MEM" />
                 </textClass>
             </profileDesc>
         </x:expect>
@@ -341,19 +323,85 @@
 
     <x:scenario label="profileDesc without 102 and 686">
         <x:context>
-            <record> </record>
+            <record></record>
         </x:context>
 
-        <x:call template="profileDesc"/>
+        <x:call template="profileDesc" />
 
         <x:expect label="Should display profileDesc data">
-            <profileDesc xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common"
-                xmlns:hal="http://hal.archives-ouvertes.fr/"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <profileDesc xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <textClass>
-                    <classCode scheme="halTypology" n="MEM"/>
+                    <classCode scheme="halTypology" n="MEM" />
                 </textClass>
             </profileDesc>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="Monogr should extract pages.">
+        <x:context>
+            <record>
+                <datafield tag="307" ind1=" " ind2=" ">
+                    <subfield code="a">L&apos;impression du document génère 59 pages</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="monogr" />
+
+        <x:expect label="Monogr should extract pages.">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <imprint>
+                    <biblScope unit="pp">59</biblScope>
+                    <date type="dateDefended" />
+                </imprint>
+            </monogr>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="Monogr should extract pages even when data is partially faulty.">
+        <x:context>
+            <record>
+                <datafield tag="307" ind1=" " ind2=" ">
+                    <subfield code="a">L&apos;impression du document génère 59 p.</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="monogr" />
+
+        <x:expect label="Monogr should extract pages.">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <imprint>
+                    <biblScope unit="pp">59</biblScope>
+                    <date type="dateDefended" />
+                </imprint>
+            </monogr>
+        </x:expect>
+    </x:scenario>
+
+    <x:scenario label="Abstract lang should be paired with 101$d">
+        <x:context>
+            <record>
+                <datafield tag="101" ind1="0" ind2=" ">
+                    <subfield code="a">eng</subfield>
+                    <subfield code="a">fre</subfield>
+                    <subfield code="d">fre</subfield>
+                    <subfield code="d">eng</subfield>
+                </datafield>
+                <datafield tag="330" ind1=" " ind2=" ">
+                    <subfield code="a">Contexte : CVF et DLCO sont les paramètres physiologiques les plus utilisés pour l’évaluation des patients porteurs d’une fibrose pulmonaire idiopathique (FPI). Ils sont exprimés en pourcentage d’une valeur de référence ou en Z-score, et l’utilisation des équations du Global Lung Initiative (GLI) est recommandée depuis peu. Les objectifs étaient de décrire la relation entre CVF et DLCO, et d’évaluer l’influence du changement des valeurs de référence sur la décision médicale, notamment concernant la sélection des candidats à la transplantation pulmonaire. Méthode : nous avons inclus tous les sujets de la cohorte COLIBRI-PID porteurs d’une FPI. Pour chacun, une mesure de DLCO et une mesure de CVF ont été recueillies. Résultats : cette observation transversale de 248 patients avec un large éventail de sévérité, a permis de montrer la relation non linéaire entre CVF et DLCO. Ces résultats sont susceptibles de caractériser l’évolution de la CVF et de la DLCO lorsque la maladie progresse, pour un patient donné : on pourrait alors identifier une première phase de déclin de la DLCO avec une CVF plutôt stable, puis une phase plus tardive où ces deux paramètres chutent ensemble. 17 patients ont changé de groupe pour être adressés vers un centre de transplantation pulmonaire en utilisant les équations GLI à la place des anciennes normes. Les valeurs limites considérées par le consensus de transplantation pulmonaire étaient de 40 % pour la DLCO ou 80 % pour la CVF. Conclusion : La DLCO semble essentielle à l’évaluation des formes de FPI à CVF préservée. L’utilisation de GLI est un plus sensible que les normes plus anciennes pour sélectionner les candidats à la transplantation pulmonaire.</subfield>
+                </datafield>
+                <datafield tag="330" ind1=" " ind2=" ">
+                    <subfield code="a">Background: FVC and DLCO are the most useful physiological parameters to assess idiopathic pulmonary fibrosis (IPF). They are expressed as percentage of reference value or Z-score, and the use of Global Lung Initiative (GLI) equations is now recommended. The objectives were to describe the relationship between FVC and DLCO, and to assess the influence of the change in reference values on medical decision, namely regarding the selection of lung transplant candidates. Methods: we included all subjects diagnosed with IPF from the cohort COLIBRI-ILD. Measurements of FVC and DLCO performed at the same time were collected for each patient. Results: in 248 IPF patients with a broad range of severity, this transversal observation highlighted the nonlinear relationship between FVC and DLCO. Those results could allow us to characterise the course of FVC and DLCO throughout disease progression for a given patient. In the first stages, FVC would remain steady while DLCO would drop. In contrast, both would decline in the last stages. 17 patients switch group to be reffered to a lung transplant center when we use GLI instead of the older standards, with the cut-off limit of 40 % for DLCO or 80 % for FVC. Conclusion: DLCO seems essential in monitoring the IPF forms when FVC is preserved. The use of GLI is little more sensitive than older standards to select lung transplant candidates</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="abstract" />
+
+        <x:expect label="Monogr should extract pages.">
+            <abstract xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="fr">Contexte : CVF et DLCO sont les paramètres physiologiques les plus utilisés pour l’évaluation des patients porteurs d’une fibrose pulmonaire idiopathique (FPI). Ils sont exprimés en pourcentage d’une valeur de référence ou en Z-score, et l’utilisation des équations du Global Lung Initiative (GLI) est recommandée depuis peu. Les objectifs étaient de décrire la relation entre CVF et DLCO, et d’évaluer l’influence du changement des valeurs de référence sur la décision médicale, notamment concernant la sélection des candidats à la transplantation pulmonaire. Méthode : nous avons inclus tous les sujets de la cohorte COLIBRI-PID porteurs d’une FPI. Pour chacun, une mesure de DLCO et une mesure de CVF ont été recueillies. Résultats : cette observation transversale de 248 patients avec un large éventail de sévérité, a permis de montrer la relation non linéaire entre CVF et DLCO. Ces résultats sont susceptibles de caractériser l’évolution de la CVF et de la DLCO lorsque la maladie progresse, pour un patient donné : on pourrait alors identifier une première phase de déclin de la DLCO avec une CVF plutôt stable, puis une phase plus tardive où ces deux paramètres chutent ensemble. 17 patients ont changé de groupe pour être adressés vers un centre de transplantation pulmonaire en utilisant les équations GLI à la place des anciennes normes. Les valeurs limites considérées par le consensus de transplantation pulmonaire étaient de 40 % pour la DLCO ou 80 % pour la CVF. Conclusion : La DLCO semble essentielle à l’évaluation des formes de FPI à CVF préservée. L’utilisation de GLI est un plus sensible que les normes plus anciennes pour sélectionner les candidats à la transplantation pulmonaire.</abstract>
+            <abstract xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en">Background: FVC and DLCO are the most useful physiological parameters to assess idiopathic pulmonary fibrosis (IPF). They are expressed as percentage of reference value or Z-score, and the use of Global Lung Initiative (GLI) equations is now recommended. The objectives were to describe the relationship between FVC and DLCO, and to assess the influence of the change in reference values on medical decision, namely regarding the selection of lung transplant candidates. Methods: we included all subjects diagnosed with IPF from the cohort COLIBRI-ILD. Measurements of FVC and DLCO performed at the same time were collected for each patient. Results: in 248 IPF patients with a broad range of severity, this transversal observation highlighted the nonlinear relationship between FVC and DLCO. Those results could allow us to characterise the course of FVC and DLCO throughout disease progression for a given patient. In the first stages, FVC would remain steady while DLCO would drop. In contrast, both would decline in the last stages. 17 patients switch group to be reffered to a lung transplant center when we use GLI instead of the older standards, with the cut-off limit of 40 % for DLCO or 80 % for FVC. Conclusion: DLCO seems essential in monitoring the IPF forms when FVC is preserved. The use of GLI is little more sensitive than older standards to select lung transplant candidates</abstract>
         </x:expect>
     </x:scenario>
 </x:description>

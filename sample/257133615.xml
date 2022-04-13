@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <leader>     clm0 22        450 </leader>
+  <controlfield tag="001">257133615</controlfield>
+  <controlfield tag="002">27</controlfield>
+  <controlfield tag="003">http://www.sudoc.fr/257133615</controlfield>
+  <controlfield tag="004">20210906</controlfield>
+  <controlfield tag="005">20220310231504.000</controlfield>
+  <controlfield tag="006">385162101</controlfield>
+  <controlfield tag="007">384212103</controlfield>
+  <controlfield tag="008">Oax3</controlfield>
+  <datafield tag="029" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">2021GRAL5078 (thèse d&apos;exercice)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)1269430195</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">dumas-03601218</subfield>
+  </datafield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">20210906d2021    k  y0frey50      ba</subfield>
+  </datafield>
+  <datafield tag="101" ind1="0" ind2=" ">
+    <subfield code="a">eng</subfield>
+    <subfield code="a">fre</subfield>
+    <subfield code="d">fre</subfield>
+    <subfield code="d">eng</subfield>
+  </datafield>
+  <datafield tag="102" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+  </datafield>
+  <datafield tag="105" ind1=" " ind2=" ">
+    <subfield code="a">a   ma  000yy</subfield>
+  </datafield>
+  <datafield tag="106" ind1=" " ind2=" ">
+    <subfield code="a">s</subfield>
+  </datafield>
+  <datafield tag="135" ind1=" " ind2=" ">
+    <subfield code="a">dr|||||||||||</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">i#</subfield>
+    <subfield code="b">xxxe##</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">b</subfield>
+  </datafield>
+  <datafield tag="183" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">ceb</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="200" ind1="1" ind2=" ">
+    <subfield code="a">Capacité vitale forcée et diffusion du monoxyde de carbone dans la fibrose pulmonaire idiopathique</subfield>
+    <subfield code="e">ce que change l’utilisation des normes GLI</subfield>
+    <subfield code="f">Salomé Nussbaum</subfield>
+    <subfield code="g">sous la direction de Bruno Degano</subfield>
+  </datafield>
+  <datafield tag="214" ind1=" " ind2="1">
+    <subfield code="d">2021</subfield>
+  </datafield>
+  <datafield tag="230" ind1=" " ind2=" ">
+    <subfield code="a">Données textuelles</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">Dans la version mise en ligne, les données à caractère personnel ont été masquées ; la version originale est consultable sur demande à la bibliothèque universitaire de médecine pharmacie de Grenoble</subfield>
+  </datafield>
+  <datafield tag="303" ind1=" " ind2=" ">
+    <subfield code="a">L&apos;impression du document génère 32 p.</subfield>
+  </datafield>
+  <datafield tag="304" ind1=" " ind2=" ">
+    <subfield code="a">GLI = Global lung initiative (GLI)</subfield>
+  </datafield>
+  <datafield tag="314" ind1=" " ind2=" ">
+    <subfield code="a">Autre contribution : Christophe Pison (Président du jury)</subfield>
+  </datafield>
+  <datafield tag="320" ind1=" " ind2=" ">
+    <subfield code="a">Bibliogr. 27 réf.</subfield>
+  </datafield>
+  <datafield tag="328" ind1=" " ind2="0">
+    <subfield code="b">Thèse d&apos;exercice</subfield>
+    <subfield code="c">Médecine. Pneumologie</subfield>
+    <subfield code="e">Université Grenoble Alpes</subfield>
+    <subfield code="d">2021</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">Contexte : CVF et DLCO sont les paramètres physiologiques les plus utilisés pour l’évaluation des patients porteurs d’une fibrose pulmonaire idiopathique (FPI). Ils sont exprimés en pourcentage d’une valeur de référence ou en Z-score, et l’utilisation des équations du Global Lung Initiative (GLI) est recommandée depuis peu. Les objectifs étaient de décrire la relation entre CVF et DLCO, et d’évaluer l’influence du changement des valeurs de référence sur la décision médicale, notamment concernant la sélection des candidats à la transplantation pulmonaire. Méthode : nous avons inclus tous les sujets de la cohorte COLIBRI-PID porteurs d’une FPI. Pour chacun, une mesure de DLCO et une mesure de CVF ont été recueillies. Résultats : cette observation transversale de 248 patients avec un large éventail de sévérité, a permis de montrer la relation non linéaire entre CVF et DLCO. Ces résultats sont susceptibles de caractériser l’évolution de la CVF et de la DLCO lorsque la maladie progresse, pour un patient donné : on pourrait alors identifier une première phase de déclin de la DLCO avec une CVF plutôt stable, puis une phase plus tardive où ces deux paramètres chutent ensemble. 17 patients ont changé de groupe pour être adressés vers un centre de transplantation pulmonaire en utilisant les équations GLI à la place des anciennes normes. Les valeurs limites considérées par le consensus de transplantation pulmonaire étaient de 40 % pour la DLCO ou 80 % pour la CVF. Conclusion : La DLCO semble essentielle à l’évaluation des formes de FPI à CVF préservée. L’utilisation de GLI est un plus sensible que les normes plus anciennes pour sélectionner les candidats à la transplantation pulmonaire.</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">Background: FVC and DLCO are the most useful physiological parameters to assess idiopathic pulmonary fibrosis (IPF). They are expressed as percentage of reference value or Z-score, and the use of Global Lung Initiative (GLI) equations is now recommended. The objectives were to describe the relationship between FVC and DLCO, and to assess the influence of the change in reference values on medical decision, namely regarding the selection of lung transplant candidates. Methods: we included all subjects diagnosed with IPF from the cohort COLIBRI-ILD. Measurements of FVC and DLCO performed at the same time were collected for each patient. Results: in 248 IPF patients with a broad range of severity, this transversal observation highlighted the nonlinear relationship between FVC and DLCO. Those results could allow us to characterise the course of FVC and DLCO throughout disease progression for a given patient. In the first stages, FVC would remain steady while DLCO would drop. In contrast, both would decline in the last stages. 17 patients switch group to be reffered to a lung transplant center when we use GLI instead of the older standards, with the cut-off limit of 40 % for DLCO or 80 % for FVC. Conclusion: DLCO seems essential in monitoring the IPF forms when FVC is preserved. The use of GLI is little more sensitive than older standards to select lung transplant candidates</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">Configuration requise : logiciel capable de lire un fichier au format PDF</subfield>
+  </datafield>
+  <datafield tag="541" ind1="|" ind2=" ">
+    <subfield code="a">Insight into the relationship between forced vital capacity and transfer factor of the lung for carbon monoxide in patients with idiopathic pulmonary fibrosis</subfield>
+    <subfield code="z">eng</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">034206256</subfield>
+    <subfield code="a">Fibrose pulmonaire</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">02724198X</subfield>
+    <subfield code="a">Exploration fonctionnelle respiratoire</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">027570770</subfield>
+    <subfield code="a">Monoxyde de carbone</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">027803627</subfield>
+    <subfield code="a">Diffusion (physique)</subfield>
+    <subfield code="3">027315584</subfield>
+    <subfield code="x">Mesure</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">07897321X</subfield>
+    <subfield code="a">Capacité pulmonaire totale</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">16929188X</subfield>
+    <subfield code="a">Transplantation pulmonaire</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">143192256</subfield>
+    <subfield code="a">Fibrose pulmonaire idiopathique</subfield>
+    <subfield code="3">040839486</subfield>
+    <subfield code="x">Dissertation universitaire</subfield>
+    <subfield code="2">fmesh</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">040798976</subfield>
+    <subfield code="a">Capacité vitale</subfield>
+    <subfield code="3">040839486</subfield>
+    <subfield code="x">Dissertation universitaire</subfield>
+    <subfield code="2">fmesh</subfield>
+  </datafield>
+  <datafield tag="608" ind1=" " ind2=" ">
+    <subfield code="3">027253139</subfield>
+    <subfield code="a">Thèses et écrits académiques</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="610" ind1="0" ind2=" ">
+    <subfield code="a">Capacité de diffusion du poumon pour le monoxyde de carbone (DLCO)</subfield>
+    <subfield code="a">Normes GLI</subfield>
+    <subfield code="a">Global lung initiative (GLI)</subfield>
+    <subfield code="a">Diffusing capacity of the lung for carbon monoxide (DLCO)</subfield>
+  </datafield>
+  <datafield tag="676" ind1=" " ind2=" ">
+    <subfield code="a">610</subfield>
+    <subfield code="v">22</subfield>
+  </datafield>
+  <datafield tag="700" ind1=" " ind2="1">
+    <subfield code="3">25713364X</subfield>
+    <subfield code="a">Nussbaum</subfield>
+    <subfield code="b">Salomé</subfield>
+    <subfield code="f">1990-....</subfield>
+    <subfield code="4">070</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">117594237</subfield>
+    <subfield code="a">Degano</subfield>
+    <subfield code="b">Bruno</subfield>
+    <subfield code="f">1968-....</subfield>
+    <subfield code="4">727</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">066846692</subfield>
+    <subfield code="a">Pison</subfield>
+    <subfield code="b">Christophe</subfield>
+    <subfield code="f">1955-....</subfield>
+    <subfield code="4">956</subfield>
+  </datafield>
+  <datafield tag="711" ind1="0" ind2="2">
+    <subfield code="3">240648315</subfield>
+    <subfield code="a">Université Grenoble Alpes</subfield>
+    <subfield code="c">2020-....</subfield>
+    <subfield code="4">295</subfield>
+  </datafield>
+  <datafield tag="801" ind1=" " ind2="3">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">Abes</subfield>
+    <subfield code="c">20220310</subfield>
+    <subfield code="g">AFNOR</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="q">PDF</subfield>
+    <subfield code="u">https://dumas.ccsd.cnrs.fr/dumas-03601218/document</subfield>
+  </datafield>
+  <datafield tag="930" ind1=" " ind2=" ">
+    <subfield code="5">385162101:703886819</subfield>
+    <subfield code="b">385162101</subfield>
+    <subfield code="a">TM21/5078/E</subfield>
+    <subfield code="j">g</subfield>
+  </datafield>
+  <datafield tag="940" ind1=" " ind2=" ">
+    <subfield code="5">385162101:703886819</subfield>
+    <subfield code="a">20210906</subfield>
+    <subfield code="b">x</subfield>
+  </datafield>
+  <datafield tag="941" ind1=" " ind2=" ">
+    <subfield code="5">385162101:703886819</subfield>
+    <subfield code="a">20210906</subfield>
+    <subfield code="b">17:02:09.000</subfield>
+  </datafield>
+</record>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
-    stylesheet="../xslt/marcxml2tei-1.0.xsl">
-    <x:import href="./marcxml2tei.xspec"/>
-</x:description>
