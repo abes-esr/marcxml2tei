@@ -1,7 +1,7 @@
 validate: transform
 	scripts/validate.sh --xsd=schema/AOfr.xsd --xml=output/*.xml
 	
-transform: create-output-dir bundle
+transform: create-output-dir bundle oracle
 	scripts/transform.sh --xsl=bundle/marcxml2tei-1.0.xsl --xml=sample/*.xml --output-dir=output
 	scripts/transform.sh --xsl=bundle/marcxml2tei-oracle.xsl --xml=sample/*.xml --output-dir=output
 
@@ -11,7 +11,7 @@ install-saxon:
 install-xspec: install-saxon
 	./scripts/install-xspec.sh
 
-tests: tests/*.xspec bundle
+tests: tests/*.xspec bundle oracle
 	./scripts/tests.sh tests/*.xspec bundle
 
 full-tests: tests validate
