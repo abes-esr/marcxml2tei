@@ -252,7 +252,7 @@
                         </term>
                     </xsl:if>
 
-                    <xsl:if test=".[@tag = '610']">
+                    <xsl:if test="self::node()[@tag = '610']">
                         <xsl:for-each select="subfield[@code = 'a']">
                             <xsl:if test=".!= ''">
                                 <term xml:lang="fr">
