@@ -4,7 +4,8 @@
 
 _Conversion de documents MarcXML en TEI_
 
-[![Release](https://github.com/abes-esr/marcxml2tei/actions/workflows/release.yml/badge.svg?style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/actions/workflows/release.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/abes-esr/marcxml2tei/Release?label=Release&style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/actions/workflows/release.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/abes-esr/marcxml2tei/Tests?label=Tests&style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/actions/workflows/tests.yml)
 [![Latest Build](https://img.shields.io/badge/%F0%9F%93%A6%20lastest%20build-marcxml2tei.xsl-yellow?style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/releases/latest/download/marcxml2tei.xsl)
 [![GitHub release](https://img.shields.io/github/release/abes-esr/marcxml2tei.svg?style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/releases/latest)
 [![Contribution Welcome](https://img.shields.io/badge/contribution-welcome-green.svg?style=for-the-badge)](https://github.com/abes-esr/marcxml2tei/pulls)
