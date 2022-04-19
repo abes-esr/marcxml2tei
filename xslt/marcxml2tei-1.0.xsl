@@ -200,116 +200,68 @@
         <xsl:variable name="keywords" select="datafield[@tag = '600' or @tag = '601' or @tag = '602' or @tag = '604' or @tag = '605' or @tag = '606' or @tag = '607' or @tag = '608' or @tag = '610']"/>
         <xsl:if test="$keywords">
             <keywords scheme="author">
-                <!-- deduplicate keywords-->
-                <!-- <xsl:for-each select="$keywords"> -->
-                    <!-- <term xml:lang="fr"> -->
-                        <!-- <xsl:choose>
-                            <xsl:when test=".[@tag = '600']"> -->
-                                <xsl:variable name="S600">    
-                                    <xsl:call-template name="R600"/>
-                                </xsl:variable>
-    
-                                <xsl:if test="$S600 != ''">
-                                    <term xml:lang="fr">
-                                        <xsl:value-of select="$S600"/>
-                                    </term>
-                                </xsl:if>
-    
-                                <xsl:variable name="S601">
-                                    <xsl:call-template name="R601"/>
-                                </xsl:variable>
-    
-                                <xsl:if test="$S601 != ''">
-                                    <term xml:lang="fr">
-                                        <xsl:value-of select="$S601"/>
-                                    </term>
-                                </xsl:if>
-    
-                                <xsl:variable name="S602">
-                                    <xsl:call-template name="R602"/>
-                                </xsl:variable>
-    
-                                <xsl:if test="$S602 != ''">
-                                    <term xml:lang="fr">
-                                        <xsl:value-of select="$S602"/>
-                                    </term>
-                                </xsl:if>
-    
-                                <xsl:variable name="S604">
-                                    <xsl:call-template name="R604"/>
-                                </xsl:variable>
-    
-                                <xsl:if test="$S604 != ''">
-                                    <term xml:lang="fr">
-                                        <xsl:value-of select="$S604"/>
-                                    </term>
-                                </xsl:if>
-    
-                                <xsl:variable name="S605">
-                                    <xsl:call-template name="R605"/>
-                                </xsl:variable>
-    
-                                <xsl:if test="$S605 != ''">
-                                    <xsl:for-each select="$S605">
-                                        <term xml:lang="fr">
-                                            <xsl:value-of select="."/>
-                                        </term>
-                                    </xsl:for-each>
-                                </xsl:if>
-    
-                                <xsl:variable name="S606">
-                                    <xsl:call-template name="R606"/>
-                                </xsl:variable>
-    
-                                <xsl:if test="$S606 != ''">
-                                    <xsl:for-each select="$S606">
-                                        <term xml:lang="fr">
-                                            <xsl:value-of select="."/>
-                                        </term>
-                                    </xsl:for-each>
-                                </xsl:if>
-    
-                                <xsl:variable name="S607">
-                                    <xsl:call-template name="R607"/>
-                                </xsl:variable>
-    
-                                <xsl:if test="$S607 != ''">
-                                    <xsl:for-each select="$S607">
-                                        <term xml:lang="fr">
-                                            <xsl:value-of select="."/>
-                                        </term>
-                                    </xsl:for-each>
-                                </xsl:if>
-    
-                                <xsl:variable name="S608">
-                                    <xsl:call-template name="R608"/>
-                                </xsl:variable>
-    
-                                <xsl:if test="$S608 != ''">
-                                    <xsl:for-each select="$S608">
-                                        <term xml:lang="fr">
-                                            <xsl:value-of select="."/>
-                                        </term>
-                                    </xsl:for-each>
-                                </xsl:if>
-<!--     
-                                <xsl:variable name="S610">
-                                    <xsl:call-template name="R610"/>
-                                </xsl:variable> -->
+                <xsl:for-each select="$keywords">
+                    <xsl:variable name="keyword">
+                        <xsl:choose>
+                            <xsl:when test=".[@tag = '600']">
+                                <xsl:call-template name="R600">
+                                    <xsl:with-param name="field" select="." />
+                                </xsl:call-template>  
+                            </xsl:when>
+                            <xsl:when test=".[@tag = '601']">
+                                <xsl:call-template name="R601">
+                                    <xsl:with-param name="field" select="." />
+                                </xsl:call-template>
+                            </xsl:when>
+                            <xsl:when test=".[@tag = '602']">
+                                <xsl:call-template name="R602">
+                                    <xsl:with-param name="field" select="." />
+                                </xsl:call-template>
+                            </xsl:when>
+                            <xsl:when test=".[@tag = '604']">
+                                <xsl:call-template name="R604">
+                                    <xsl:with-param name="field" select="." />
+                                </xsl:call-template>
+                            </xsl:when>
+                            <xsl:when test=".[@tag = '605']">
+                                <xsl:call-template name="R605">
+                                    <xsl:with-param name="field" select="." />
+                                </xsl:call-template>
+                            </xsl:when>
+                            <xsl:when test=".[@tag = '606']">
+                                <xsl:call-template name="R606">
+                                    <xsl:with-param name="field" select="." />
+                                </xsl:call-template>
+                            </xsl:when>
+                            <xsl:when test=".[@tag = '607']">
+                                <xsl:call-template name="R607">
+                                    <xsl:with-param name="field" select="." />
+                                </xsl:call-template>
+                            </xsl:when>
+                            <xsl:when test=".[@tag = '608']">
+                                <xsl:call-template name="R608">
+                                    <xsl:with-param name="field" select="." />
+                                </xsl:call-template>
+                            </xsl:when>
+                        </xsl:choose>
+                    </xsl:variable>
 
-                            <!-- <xsl:if test="$610 != ''">
+                    <xsl:if test="$keyword != ''">
+                        <term xml:lang="fr">
+                            <xsl:value-of select="$keyword"/>
+                        </term>
+                    </xsl:if>
+
+                    <xsl:if test=".[@tag = '610']">
+                        <xsl:for-each select="subfield[@code = 'a']">
+                            <xsl:if test=".!= ''">
                                 <term xml:lang="fr">
-                                    <xsl:value-of select="$610"/>
+                                    <xsl:value-of select="."/>
                                 </term>
-                            </xsl:if> -->
-
-
-                            <!-- <xsl:when test=".[@tag = '610']">
-                                <xsl:value-of select="subfield[@code = 'a']" />
-                            </xsl:when> -->
-                        <!-- </xsl:choose> -->
-                    <!-- </term> -->
-                <!-- </xsl:for-each> -->
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:if>
+                </xsl:for-each>
             </keywords>
         </xsl:if>
     </xsl:template>
