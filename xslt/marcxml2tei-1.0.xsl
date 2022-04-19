@@ -203,42 +203,42 @@
                 <xsl:for-each select="$keywords">
                     <xsl:variable name="keyword">
                         <xsl:choose>
-                            <xsl:when test=".[@tag = '600']">
+                            <xsl:when test="self::node()[@tag = '600']">
                                 <xsl:call-template name="R600">
                                     <xsl:with-param name="field" select="." />
                                 </xsl:call-template>  
                             </xsl:when>
-                            <xsl:when test=".[@tag = '601']">
+                            <xsl:when test="self::node()[@tag = '601']">
                                 <xsl:call-template name="R601">
                                     <xsl:with-param name="field" select="." />
                                 </xsl:call-template>
                             </xsl:when>
-                            <xsl:when test=".[@tag = '602']">
+                            <xsl:when test="self::node()[@tag = '602']">
                                 <xsl:call-template name="R602">
                                     <xsl:with-param name="field" select="." />
                                 </xsl:call-template>
                             </xsl:when>
-                            <xsl:when test=".[@tag = '604']">
+                            <xsl:when test="self::node()[@tag = '604']">
                                 <xsl:call-template name="R604">
                                     <xsl:with-param name="field" select="." />
                                 </xsl:call-template>
                             </xsl:when>
-                            <xsl:when test=".[@tag = '605']">
+                            <xsl:when test="self::node()[@tag = '605']">
                                 <xsl:call-template name="R605">
                                     <xsl:with-param name="field" select="." />
                                 </xsl:call-template>
                             </xsl:when>
-                            <xsl:when test=".[@tag = '606']">
+                            <xsl:when test="self::node()[@tag = '606']">
                                 <xsl:call-template name="R606">
                                     <xsl:with-param name="field" select="." />
                                 </xsl:call-template>
                             </xsl:when>
-                            <xsl:when test=".[@tag = '607']">
+                            <xsl:when test="self::node()[@tag = '607']">
                                 <xsl:call-template name="R607">
                                     <xsl:with-param name="field" select="." />
                                 </xsl:call-template>
                             </xsl:when>
-                            <xsl:when test=".[@tag = '608']">
+                            <xsl:when test="self::node()[@tag = '608']">
                                 <xsl:call-template name="R608">
                                     <xsl:with-param name="field" select="." />
                                 </xsl:call-template>
