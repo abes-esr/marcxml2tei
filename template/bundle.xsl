@@ -10,5 +10,6 @@
 
     <xi:include href="../commons/mapping_tel_domains_oai_sets.xsl" xpointer="xmlns(xsl=http://www.w3.org/1999/XSL/Transform)xpointer(//xsl:stylesheet/*[name() != 'xsl:output' and name() != 'xsl:strip-space'])"/>
     <xi:include href="../commons/code_langues.xsl" xpointer="xmlns(xsl=http://www.w3.org/1999/XSL/Transform)xpointer(//xsl:stylesheet/*[name() != 'xsl:output' and name() != 'xsl:strip-space'])"/>
+    <xi:include href="../rameau/xslt/xslt.xsl" xpointer="xmlns(xsl=http://www.w3.org/1999/XSL/Transform)xpointer(//xsl:stylesheet/*[name() != 'xsl:output' and name() != 'xsl:strip-space'])"/>
     <xi:include href="../xslt/marcxml2tei-1.0.xsl" xpointer="xmlns(xsl=http://www.w3.org/1999/XSL/Transform)xpointer(//xsl:stylesheet/*[(name() != 'xsl:import' and name() != 'xsl:output' and name() != 'xsl:strip-space') or (@name != 'codeOai' and @name != 'codeLangue')])"/>
 </xsl:stylesheet>

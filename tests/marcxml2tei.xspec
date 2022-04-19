@@ -404,4 +404,52 @@
             <abstract xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en">Background: FVC and DLCO are the most useful physiological parameters to assess idiopathic pulmonary fibrosis (IPF). They are expressed as percentage of reference value or Z-score, and the use of Global Lung Initiative (GLI) equations is now recommended. The objectives were to describe the relationship between FVC and DLCO, and to assess the influence of the change in reference values on medical decision, namely regarding the selection of lung transplant candidates. Methods: we included all subjects diagnosed with IPF from the cohort COLIBRI-ILD. Measurements of FVC and DLCO performed at the same time were collected for each patient. Results: in 248 IPF patients with a broad range of severity, this transversal observation highlighted the nonlinear relationship between FVC and DLCO. Those results could allow us to characterise the course of FVC and DLCO throughout disease progression for a given patient. In the first stages, FVC would remain steady while DLCO would drop. In contrast, both would decline in the last stages. 17 patients switch group to be reffered to a lung transplant center when we use GLI instead of the older standards, with the cut-off limit of 40 % for DLCO or 80 % for FVC. Conclusion: DLCO seems essential in monitoring the IPF forms when FVC is preserved. The use of GLI is little more sensitive than older standards to select lung transplant candidates</abstract>
         </x:expect>
     </x:scenario>
+
+    <x:scenario label="Generating author keywords and RAMEAU keywords">
+        <x:context>
+            <record>
+                <datafield tag="606" ind1=" " ind2=" ">
+                    <subfield code="3">029474299</subfield>
+                    <subfield code="a">Syndromes des apnées du sommeil</subfield>
+                    <subfield code="3">027357236</subfield>
+                    <subfield code="x">Dépistage</subfield>
+                    <subfield code="2">rameau</subfield>
+                </datafield>
+                <datafield tag="606" ind1=" " ind2=" ">
+                    <subfield code="3">027338215</subfield>
+                    <subfield code="a">Médecins généralistes</subfield>
+                    <subfield code="3">027226794</subfield>
+                    <subfield code="y">France</subfield>
+                    <subfield code="3">027244938</subfield>
+                    <subfield code="y">Picardie (France)</subfield>
+                    <subfield code="2">rameau</subfield>
+                </datafield>
+                <datafield tag="608" ind1=" " ind2=" ">
+                    <subfield code="3">027253139</subfield>
+                    <subfield code="a">Thèses et écrits académiques</subfield>
+                    <subfield code="2">rameau</subfield>
+                </datafield>
+                <datafield tag="610" ind1="0" ind2=" ">
+                    <subfield code="a">Capacité de diffusion du poumon pour le monoxyde de carbone (DLCO)</subfield>
+                    <subfield code="a">Normes GLI</subfield>
+                    <subfield code="a">Global lung initiative (GLI)</subfield>
+                    <subfield code="a">Diffusing capacity of the lung for carbon monoxide (DLCO)</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="keywords" />
+
+        <x:expect>
+            <keywords scheme="author" xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <term xml:lang="fr">Syndromes des apnées du sommeil -- Dépistage</term>
+                <term xml:lang="fr">Médecins généralistes -- France -- Picardie (France)</term>
+                <term xml:lang="fr">Thèses et écrits académiques</term>
+                <term xml:lang="fr">Capacité de diffusion du poumon pour le monoxyde de carbone (DLCO)</term>
+                <term xml:lang="fr">Normes GLI</term>
+                <term xml:lang="fr">Global lung initiative (GLI)</term>
+                <term xml:lang="fr">Diffusing capacity of the lung for carbon monoxide (DLCO)</term>
+            </keywords>
+        </x:expect>
+    </x:scenario>
 </x:description>
