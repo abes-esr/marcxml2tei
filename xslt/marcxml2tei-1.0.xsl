@@ -144,9 +144,7 @@
                     </biblScope>
                 </xsl:if>
                 <date type="dateDefended">
-                    <xsl:call-template name="formatDate">
-                        <xsl:with-param name="date" select="(datafield[@tag = '328']/subfield[@code = ('d')])[1]" />
-                    </xsl:call-template>
+                    <xsl:value-of select="(datafield[@tag = '328']/subfield[@code = ('d')])[1]" />
                 </date>
             </imprint>
             <xsl:if test="datafield[@tag = '711'][subfield[@code = '4'] = '295']">
@@ -371,15 +369,5 @@
                 <xsl:value-of select="$input" />
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
-
-    <xsl:template name="formatDate">
-        <xsl:param name="date" />
-        <xsl:if test="string-length($date) = 4">
-            <xsl:value-of select="concat($date, '-01-01')" />
-        </xsl:if>
-        <xsl:if test="string-length($date) > 4">
-            <xsl:value-of select="$date" />
-        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>

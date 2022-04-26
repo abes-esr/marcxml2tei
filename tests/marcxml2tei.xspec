@@ -212,7 +212,7 @@
         <x:expect label="Should display monogr data.">
             <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
-                    <date type="dateDefended">2020-01-01</date>
+                    <date type="dateDefended">2020</date>
                 </imprint>
                 <authority type="institution">Université Sorbonne Paris Cité</authority>
                 <authority type="supervisor">Monique Sélim</authority>
@@ -226,40 +226,6 @@
                 <authority type="jury">Yann Moulier Boutang</authority>
                 <authority type="jury">Catherine Agulhon</authority>
                 <authority type="jury">Annie Benveniste</authority>
-            </monogr>
-        </x:expect>
-    </x:scenario>
-
-    <x:scenario label="Monog with incomplete defense date.">
-        <x:context>
-            <record>
-                <datafield tag="328" ind1=" " ind2="1">
-                    <subfield code="d">2020</subfield>
-                </datafield>
-                <datafield tag="711" ind1="0" ind2="2">
-                    <subfield code="3">026402920</subfield>
-                    <subfield code="a">Université d&apos;Angers</subfield>
-                    <subfield code="4">295</subfield>
-                </datafield>
-                <datafield tag="701" ind1=" " ind2="1">
-                    <subfield code="3">031290035</subfield>
-                    <subfield code="a">Bellamy</subfield>
-                    <subfield code="b">David</subfield>
-                    <subfield code="f">1965-....</subfield>
-                    <subfield code="4">727</subfield>
-                </datafield>
-            </record>
-        </x:context>
-
-        <x:call template="monogr" />
-
-        <x:expect label="Defense date YYYY should be reformated automatically to YYY-MM-DD.">
-            <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <imprint>
-                    <date type="dateDefended">2020-01-01</date>
-                </imprint>
-                <authority type="institution">Université d'Angers</authority>
-                <authority type="supervisor">David Bellamy</authority>
             </monogr>
         </x:expect>
     </x:scenario>
@@ -290,7 +256,7 @@
         <x:expect label="Authority with invalid function code shouldn't show up.">
             <monogr xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <imprint>
-                    <date type="dateDefended">2020-01-01</date>
+                    <date type="dateDefended">2020</date>
                 </imprint>
             </monogr>
         </x:expect>
