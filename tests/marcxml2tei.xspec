@@ -28,7 +28,7 @@
         <x:expect label="Title and subtitles should be separated with `:` and subtitles with `.` with no leading `.`">A title : A subtitle. Another subtitle</x:expect>
     </x:scenario>
 
-    <x:scenario label="editionStmt without fileLocation">
+    <!-- <x:scenario label="editionStmt without fileLocation">
         <x:context>
             <record>
                 <datafield tag="328" ind1=" " ind2="1">
@@ -46,7 +46,7 @@
                 </edition>
             </editionStmt>
         </x:expect>
-    </x:scenario>
+    </x:scenario> -->
 
     <x:scenario label="Original title only">
         <x:context>

@@ -20,7 +20,7 @@
                 <body>
                     <listBibl>
                         <biblFull>
-                            <xsl:call-template name="editionStmt" />
+                            <!-- <xsl:call-template name="editionStmt" /> -->
                             <xsl:call-template name="notesStmt" />
                             <sourceDesc>
                                 <biblStruct>
@@ -36,7 +36,7 @@
         </TEI>
     </xsl:template>
 
-    <xsl:template name="editionStmt">
+    <!-- <xsl:template name="editionStmt">
         <editionStmt>
             <edition>
                 <date type="whenWritten">
@@ -44,14 +44,14 @@
                 </date>
                 <xsl:if test="$fileLocation">
                     <ref type="file" subtype="author" n="1" target="{$fileLocation}">
-                        <!-- <xsl:if test="$embargoDate">
+                        <xsl:if test="$embargoDate">
                             <date notBefore="{$embargoDate}" />
-                        </xsl:if>-->
+                        </xsl:if>
                     </ref>
                 </xsl:if>
             </edition>
         </editionStmt>
-    </xsl:template>
+    </xsl:template> -->
 
     <xsl:template name="notesStmt">
         <notesStmt>

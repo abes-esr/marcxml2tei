@@ -54,11 +54,6 @@ paths:
                     <body>
                       <listBibl>
                         <biblFull>
-                          <editionStmt>
-                            <edition>
-                              <date type="whenWritten">2020</date>
-                            </edition>
-                          </editionStmt>
                           <notesStmt>
                             <note type="audience" n="3"/>
                             <note type="degree" n="23"/>
