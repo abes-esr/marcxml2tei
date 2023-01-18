@@ -462,13 +462,13 @@
 
         <x:expect>
             <keywords scheme="author" xmlns="http://www.tei-c.org/ns/1.0" xmlns:ext="http://exslt.org/common" xmlns:hal="http://hal.archives-ouvertes.fr/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <term xml:lang="fr">Syndromes des apnées du sommeil -- Dépistage</term>
-                <term xml:lang="fr">Médecins généralistes -- France -- Picardie (France)</term>
-                <term xml:lang="fr">Thèses et écrits académiques</term>
-                <term xml:lang="fr">Capacité de diffusion du poumon pour le monoxyde de carbone (DLCO)</term>
-                <term xml:lang="fr">Normes GLI</term>
-                <term xml:lang="fr">Global lung initiative (GLI)</term>
-                <term xml:lang="fr">Diffusing capacity of the lung for carbon monoxide (DLCO)</term>
+                <term xml:lang="fr">"Syndromes des apnées du sommeil -- Dépistage"</term>
+                <term xml:lang="fr">"Médecins généralistes -- France -- Picardie (France)"</term>
+                <term xml:lang="fr">"Thèses et écrits académiques"</term>
+                <term xml:lang="fr">"Capacité de diffusion du poumon pour le monoxyde de carbone (DLCO)"</term>
+                <term xml:lang="fr">"Normes GLI"</term>
+                <term xml:lang="fr">"Global lung initiative (GLI)"</term>
+                <term xml:lang="fr">"Diffusing capacity of the lung for carbon monoxide (DLCO)"</term>
             </keywords>
         </x:expect>
     </x:scenario>

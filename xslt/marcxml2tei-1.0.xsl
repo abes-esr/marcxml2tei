@@ -246,17 +246,13 @@
                     </xsl:variable>
 
                     <xsl:if test="$keyword != ''">
-                        <term xml:lang="fr">
-                            <xsl:value-of select="$keyword"/>
-                        </term>
+                        <term xml:lang="fr">"<xsl:value-of select="$keyword"/>"</term>
                     </xsl:if>
 
                     <xsl:if test="self::node()[@tag = '610']">
                         <xsl:for-each select="subfield[@code = 'a']">
                             <xsl:if test=".!= ''">
-                                <term xml:lang="fr">
-                                    <xsl:value-of select="."/>
-                                </term>
+                                <term xml:lang="fr">"<xsl:value-of select="."/>"</term>
                             </xsl:if>
                         </xsl:for-each>
                     </xsl:if>
