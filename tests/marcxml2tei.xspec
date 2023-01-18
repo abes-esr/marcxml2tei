@@ -137,6 +137,60 @@
         <x:expect label="Author with invalid function code shouldn't show up." />
     </x:scenario>
 
+    <x:scenario label="Supervisor 003">
+        <x:context>
+            <record>
+                <datafield tag="701" ind1=" " ind2="1">
+                    <subfield code="3">12345689X</subfield>
+                    <subfield code="a">Doe</subfield>
+                    <subfield code="b">John</subfield>
+                    <subfield code="4">003</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="monogr" />
+
+        <x:expect label="Supervisors with 003 shoud show up">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:ext="http://exslt.org/common"
+                xmlns:hal="http://hal.archives-ouvertes.fr/"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <imprint>
+                    <date type="dateDefended" />
+                </imprint>
+                <authority type="supervisor">John Doe</authority>
+            </monogr>
+	    </x:expect>
+    </x:scenario>
+    
+    <x:scenario label="Supervisor 727">
+        <x:context>
+            <record>
+                <datafield tag="701" ind1=" " ind2="1">
+                    <subfield code="3">12345689X</subfield>
+                    <subfield code="a">Doe</subfield>
+                    <subfield code="b">John</subfield>
+                    <subfield code="4">727</subfield>
+                </datafield>
+            </record>
+        </x:context>
+
+        <x:call template="monogr" />
+
+        <x:expect label="Supervisors with 727 shoud show up">
+            <monogr xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:ext="http://exslt.org/common"
+                xmlns:hal="http://hal.archives-ouvertes.fr/"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <imprint>
+                    <date type="dateDefended" />
+                </imprint>
+                <authority type="supervisor">John Doe</authority>
+            </monogr>
+	    </x:expect>
+    </x:scenario>
+
     <x:scenario label="Monogr">
         <x:context>
             <record>

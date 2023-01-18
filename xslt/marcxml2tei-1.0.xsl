@@ -152,7 +152,8 @@
                     <xsl:value-of select="datafield[@tag = '711']/subfield[@code = 'a']" />
                 </authority>
             </xsl:if>
-            <xsl:for-each select="datafield[@tag='701'][subfield[@code='4']/text()='727']">
+            <xsl:for-each
+                select="datafield[@tag='701'][subfield[@code='4']/text()='727' or subfield[@code='4']/text()='003']">
                 <authority type="supervisor">
                     <xsl:value-of select="normalize-space(concat(subfield[@code = 'b'], ' ', subfield[@code = 'a']))" />
                 </authority>
